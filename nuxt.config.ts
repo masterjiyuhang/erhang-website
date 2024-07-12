@@ -1,5 +1,135 @@
+import presetIcons from '@unocss/preset-icons'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
-  devtools: { enabled: true }
+  devtools: { enabled: true },
+
+  alias: {
+    '@': '/app',
+  },
+
+  app: {
+    baseURL: '/',
+    head: {
+      title: 'Nuxt 3',
+      meta: [
+        {
+          name: 'viewport',
+          content: 'width=device-width, initial-scale=1',
+          charset: 'utf-8',
+        },
+      ],
+    },
+  },
+
+  modules: [
+    '@pinegrow/nuxt-module',
+    '@unocss/nuxt',
+    '@nuxt/devtools',
+    '@nuxt/content',
+    '@vueuse/nuxt',
+    '@pinia/nuxt',
+    '@nuxt/image',
+    '@vee-validate/nuxt',
+    '@nuxtjs/seo',
+    '@nuxtjs/fontaine',
+    '@nuxtjs/critters',
+    '@nuxt/icon',
+    '@nuxt/eslint',
+  ],
+
+  fontMetrics: {
+    fonts: ['Inter', 'Kalam'],
+  },
+  critters: {
+    config: {
+      preload: 'swap',
+    },
+  },
+
+  css: ['@/assets/css/tailwind.css'],
+
+  postcss: {
+    plugins: {
+      'tailwindcss/nesting': {},
+      tailwindcss: {},
+      autoprefixer: {},
+    },
+  },
+
+  vite: {
+    vue: {
+      template: {
+        transformAssetUrls: {
+          NuxtImg: ['src'],
+          OgImage: ['image'],
+        },
+      },
+    },
+  },
+
+  pinia: {
+    storesDirs: ['./stores/**'],
+  },
+
+  imports: {
+    // dirs: ['my-components'],
+  },
+
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => tag === 'lite-youtube',
+    },
+  },
+
+  sourcemap: {
+    client: false,
+    server: false,
+  },
+
+  routeRules: {
+    '/hidden': { robots: false },
+  },
+
+  linkChecker: {
+    enabled: false,
+    excludeLinks: ['https://twitter.com/vuedesigner'],
+    report: {
+      html: true,
+      markdown: true,
+    },
+  },
+
+  unocss: {
+    presets: [
+      presetIcons({
+        prefix: 'i-', // default prefix, do not change
+      }),
+    ],
+  },
+
+  pinegrow: {
+    liveDesigner: {
+      iconPreferredCase: 'unocss', // default value (can be removed), Nuxt UI uses the unocss format for icon names
+      devtoolsKey: 'devtoolsKey', // see plugins/devtools.client.ts
+      tailwindcss: {
+        /* Please ensure that you update the filenames and paths to accurately match those used in your project. */
+        configPath: 'tailwind.config.ts',
+        cssPath: '@/assets/css/tailwind.css',
+        // themePath: false, // Set to false so that Design Panel is not used
+        // restartOnConfigUpdate: true,
+        restartOnThemeUpdate: true,
+      },
+      // plugins: [
+      //   {
+      //     name: 'My Awesome Lib 3.0',
+      //     key: 'my-awesome-lib',
+      //     pluginPath: fileURLToPath(
+      //       new URL('./web-types/my-awesome-lib.json', import.meta.url),
+      //     ),
+      //   },
+      // ],
+    },
+  },
 })

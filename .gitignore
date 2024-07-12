@@ -5,6 +5,10 @@
 .nitro
 .cache
 dist
+.DS_Store
+.unlighthousedist
+.DS_Store
+.unlighthouse
 
 # Node dependencies
 node_modules
@@ -22,3 +26,19 @@ logs
 .env
 .env.*
 !.env.example
+
+# Pinegrow
+_pgbackup
+_pginfo
+
+## optional
+pinegrow.json
+
+## optional
+## Uncomment the below as per your needs
+## add any d.ts files that are auto-generated, for eg,
+auto-imports.d.ts
+components.d.ts
+composables.d.ts
+## rollup visualizer
+stats.html
