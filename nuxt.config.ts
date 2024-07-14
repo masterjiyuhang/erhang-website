@@ -4,10 +4,12 @@ import presetIcons from '@unocss/preset-icons'
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
-
-  alias: {
-    '@': '/app',
+  future: {
+    compatibilityVersion: 4,
   },
+  // alias: {
+  //   '@': '/app',
+  // },
 
   app: {
     baseURL: '/',

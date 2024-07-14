@@ -1,6 +1,10 @@
 <template>
   <div>
+    <NuxtLoadingIndicator />
     <NuxtRouteAnnouncer />
-    <NuxtWelcome />
+    <NuxtLayout>
+      <NuxtPage />
+      <!-- <HttpErrorProvider> <NuxtPage /> </HttpErrorProvider> -->
+    </NuxtLayout>
   </div>
 </template>
