@@ -26,7 +26,7 @@ export default {
       backgrounds: pg_backgrounds, // bg-design-image, bg-design-image-large
     }),
   ],
-
+  safelist,
   get content() {
     const _content = [
       '{.,app,*-layer}/components/**/*.{js,vue,ts}',
