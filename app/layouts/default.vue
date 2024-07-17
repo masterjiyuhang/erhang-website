@@ -6,7 +6,7 @@
       <NavBar class="fixed shadow z-20 bg-white dark:bg-neutral-950" />
       <div class="mt-24">
         <main class="shadow">
-          <slot></slot>
+          <slot />
         </main>
       </div>
       <TheFooter />

@@ -11,17 +11,18 @@
           >
             <div class="px-4 w-full md:w-8/12 xl:w-6/12">
               <h4
-                class="font-bold font-serif mb-1 text-primary-600 dark:text-primary-200 uppercase"
+                class="font-bold font-serif mb-1 text-primary-700 dark:text-primary-200 uppercase"
               >
-                Adopt A Pet
+                Baby Health Plan
               </h4>
               <h1 class="capitalize leading-tight mb-2 text-white">
-                Thousands of homeless dogs, one act of kindness
+                Thousands of nutrition plans, one act of improvement
               </h1>
               <p class="font-thin mb-6 text-gray-300">
-                Find your new furry friend today! We have a wide variety of
-                lovable pets available for adoption. Come visit us and take home
-                your new best friend!
+                <!-- 今天就开始你的健康饮食之旅吧！我们提供各种美味又营养的食物，帮助你成长得更健康。快来加入我们，让我们一起发现健康饮食的乐趣吧！ -->
+                Start your healthy eating journey today! We offer a variety of
+                delicious and nutritious foods to help you grow healthier. Come
+                join us and let's discover the joy of healthy eating together!
               </p>
               <BaseButton
                 size="xl"
@@ -29,8 +30,11 @@
                 target="_blank"
                 to="https://github.com/pinegrow/happy-paws-with-nuxt-tailwindcss"
               >
-                <div class="inline-block ml-1 p-1.5 text-lg">Adopt Now</div>
-                <BaseIcon name="i-emojione-v1-dog-face" height="28px" />
+                <div class="inline-block ml-1 p-1.5 text-lg">Start Now</div>
+                <BaseIcon
+                  name="i-streamline-emojis-face-savoring-food"
+                  height="28px"
+                />
               </BaseButton>
             </div>
           </div>
@@ -44,7 +48,6 @@
   import { heroImageUrl } from '@/utils/hero'
 
   const { optimizeImage } = useOptimizeImage()
-  console.log('🚀 ~ file: HeroSection.vue:50 ~ optimizeImage:', optimizeImage)
   const herpImageOptimized = {
     alt: `hero`,
     cover: true,

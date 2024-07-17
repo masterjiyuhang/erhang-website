@@ -3,9 +3,9 @@
 // @unocss-include
 
 export default {
-  name: 'Happy Paws',
+  name: 'Happy Baby',
   description: 'Adopt Your Fur Mate',
-  logo: 'i-noto:cat-face',
+  logo: 'i-noto:baby-bottle',
   author: 'Pinegrow',
   url: 'https://happy-paws-with-nuxt-tailwindcss.netlify.app',
   github: 'https://github.com/pinegrow/happy-paws-with-nuxt-tailwindcss',
