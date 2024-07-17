@@ -33,6 +33,7 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@vueuse/nuxt',
     '@pinia/nuxt',
+    '@pinia-plugin-persistedstate/nuxt',
     '@nuxt/image',
     '@vee-validate/nuxt',
     '@nuxtjs/seo',
@@ -45,6 +46,7 @@ export default defineNuxtConfig({
   fontMetrics: {
     fonts: ['Inter', 'Kalam'],
   },
+
   critters: {
     config: {
       preload: 'swap',
