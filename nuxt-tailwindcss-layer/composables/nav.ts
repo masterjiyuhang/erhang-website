@@ -2,7 +2,9 @@ import { computed } from 'vue'
 import site from '~~/site'
 
 export const useNav = () => {
+  // 获取当前路由的所有路由信息
   const routes = useRouter().getRoutes()
+  console.log('🚀 ~ file: nav.ts:6 ~ useNav ~ routes:', routes)
 
   const navlinksFromRouter = routes
     // Remove hidden routes
@@ -29,6 +31,7 @@ export const useNav = () => {
         type: route.meta.type,
       }
     })
+  console.log('🚀 ~ file: nav.ts:11 ~ navlinksFromRouter:', navlinksFromRouter)
 
   const navlinksFromConfig = site.nav
   const navlinks = computed(() => navlinksFromRouter || navlinksFromConfig)
