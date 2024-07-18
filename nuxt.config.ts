@@ -78,6 +78,29 @@ export default defineNuxtConfig({
     storesDirs: ['./stores/**'],
   },
 
+  image: {
+    format: ['webp, png, jpg'],
+    providers: {
+      ipx: {
+        sharp: {
+          webp: {
+            quality: 80,
+          },
+        },
+      },
+    },
+    // dir: 'assets/images',
+    // presets: {
+    //   avatar: {
+    //     modifiers: {
+    //       format: 'webp',
+    //       width: 100,
+    //       height: 100,
+    //     },
+    //   },
+    // },
+  },
+
   imports: {
     // dirs: ['my-components'],
   },
