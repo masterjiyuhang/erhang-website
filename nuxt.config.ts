@@ -1,4 +1,5 @@
 import presetIcons from '@unocss/preset-icons'
+import { resolve } from 'pathe'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -73,9 +74,50 @@ export default defineNuxtConfig({
       },
     },
   },
+  content: {
+    sources: {
+      contetnt: {
+        driver: 'fs',
+        base: resolve(__dirname, 'app/content'),
+      },
+    },
+    markdown: {
+      anchorLinks: false,
+      rehypePlugins: [
+        [
+          'rehype-external-links',
+          {
+            target: '_blank',
+            rel: 'noopener noreferrer',
+            className: 'external-link',
+          },
+        ],
+      ],
+    },
+    highlight: {
+      langs: [
+        'js',
+        'jsx',
+        'json',
+        'ts',
+        'tsx',
+        'vue',
+        'css',
+        'html',
+        'vue',
+        'shell',
+        'bash',
+        'md',
+        'mdc',
+        'yaml',
+        'diff',
+      ],
+      theme: 'dracula-soft',
+    },
+  },
 
   pinia: {
-    storesDirs: ['./stores/**'],
+    storesDirs: ['app/stores/**'],
   },
 
   image: {
@@ -89,16 +131,16 @@ export default defineNuxtConfig({
         },
       },
     },
-    // dir: 'assets/images',
-    // presets: {
-    //   avatar: {
-    //     modifiers: {
-    //       format: 'webp',
-    //       width: 100,
-    //       height: 100,
-    //     },
-    //   },
-    // },
+    dir: 'assets/images',
+    presets: {
+      avatar: {
+        modifiers: {
+          format: 'webp',
+          width: 100,
+          height: 100,
+        },
+      },
+    },
   },
 
   imports: {
