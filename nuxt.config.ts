@@ -3,6 +3,10 @@ import { resolve } from 'pathe'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  devServer: {
+    port: 3555,
+    host: '0.0.0.0',
+  },
   extends: [
     './nuxt-tailwindcss-layer', // NavBar and Footer components
   ],

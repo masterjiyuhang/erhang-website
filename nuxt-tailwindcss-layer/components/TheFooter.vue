@@ -137,7 +137,7 @@
               <NuxtLink
                 to="/quick-start"
                 class="hover:text-primary-600 dark:text-primary-200"
-                >Donate</NuxtLink
+                >QuickStart</NuxtLink
               >
             </li>
             <li class="mb-4">
