@@ -1,5 +1,6 @@
 import presetIcons from '@unocss/preset-icons'
 import { resolve } from 'pathe'
+import { i18nConfig } from './app/config/i18n.config'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -46,6 +47,7 @@ export default defineNuxtConfig({
     '@nuxtjs/critters',
     '@nuxt/icon',
     '@nuxt/eslint',
+    '@nuxtjs/i18n',
   ],
 
   fontMetrics: {
@@ -58,7 +60,7 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ['@/assets/css/tailwind.css'],
+  css: ['@/assets/css/tailwind.css', '@/assets/css/global.css'],
 
   postcss: {
     plugins: {
@@ -156,6 +158,11 @@ export default defineNuxtConfig({
       }),
     ],
   },
+
+  // i18n: {
+  //   vueI18n: './app/config/i18n.config.ts',
+  // },
+  i18n: i18nConfig,
 
   pinegrow: {
     liveDesigner: {
