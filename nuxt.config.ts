@@ -94,26 +94,6 @@ export default defineNuxtConfig({
         ],
       ],
     },
-    highlight: {
-      langs: [
-        'js',
-        'jsx',
-        'json',
-        'ts',
-        'tsx',
-        'vue',
-        'css',
-        'html',
-        'vue',
-        'shell',
-        'bash',
-        'md',
-        'mdc',
-        'yaml',
-        'diff',
-      ],
-      theme: 'dracula-soft',
-    },
   },
 
   pinia: {
@@ -145,12 +125,6 @@ export default defineNuxtConfig({
 
   imports: {
     // dirs: ['my-components'],
-  },
-
-  vue: {
-    compilerOptions: {
-      isCustomElement: (tag) => tag === 'lite-youtube',
-    },
   },
 
   sourcemap: {
