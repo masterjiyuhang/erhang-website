@@ -1401,7 +1401,7 @@ packages:
     dependencies:
       '@intlify/message-compiler': 9.13.1
       '@intlify/shared': 9.13.1
-      acorn: 8.12.0
+      acorn: 8.12.1
       escodegen: 2.1.0
       estree-walker: 2.0.2
       jsonc-eslint-parser: 2.4.0
@@ -2012,19 +2012,11 @@ packages:
       - rollup
       - supports-color
 
-<<<<<<< HEAD
-  /@nuxt/kit@3.12.4:
-    resolution: {integrity: sha512-aNRD1ylzijY0oYolldNcZJXVyxdGzNTl+Xd0UYyFQCu9f4wqUZqQ9l+b7arCEzchr96pMK0xdpvLcS3xo1wDcw==}
-    engines: {node: ^14.18.0 || >=16.10.0}
-    dependencies:
-      '@nuxt/schema': 3.12.4
-=======
   /@nuxt/kit@3.12.4(rollup@4.18.1):
     resolution: {integrity: sha512-aNRD1ylzijY0oYolldNcZJXVyxdGzNTl+Xd0UYyFQCu9f4wqUZqQ9l+b7arCEzchr96pMK0xdpvLcS3xo1wDcw==}
     engines: {node: ^14.18.0 || >=16.10.0}
     dependencies:
       '@nuxt/schema': 3.12.4(rollup@4.18.1)
->>>>>>> edaccea (feat: init i18n)
       c12: 1.11.1(magicast@0.3.4)
       consola: 3.2.3
       defu: 6.1.4
@@ -2042,23 +2034,14 @@ packages:
       semver: 7.6.3
       ufo: 1.5.4
       unctx: 2.3.1
-<<<<<<< HEAD
-      unimport: 3.9.0
-=======
       unimport: 3.9.0(rollup@4.18.1)
->>>>>>> edaccea (feat: init i18n)
       untyped: 1.4.2
     transitivePeerDependencies:
       - magicast
       - rollup
       - supports-color
-    dev: true
 
-<<<<<<< HEAD
-  /@nuxt/schema@3.11.2:
-=======
   /@nuxt/schema@3.11.2(rollup@4.18.1):
->>>>>>> edaccea (feat: init i18n)
     resolution: {integrity: sha512-Z0bx7N08itD5edtpkstImLctWMNvxTArsKXzS35ZuqyAyKBPcRjO1CU01slH0ahO30Gg9kbck3/RKNZPwfOjJg==}
     engines: {node: ^14.18.0 || >=16.10.0}
     dependencies:
@@ -2098,11 +2081,7 @@ packages:
       - rollup
       - supports-color
 
-<<<<<<< HEAD
-  /@nuxt/schema@3.12.4:
-=======
   /@nuxt/schema@3.12.4(rollup@4.18.1):
->>>>>>> edaccea (feat: init i18n)
     resolution: {integrity: sha512-H7FwBV4ChssMaeiLyPdVLOLUa0326ebp3pNbJfGgFt7rSoKh1MmgjorecA8JMxOQZziy3w6EELf4+5cgLh/F1w==}
     engines: {node: ^14.18.0 || >=16.10.0}
     dependencies:
@@ -2116,22 +2095,13 @@ packages:
       std-env: 3.7.0
       ufo: 1.5.4
       uncrypto: 0.1.3
-<<<<<<< HEAD
-      unimport: 3.9.0
-=======
       unimport: 3.9.0(rollup@4.18.1)
->>>>>>> edaccea (feat: init i18n)
       untyped: 1.4.2
     transitivePeerDependencies:
       - rollup
       - supports-color
-    dev: true
 
-<<<<<<< HEAD
-  /@nuxt/telemetry@2.5.4:
-=======
   /@nuxt/telemetry@2.5.4(rollup@4.18.1):
->>>>>>> edaccea (feat: init i18n)
     resolution: {integrity: sha512-KH6wxzsNys69daSO0xUv0LEBAfhwwjK1M+0Cdi1/vxmifCslMIY7lN11B4eywSfscbyVPAYJvANyc7XiVPImBQ==}
     hasBin: true
     dependencies:
@@ -2279,7 +2249,7 @@ packages:
       '@intlify/unplugin-vue-i18n': 3.0.1(rollup@4.18.1)(vue-i18n@9.13.1)
       '@intlify/utils': 0.12.0
       '@miyaneee/rollup-plugin-json5': 1.2.0(rollup@4.18.1)
-      '@nuxt/kit': 3.12.3(magicast@0.3.4)(rollup@4.18.1)
+      '@nuxt/kit': 3.12.4(rollup@4.18.1)
       '@rollup/plugin-yaml': 4.1.2(rollup@4.18.1)
       '@vue/compiler-sfc': 3.4.31
       debug: 4.3.5
@@ -2292,7 +2262,7 @@ packages:
       pathe: 1.1.2
       scule: 1.3.0
       sucrase: 3.35.0
-      ufo: 1.5.3
+      ufo: 1.5.4
       unplugin: 1.11.0
       vue-i18n: 9.13.1(vue@3.4.31)
       vue-router: 4.4.0(vue@3.4.31)
@@ -2479,7 +2449,6 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [arm]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -2488,7 +2457,6 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [arm64]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -2497,7 +2465,6 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [arm64]
     os: [linux]
-    libc: [musl]
     requiresBuild: true
     optional: true
 
@@ -2506,7 +2473,6 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [x64]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -2515,7 +2481,6 @@ packages:
     engines: {node: '>= 10.0.0'}
     cpu: [x64]
     os: [linux]
-    libc: [musl]
     requiresBuild: true
     optional: true
 
@@ -2579,11 +2544,7 @@ packages:
     peerDependencies:
       nuxt: '>=3'
     dependencies:
-<<<<<<< HEAD
-      '@nuxt/kit': 3.12.4
-=======
       '@nuxt/kit': 3.12.4(rollup@4.18.1)
->>>>>>> edaccea (feat: init i18n)
       '@pinegrow/vite-plugin': 3.0.60
       nuxt: 3.12.3(@types/node@20.14.10)(eslint@9.6.0)(rollup@4.18.1)(typescript@5.5.3)(vite@5.3.3)
     transitivePeerDependencies:
@@ -2719,7 +2680,6 @@ packages:
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     dev: true
     optional: true
@@ -2729,7 +2689,6 @@ packages:
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
-    libc: [musl]
     requiresBuild: true
     dev: true
     optional: true
@@ -2739,7 +2698,6 @@ packages:
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     dev: true
     optional: true
@@ -2749,7 +2707,6 @@ packages:
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
-    libc: [musl]
     requiresBuild: true
     dev: true
     optional: true
@@ -2971,7 +2928,6 @@ packages:
     resolution: {integrity: sha512-P9bSiAUnSSM7EmyRK+e5wgpqai86QOSv8BwvkGjLwYuOpaeomiZWifEos517CwbG+aZl1T4clSE1YqqH2JRs+g==}
     cpu: [arm]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -2979,7 +2935,6 @@ packages:
     resolution: {integrity: sha512-5RnjpACoxtS+aWOI1dURKno11d7krfpGDEn19jI8BuWmSBbUC4ytIADfROM1FZrFhQPSoP+KEa3NlEScznBTyQ==}
     cpu: [arm]
     os: [linux]
-    libc: [musl]
     requiresBuild: true
     optional: true
 
@@ -2987,7 +2942,6 @@ packages:
     resolution: {integrity: sha512-8mwmGD668m8WaGbthrEYZ9CBmPug2QPGWxhJxh/vCgBjro5o96gL04WLlg5BA233OCWLqERy4YUzX3bJGXaJgQ==}
     cpu: [arm64]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -2995,7 +2949,6 @@ packages:
     resolution: {integrity: sha512-dJX9u4r4bqInMGOAQoGYdwDP8lQiisWb9et+T84l2WXk41yEej8v2iGKodmdKimT8cTAYt0jFb+UEBxnPkbXEQ==}
     cpu: [arm64]
     os: [linux]
-    libc: [musl]
     requiresBuild: true
     optional: true
 
@@ -3003,7 +2956,6 @@ packages:
     resolution: {integrity: sha512-V72cXdTl4EI0x6FNmho4D502sy7ed+LuVW6Ym8aI6DRQ9hQZdp5sj0a2usYOlqvFBNKQnLQGwmYnujo2HvjCxQ==}
     cpu: [ppc64]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -3011,7 +2963,6 @@ packages:
     resolution: {integrity: sha512-f+pJih7sxoKmbjghrM2RkWo2WHUW8UbfxIQiWo5yeCaCM0TveMEuAzKJte4QskBp1TIinpnRcxkquY+4WuY/tg==}
     cpu: [riscv64]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -3019,7 +2970,6 @@ packages:
     resolution: {integrity: sha512-qb1hMMT3Fr/Qz1OKovCuUM11MUNLUuHeBC2DPPAWUYYUAOFWaxInaTwTQmc7Fl5La7DShTEpmYwgdt2hG+4TEg==}
     cpu: [s390x]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -3027,7 +2977,6 @@ packages:
     resolution: {integrity: sha512-7O5u/p6oKUFYjRbZkL2FLbwsyoJAjyeXHCU3O4ndvzg2OFO2GinFPSJFGbiwFDaCFc+k7gs9CF243PwdPQFh5g==}
     cpu: [x64]
     os: [linux]
-    libc: [glibc]
     requiresBuild: true
     optional: true
 
@@ -3035,7 +2984,6 @@ packages:
     resolution: {integrity: sha512-pDLkYITdYrH/9Cv/Vlj8HppDuLMDUBmgsM0+N+xLtFd18aXgM9Nyqupb/Uw+HeidhfYg2lD6CXvz6CjoVOaKjQ==}
     cpu: [x64]
     os: [linux]
-    libc: [musl]
     requiresBuild: true
     optional: true
 
@@ -4272,6 +4220,14 @@ packages:
     dependencies:
       acorn: 8.12.0
 
+  /acorn-import-attributes@1.9.5(acorn@8.12.1):
+    resolution: {integrity: sha512-n02Vykv5uA3eHGM/Z2dQrcD56kL8TyDb2p1+0P83PClMnC/nc+anbQRhIOWnSq4Ke/KvDPrY3C9hDtC/A3eHnQ==}
+    peerDependencies:
+      acorn: ^8
+    dependencies:
+      acorn: 8.12.1
+    dev: true
+
   /acorn-jsx@5.3.2(acorn@8.12.0):
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
     peerDependencies:
@@ -4288,7 +4244,6 @@ packages:
     resolution: {integrity: sha512-tcpGyI9zbizT9JbV6oYE477V6mTlXvvi0T0G3SNIYE2apm/G5huBa1+K89VGeovbg+jycCrfhl3ADxErOuO6Jg==}
     engines: {node: '>=0.4.0'}
     hasBin: true
-    dev: true
 
   /agent-base@6.0.2:
     resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
@@ -6802,7 +6757,7 @@ packages:
       es6-error: 4.1.1
       matcher: 3.0.0
       roarr: 2.15.4
-      semver: 7.6.2
+      semver: 7.6.3
       serialize-error: 7.0.1
     dev: true
     optional: true
@@ -7721,10 +7676,10 @@ packages:
     resolution: {integrity: sha512-WYDyuc/uFcGp6YtM2H0uKmUwieOuzeE/5YocFJLnLfclZ4inf3mRn8ZVy1s7Hxji7Jxm6Ss8gqpexD/GlKoGgg==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dependencies:
-      acorn: 8.12.0
+      acorn: 8.12.1
       eslint-visitor-keys: 3.4.3
       espree: 9.6.1
-      semver: 7.6.2
+      semver: 7.6.3
     dev: false
 
   /jsonfile@4.0.0:
@@ -10707,7 +10662,6 @@ packages:
     resolution: {integrity: sha512-oVekP1cKtI+CTDvHWYFUcMtsK/00wmAEfyqKfNdARm8u1wNVhSgaX7A8d4UuIlUI5e84iEwOhs7ZPYRmzU9U6A==}
     engines: {node: '>=10'}
     hasBin: true
-    dev: true
 
   /send@0.18.0:
     resolution: {integrity: sha512-qqWzuOjSFOuqPjFe4NOsMLafToQQwBSOEpS+FwEt3A2V3vKubTquT3vmLTQpFgMXp8AlFWFuP1qKaJZOtPpVXg==}
@@ -11674,7 +11628,6 @@ packages:
 
   /ufo@1.5.4:
     resolution: {integrity: sha512-UsUk3byDzKd04EyoZ7U4DOlxQaD14JUKQl6/P7wiX4FNvUfm3XL246n9W5AmqwW5RSFJ27NAuM0iLscAOYUiGQ==}
-    dev: true
 
   /ultrahtml@1.5.3:
     resolution: {integrity: sha512-GykOvZwgDWZlTQMtp5jrD4BVL+gNn2NVlVafjcFUJ7taY20tqYdwdoWBFy6GBJsNTZe1GkGPkSl5knQAjtgceg==}
@@ -11787,11 +11740,7 @@ packages:
     transitivePeerDependencies:
       - rollup
 
-<<<<<<< HEAD
-  /unimport@3.9.0:
-=======
   /unimport@3.9.0(rollup@4.18.1):
->>>>>>> edaccea (feat: init i18n)
     resolution: {integrity: sha512-H2ftTISja1BonUVdOKRos6HC6dqYDR40dQTZY3zIDJ/5/z4ihncuL0LqLvtxYqUDMib41eAtunQUhXIWTCZ8rA==}
     dependencies:
       '@rollup/pluginutils': 5.1.0(rollup@4.18.1)
@@ -11809,7 +11758,6 @@ packages:
       unplugin: 1.11.0
     transitivePeerDependencies:
       - rollup
-    dev: true
 
   /unist-builder@4.0.0:
     resolution: {integrity: sha512-wmRFnH+BLpZnTKpc5L7O67Kac89s9HMrtELpnNaE6TAobq5DTZZs5YaTQfAZBA9bFPECx2uVAPO31c+GVug8mg==}
@@ -12489,8 +12437,8 @@ packages:
       '@webassemblyjs/ast': 1.12.1
       '@webassemblyjs/wasm-edit': 1.12.1
       '@webassemblyjs/wasm-parser': 1.12.1
-      acorn: 8.12.0
-      acorn-import-attributes: 1.9.5(acorn@8.12.0)
+      acorn: 8.12.1
+      acorn-import-attributes: 1.9.5(acorn@8.12.1)
       browserslist: 4.23.2
       chrome-trace-event: 1.0.4
       enhanced-resolve: 5.17.0
