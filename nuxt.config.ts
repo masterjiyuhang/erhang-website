@@ -1,7 +1,9 @@
 import presetIcons from '@unocss/preset-icons'
 import { resolve } from 'pathe'
 import { i18nConfig } from './app/config/i18n.config'
+import site from './site'
 
+const { name, url } = site
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devServer: {
@@ -11,6 +13,11 @@ export default defineNuxtConfig({
   extends: [
     './nuxt-tailwindcss-layer', // NavBar and Footer components
   ],
+
+  site: {
+    name,
+    url,
+  },
 
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
@@ -80,6 +87,7 @@ export default defineNuxtConfig({
       },
     },
   },
+
   content: {
     sources: {
       contetnt: {

@@ -7,7 +7,7 @@ export default {
   description: 'Adopt Your Fur Mate',
   logo: 'i-noto:baby-bottle',
   author: 'Pinegrow',
-  url: 'https://happy-paws-with-nuxt-tailwindcss.netlify.app',
+  url: 'https://erhang-website.vercel.app/',
   github: 'https://github.com/pinegrow/happy-paws-with-nuxt-tailwindcss',
   defaultLocale: 'en', // default
   identity: {
