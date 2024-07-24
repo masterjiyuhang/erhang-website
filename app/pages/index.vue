@@ -1,7 +1,8 @@
 <template>
   <div>
     <!-- <h1 class="cursor-pointer" @click="increment">{{ store.count }}{{ cc }}</h1> -->
-    <HeroSection />
+    <HomeHeroBanner />
+    <HomeHeroSection />
     <LangSwitcher />
   </div>
 </template>

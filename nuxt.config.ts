@@ -125,7 +125,7 @@ export default defineNuxtConfig({
         },
       },
     },
-    dir: 'assets/images',
+    // dir: 'assets/images',
     presets: {
       avatar: {
         modifiers: {
