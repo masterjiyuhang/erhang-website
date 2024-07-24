@@ -18,24 +18,20 @@
               <h1 class="capitalize leading-tight mb-2 text-white">
                 Thousands of nutrition plans, one act of improvement
               </h1>
-              <p class="font-thin mb-6 text-gray-300">
-                <!-- 今天就开始你的健康饮食之旅吧！我们提供各种美味又营养的食物，帮助你成长得更健康。快来加入我们，让我们一起发现健康饮食的乐趣吧！ -->
-                Start your healthy eating journey today! We offer a variety of
-                delicious and nutritious foods to help you grow healthier. Come
-                join us and let's discover the joy of healthy eating together!
+              <p class="font-semibold mb-6 text-blue-600">
+                {{ $t('home.heroSection.start') }}
               </p>
               <BaseButton
                 size="xl"
                 label="Adopt Now"
                 target="_blank"
-                to="https://github.com/pinegrow/happy-paws-with-nuxt-tailwindcss"
+                to="https://github.com"
                 class="start-btn"
               >
                 <div class="inline-block ml-1 p-1.5 text-lg">Start Now</div>
                 <div id="container-stars">
                   <div id="stars" />
                 </div>
-
                 <div id="glow">
                   <div class="circle" />
                   <div class="circle" />
