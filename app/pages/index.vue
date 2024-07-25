@@ -1,9 +1,6 @@
 <template>
   <div>
-    <!-- <h1 class="cursor-pointer" @click="increment">{{ store.count }}{{ cc }}</h1> -->
-    <HomeHeroBanner />
     <HomeHeroSection />
-    <LangSwitcher />
   </div>
 </template>
 
@@ -11,6 +8,7 @@
   import { useGlobalStore } from '@/stores/global'
   const store = useGlobalStore()
   const { increment } = useGlobalStore()
+
   const cc = store.name
 
   definePageMeta({

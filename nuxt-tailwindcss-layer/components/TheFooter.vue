@@ -110,11 +110,12 @@
               </h6>
             </div>
           </NuxtLink>
-          <p class="mt-2 text-center w-full lg:text-left">
+          <p class="my-2 text-center w-full lg:text-left">
             Duis pharetra venenatis felis, ut tincidunt ipsum consequat nec.
             Fusce et porttitor libero, eu aliquam nisi. Nam finibus ullamcorper
             semper.
           </p>
+          <LangSwitcher />
           <div class="inline-flex mt-6 space-x-3">
             <div class="flex flex-wrap space-x-4">
               <NuxtLink

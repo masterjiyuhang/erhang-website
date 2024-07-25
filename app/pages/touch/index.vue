@@ -1,5 +1,7 @@
 <template>
-  <div>touch index.</div>
+  <div>
+    <HomeHeroBanner />
+  </div>
 </template>
 
 <script lang="ts" setup>
