@@ -1,6 +1,8 @@
 <template>
   <div>
     <HomeHeroSection />
+    <CurveShape />
+    <HomeHeroCard />
   </div>
 </template>
 

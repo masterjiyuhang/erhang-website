@@ -45,6 +45,10 @@
 
   const linksList = ref([
     {
+      label: 'Test Nav',
+      path: '/nav-menu',
+    },
+    {
       label: 'Adopt Now',
       path: '/adopt',
     },

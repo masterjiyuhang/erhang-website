@@ -1,13 +1,13 @@
 <template>
-  <div>plan list</div>
+  <div />
 </template>
 
 <script lang="ts" setup>
   definePageMeta({
-    title: 'Plan',
-    description: '1',
+    title: 'Nav Menu',
+    description: '3',
     type: 'secondary',
-    navOrder: 4,
+    navOrder: 7,
   })
 </script>
 
