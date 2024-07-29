@@ -1,8 +1,10 @@
 <template>
+  <!-- <div class="flex flex-col min-h-screen"> -->
   <div>
     <HomeHeroSection />
     <CurveShape />
     <HomeHeroCard />
+    <HomeAboutUs />
   </div>
 </template>
 
