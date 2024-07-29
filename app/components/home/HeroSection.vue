@@ -15,10 +15,10 @@
               >
                 Baby Health Plan
               </h4>
-              <h1 class="capitalize leading-tight mb-2 text-white">
+              <h1 class="capitalize leading-tight mb-2 text-secondary-200">
                 Thousands of nutrition plans, one act of improvement
               </h1>
-              <p class="font-semibold mb-6 text-blue-600">
+              <p class="font-semibold mb-6 text-tertiary-600">
                 {{ $t('home.heroSection.start') }}
               </p>
               <BaseButton
@@ -28,7 +28,9 @@
                 to="https://github.com"
                 class="start-btn"
               >
-                <div class="inline-block ml-1 p-1.5 text-lg">Start Now</div>
+                <div class="inline-block ml-1 p-1.5 text-lg dark:text-white">
+                  Start Now
+                </div>
                 <div id="container-stars">
                   <div id="stars" />
                 </div>
