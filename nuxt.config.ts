@@ -67,7 +67,11 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ['@/assets/css/tailwind.css', '@/assets/css/global.css'],
+  css: [
+    '@/assets/css/tailwind.css',
+    '@/assets/css/global.css',
+    '@/assets/iconfont/iconfont.css',
+  ],
 
   postcss: {
     plugins: {
@@ -171,6 +175,13 @@ export default defineNuxtConfig({
   //   vueI18n: './app/config/i18n.config.ts',
   // },
   i18n: i18nConfig,
+
+  plugins: [
+    {
+      src: '@/assets/iconfont/iconfont.js',
+      ssr: false,
+    },
+  ],
 
   pinegrow: {
     liveDesigner: {
