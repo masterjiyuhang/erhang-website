@@ -4,7 +4,7 @@ import site from '~~/site'
 export const useNav = () => {
   // 获取当前路由的所有路由信息
   const routes = useRouter().getRoutes()
-  // console.log('🚀 ~ file: nav.ts:6 ~ useNav ~ routes:', routes)
+  // // console.log('🚀 ~ file: nav.ts:6 ~ useNav ~ routes:', routes)
 
   const navlinksFromRouter = routes
     // Remove hidden routes
@@ -34,6 +34,10 @@ export const useNav = () => {
   // console.log('🚀 ~ file: nav.ts:11 ~ navlinksFromRouter:', navlinksFromRouter)
 
   const navlinksFromConfig = site.nav
+  // console.log(
+  // '🚀 ~ file: nav.ts:37 ~ useNav ~ navlinksFromConfig:',
+  // navlinksFromConfig,
+  // )
   const navlinks = computed(() => navlinksFromRouter || navlinksFromConfig)
   // TODO: Use navlinksFromConfig if using dynamic routes, or customized nav-links
   // const navlinks = computed(() => navlinksFromConfig || navlinksFromRouter)

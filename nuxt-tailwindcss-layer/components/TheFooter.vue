@@ -57,16 +57,16 @@
       path: '/quick-start',
     },
     {
-      label: 'Articles',
-      path: '/articles',
+      label: 'Member',
+      path: '/member',
     },
     {
       label: 'Blog',
       path: '/blog',
     },
     {
-      label: 'Volunteer',
-      path: '/volunteer',
+      label: 'Tools',
+      path: '/tools',
     },
     {
       label: 'Our Mission',
