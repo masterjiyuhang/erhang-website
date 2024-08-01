@@ -28,7 +28,7 @@ export default defineNuxtConfig({
   app: {
     baseURL: '/',
     head: {
-      title: 'Nuxt 3',
+      // title: 'Nuxt 3',
       meta: [
         {
           name: 'viewport',

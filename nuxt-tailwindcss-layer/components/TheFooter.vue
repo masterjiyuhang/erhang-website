@@ -70,7 +70,7 @@
     },
     {
       label: 'Our Mission',
-      path: '#',
+      path: '/mission',
     },
   ])
 
