@@ -3,20 +3,20 @@
     <div
       class="py-32 bg-lime-50 dark:bg-neutral-950 border-b-red-300 border border-x-0 border-t-0 flex flex-wrap"
     >
-      <div class="lg:w-full lg:flex-auto">
+      <div class="lg:w-full lg:flex-auto flex-1">
         <div class="text-center">
           <h5 class="text-primary-500 text-xl">How We Do</h5>
           <div class="h-8" />
           <h3 class="text-secondary-500 text-3xl">Creative Procedure</h3>
         </div>
       </div>
-      <div class="flex mt-6 lg:w-full sm:mt-3 sm:flex-wrap mission-content">
+      <div class="mission-content flex mt-4 flex-wrap lg:mt-20 w-full">
         <div
           v-for="item in 3"
           :key="item"
-          class="flex-1 px-3 relative mt-10 translate-x-0 mission-content-item"
+          class="mission-content-item flex-auto sm:mt-0 mt-10"
         >
-          <div class="line" />
+          <div class="line hidden lg:block" />
           <div class="dot-wrap">
             <div class="dot">
               <div class="count">{{ item }}</div>
@@ -49,6 +49,8 @@
 <style lang="scss" scoped>
   .mission-content {
     .mission-content-item {
+      position: relative;
+
       &:first-child .line {
         display: none;
       }
