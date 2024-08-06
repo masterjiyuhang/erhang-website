@@ -1,41 +1,44 @@
 import { computed } from 'vue'
+import { useRouter, useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import site from '~~/site'
 
 export const useNav = () => {
-  // 获取当前路由的所有路由信息
-  const routes = useRouter().getRoutes()
   const { locale } = useI18n()
-  const navlinksFromRouter = routes
-    // Remove hidden routes
-    .filter((route) => route.meta.hidden !== true)
-    // Filter out routes starting with upper-case, for eg, NotFoundInDev
-    .filter(
-      (route) => route.name && route.name[0] !== route.name[0].toUpperCase(),
-    )
-    // Remove dynamic routes
-    // .filter((route) => !route.path.includes(':'))
-    // Include only ones that has a title (which are defined via definePageMeta in pages)
-    // .filter((route) => route.meta.title)
-    .filter((route) => route.path !== '/try-now')
-    .sort((a, b) =>
-      a.meta.navOrder && b.meta.navOrder && +a.meta.navOrder > +b.meta.navOrder
-        ? 1
-        : -1,
-    )
-    .filter((item) => item.path.includes(locale.value))
-    .map((route) => {
-      return {
-        text: route.meta.title,
-        link: route.meta.name || route.path,
-        icon: route.meta.icon,
-        type: route.meta.type,
-      }
-    })
+  const routes = useRouter().getRoutes()
+
+  const navlinksFromRouter = computed(() => {
+    return routes
+      .filter((route) => route.meta.hidden !== true)
+      .filter(
+        (route) => route.name && route.name[0] !== route.name[0].toUpperCase(),
+      )
+      .filter((route) => route.path !== '/try-now')
+      .sort((a, b) =>
+        a.meta.navOrder &&
+        b.meta.navOrder &&
+        +a.meta.navOrder > +b.meta.navOrder
+          ? 1
+          : -1,
+      )
+      .filter((item) => item.path.includes(locale.value))
+      .map((route) => {
+        return {
+          text: route.meta.title,
+          link: route.path,
+          icon: route.meta.icon,
+          type: route.meta.type,
+        }
+      })
+  })
 
   const navlinksFromConfig = site.nav
-  const navlinks = computed(() => navlinksFromRouter || navlinksFromConfig)
-  // TODO: Use navlinksFromConfig if using dynamic routes, or customized nav-links
-  // const navlinks = computed(() => navlinksFromConfig || navlinksFromRouter)
+
+  const navlinks = computed(() => {
+    return navlinksFromRouter.value.length
+      ? navlinksFromRouter.value
+      : navlinksFromConfig
+  })
 
   const navlinksPrimary = computed(() => {
     return navlinks.value.filter(
@@ -48,9 +51,7 @@ export const useNav = () => {
   })
 
   const currentRoute = useRoute()
-  const currentPath = computed(() => {
-    return currentRoute.path
-  })
+  const currentPath = computed(() => currentRoute.path)
 
   return {
     navlinks,
