@@ -42,3 +42,8 @@ export function joinUrl(base: string, path: string): string {
   if (path.startsWith('#')) return path
   return `${base}${path.startsWith('/') ? path.slice(1) : path}`
 }
+
+export function getCnOrEn(cn: string, en: string) {
+  const { locale } = useI18n()
+  return locale.value === 'cn' ? cn : en
+}
