@@ -38,7 +38,6 @@
 
 <script lang="ts" setup>
   definePageMeta({
-    name: 'quick-start',
     title: 'Quick Start',
     description: `Start Strong, Start Fast: Your Guide to Building a Strong and Fast Web Application with Vue.js and Nuxt.js`,
     navOrder: '3',

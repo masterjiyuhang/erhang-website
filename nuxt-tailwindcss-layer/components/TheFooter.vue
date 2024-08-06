@@ -53,7 +53,7 @@
       path: '/adopt',
     },
     {
-      label: 'QuickStart',
+      label: 'Quick Start',
       path: '/quick-start',
     },
     {
@@ -121,7 +121,7 @@
         <div
           class="-mx-4 flex flex-col flex-wrap items-center pl-4 pr-8 py-4 md:flex-col md:flex-nowrap -mt-4 lg:items-start lg:w-1/3"
         >
-          <NuxtLink class="-ml-6" to="/">
+          <NuxtLinkLocale class="-ml-6" to="/">
             <div to="/" class="font-serif inline-flex items-center text-3xl">
               <NuxtImg
                 src="https://erhang-cdn.imgix.net/logo.png"
@@ -131,7 +131,7 @@
                 Happy Baby
               </h6>
             </div>
-          </NuxtLink>
+          </NuxtLinkLocale>
           <p class="my-2 text-center w-full lg:text-left">
             Duis pharetra venenatis felis, ut tincidunt ipsum consequat nec.
             Fusce et porttitor libero, eu aliquam nisi. Nam finibus ullamcorper
@@ -140,7 +140,7 @@
           <LangSwitcher />
           <div class="inline-flex mt-6 space-x-3">
             <div class="flex flex-wrap space-x-4">
-              <NuxtLink
+              <NuxtLinkLocale
                 v-for="item in iconList"
                 :key="item.name"
                 :href="item.href"
@@ -149,12 +149,12 @@
                 target="_blank"
               >
                 <BaseIcon :name="item.icon" class="text-2xl" width="28px" />
-              </NuxtLink>
+              </NuxtLinkLocale>
             </div>
           </div>
           <div class="my-6 text-center flex flex-col">
-            <NuxtLink to="/">+1 234 567-890</NuxtLink>
-            <NuxtLink to="/">hello@fantico.com</NuxtLink>
+            <NuxtLinkLocale to="/">+1 234 567-890</NuxtLinkLocale>
+            <NuxtLinkLocale to="/">hello@fantico.com</NuxtLinkLocale>
           </div>
         </div>
         <div
@@ -165,10 +165,10 @@
           </h2>
           <ul class="text-center lg:mt-2 lg:text-left">
             <li v-for="item in generalList" :key="item.label" class="mb-4">
-              <NuxtLink
+              <NuxtLinkLocale
                 :to="item.path"
                 class="hover:text-primary-600 dark:text-primary-200"
-                >{{ item.label }}</NuxtLink
+                >{{ item.label }}</NuxtLinkLocale
               >
             </li>
           </ul>
@@ -181,10 +181,10 @@
           </h2>
           <ul class="text-center lg:mt-2 lg:text-left">
             <li v-for="item in linksList" :key="item.label" class="mb-4">
-              <NuxtLink
+              <NuxtLinkLocale
                 :to="item.path"
                 class="hover:text-primary-600 dark:text-primary-200"
-                >{{ item.label }}</NuxtLink
+                >{{ item.label }}</NuxtLinkLocale
               >
             </li>
           </ul>

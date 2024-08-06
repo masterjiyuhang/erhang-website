@@ -4,10 +4,9 @@
       <article class="dark:xl:divide-gray-700 xl:divide-gray-200 xl:divide-y">
         <header class="pt-6 relative space-y-1 text-center xl:pb-10">
           <div class="flex justify-center mb-4 lg:absolute lg:justify-start">
-            <BaseButton to="/blog"><span>Go Back</span></BaseButton>
+            <BaseButton :to="linkPath"><span>Go Back</span></BaseButton>
           </div>
           <div>
-            <PostCompPostDate :date="post.date" />
             <h1>
               {{ post.title }}
             </h1>
@@ -42,6 +41,13 @@
 </template>
 
 <script lang="ts" setup>
+  const localeRoute = useLocaleRoute()
+  const { locale } = useI18n()
+  const linkPath = computed(() => {
+    const route = localeRoute('blog', locale.value)
+    return route != null ? route.path : '/'
+  })
+
   definePageMeta({
     title: 'Blog',
     description: 'Read, Learn, Enjoy: Your Blog Destination!',
@@ -56,13 +62,12 @@
     useRoute().params.slug.toString().replace(/,/g, '/') ||
     useRoute().name.toString().replace(/,/g, '/')
   const post = await getPost('blog', slug)
+  console.log('🚀 ~ file: [slug].vue:66 ~ post:', post)
 
   const author = computed(() => {
     const { twitter, avatar, gravatar, author } = post.value
     return { twitter, avatar, gravatar, author }
   })
-  console.log('🚀 ~ file: [slug].vue:61 ~ author ~ author:', author)
-
   useServerSeoMeta({
     description: () => post.value?.title,
   })

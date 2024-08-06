@@ -4,8 +4,7 @@ import site from '~~/site'
 export const useNav = () => {
   // 获取当前路由的所有路由信息
   const routes = useRouter().getRoutes()
-  // // console.log('🚀 ~ file: nav.ts:6 ~ useNav ~ routes:', routes)
-
+  const { locale } = useI18n()
   const navlinksFromRouter = routes
     // Remove hidden routes
     .filter((route) => route.meta.hidden !== true)
@@ -16,13 +15,14 @@ export const useNav = () => {
     // Remove dynamic routes
     // .filter((route) => !route.path.includes(':'))
     // Include only ones that has a title (which are defined via definePageMeta in pages)
-    .filter((route) => route.meta.title)
+    // .filter((route) => route.meta.title)
     .filter((route) => route.path !== '/try-now')
     .sort((a, b) =>
       a.meta.navOrder && b.meta.navOrder && +a.meta.navOrder > +b.meta.navOrder
         ? 1
         : -1,
     )
+    .filter((item) => item.path.includes(locale.value))
     .map((route) => {
       return {
         text: route.meta.title,
@@ -31,7 +31,6 @@ export const useNav = () => {
         type: route.meta.type,
       }
     })
-  // console.log('🚀 ~ file: nav.ts:11 ~ navlinksFromRouter:', navlinksFromRouter)
 
   const navlinksFromConfig = site.nav
   // console.log(

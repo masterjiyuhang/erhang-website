@@ -29,10 +29,10 @@
           for the new year.
         </p>
       </div>
-      <NuxtLink
+      <NuxtLinkLocale
         class="px-6 py-3 font-bold text-white bg-primary-500 rounded-xl hover:bg-primary-800"
         to="/products"
-        >Shop now</NuxtLink
+        >Shop now</NuxtLinkLocale
       >
     </div>
   </div>

@@ -24,12 +24,12 @@
               In order for you to achieve the things you are capable of, you
               need to constantly be creating goals for yourself.
             </p>
-            <NuxtLink to="/products" class="inline-block group">
+            <NuxtLinkLocale to="/products" class="inline-block group">
               <span class="pr-5">More Details</span>
               <i
                 class="iconfont icon-right-arrow transition-all group-hover:translate-x-2"
               />
-            </NuxtLink>
+            </NuxtLinkLocale>
           </div>
         </div>
       </div>

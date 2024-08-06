@@ -1,4 +1,11 @@
 <script setup lang="ts">
+  // const { locale, locales } = useI18n()
+  // const switchLocalePath = useSwitchLocalePath()
+
+  // const availableLocales = computed(() => {
+  //   return locales.value.filter((i) => i.code !== locale.value)
+  // })
+
   defineProps({
     navlinks: {
       type: Object,
@@ -16,6 +23,14 @@
 <template>
   <div class="h-full items-center">
     <div class="flex h-full space-x-2">
+      <!-- <NuxtLink
+        v-for="item in availableLocales"
+        :key="item.code"
+        :to="switchLocalePath(item.code)"
+      >
+        {{ item.name }}
+        {{ switchLocalePath(item.code) }}
+      </NuxtLink> -->
       <BaseButton
         v-for="(navlink, index) in navlinks"
         :key="index"

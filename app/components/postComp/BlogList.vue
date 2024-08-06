@@ -9,9 +9,9 @@
                 <div class="space-y-5 xl:col-span-3">
                   <div class="space-y-6">
                     <h4>
-                      <NuxtLink :to="post._path">
+                      <NuxtLinkLocale :to="post._path">
                         {{ post.title }}
-                      </NuxtLink>
+                      </NuxtLinkLocale>
                     </h4>
                     <div
                       class="max-w-none dark:prose-invert lg:prose-lg mx-auto prose prose-neutral-800 dark:prose-neutral-100"
@@ -32,7 +32,6 @@
 <script lang="ts" setup>
   const { getPosts } = usePost()
   const posts = await getPosts('blog')
-  console.log('🚀 ~ file: BlogList.vue:20 ~ posts:', posts.value)
 </script>
 
 <style></style>
