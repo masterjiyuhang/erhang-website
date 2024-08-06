@@ -33,10 +33,6 @@ export const useNav = () => {
     })
 
   const navlinksFromConfig = site.nav
-  // console.log(
-  // '🚀 ~ file: nav.ts:37 ~ useNav ~ navlinksFromConfig:',
-  // navlinksFromConfig,
-  // )
   const navlinks = computed(() => navlinksFromRouter || navlinksFromConfig)
   // TODO: Use navlinksFromConfig if using dynamic routes, or customized nav-links
   // const navlinks = computed(() => navlinksFromConfig || navlinksFromRouter)
@@ -65,10 +61,11 @@ export const useNav = () => {
 }
 
 export const isCurrentRoute = (navlink, currentPath) => {
+  const { locale } = useI18n()
   if (!currentPath) {
     currentPath = useNav().currentPath.value
   }
-  return navlink.link === '/'
+  return navlink.link === `/${locale.value}`
     ? currentPath === navlink.link
     : currentPath.startsWith(navlink.link)
 }
