@@ -9,14 +9,19 @@
           <div
             class="-mx-4 flex flex-wrap items-center mt-24 space-y-6 lg:space-y-0"
           >
-            <div class="px-4 w-full md:w-8/12 xl:w-6/12">
+            <div class="px-4 w-full md:w-8/12 xl:w-8/12">
               <h4
                 class="font-bold font-serif mb-1 text-primary-700 dark:text-primary-200 uppercase"
               >
-                Baby Health Plan
+                {{ getCnOrEn('健康计划', 'Baby Health Plan') }}
               </h4>
               <h1 class="capitalize leading-tight mb-2 text-secondary-200">
-                Thousands of nutrition plans, one act of improvement
+                {{
+                  getCnOrEn(
+                    '数千营养计划，改善从行动开始',
+                    'Thousands of nutrition plans, one act of improvement',
+                  )
+                }}
               </h1>
               <p class="font-semibold mb-6 text-tertiary-600">
                 {{ $t('home.heroSection.start') }}
@@ -29,7 +34,7 @@
                 class="start-btn"
               >
                 <div class="inline-block ml-1 p-1.5 text-lg dark:text-white">
-                  Start Now
+                  {{ getCnOrEn('现在开始', 'Start Now') }}
                 </div>
                 <div id="container-stars">
                   <div id="stars" />

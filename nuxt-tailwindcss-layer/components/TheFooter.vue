@@ -26,50 +26,50 @@
 
   const generalList = ref([
     {
-      label: 'FAQ',
+      label: 'footer.general.FAQ',
       path: '/',
     },
     {
-      label: 'News',
+      label: 'footer.general.News',
       path: '/',
     },
     {
-      label: 'Careers',
+      label: 'footer.general.Careers',
       path: '/',
     },
     {
-      label: 'Contact Us',
+      label: 'footer.general.Contact',
       path: '/',
     },
   ])
 
   const linksList = ref([
     {
-      label: 'Test Nav',
+      label: 'footer.links.Nav',
       path: '/nav-menu',
     },
     {
-      label: 'Adopt Now',
+      label: 'footer.links.Adopt',
       path: '/adopt',
     },
     {
-      label: 'Quick Start',
+      label: 'footer.links.QuickStart',
       path: '/quick-start',
     },
     {
-      label: 'Member',
+      label: 'footer.links.Member',
       path: '/member',
     },
     {
-      label: 'Blog',
+      label: 'footer.links.Blog',
       path: '/blog',
     },
     {
-      label: 'Tools',
+      label: 'footer.links.Tools',
       path: '/tools',
     },
     {
-      label: 'Our Mission',
+      label: 'footer.links.Mission',
       path: '/mission',
     },
   ])
@@ -133,9 +133,7 @@
             </div>
           </NuxtLinkLocale>
           <p class="my-2 text-center w-full lg:text-left">
-            Duis pharetra venenatis felis, ut tincidunt ipsum consequat nec.
-            Fusce et porttitor libero, eu aliquam nisi. Nam finibus ullamcorper
-            semper.
+            {{ $t('global.description') }}
           </p>
           <LangSwitcher />
           <div class="inline-flex mt-6 space-x-3">
@@ -161,14 +159,14 @@
           class="flex flex-col items-center p-4 w-full sm:w-1/2 md:flex-1 md:w-1/3 lg:items-start"
         >
           <h2 class="font-bold text-primary-600 dark:text-primary-200 text-xl">
-            General
+            {{ $t('footer.general.title') }}
           </h2>
           <ul class="text-center lg:mt-2 lg:text-left">
             <li v-for="item in generalList" :key="item.label" class="mb-4">
               <NuxtLinkLocale
                 :to="item.path"
                 class="hover:text-primary-600 dark:text-primary-200"
-                >{{ item.label }}</NuxtLinkLocale
+                >{{ $t(item.label) }}</NuxtLinkLocale
               >
             </li>
           </ul>
@@ -177,21 +175,21 @@
           class="flex flex-col items-center p-4 w-full sm:w-1/2 md:flex-1 md:w-1/3 lg:items-start"
         >
           <h2 class="font-bold text-primary-600 dark:text-primary-200 text-xl">
-            Links
+            {{ $t('footer.links.title') }}
           </h2>
           <ul class="text-center lg:mt-2 lg:text-left">
             <li v-for="item in linksList" :key="item.label" class="mb-4">
               <NuxtLinkLocale
                 :to="item.path"
                 class="hover:text-primary-600 dark:text-primary-200"
-                >{{ item.label }}</NuxtLinkLocale
+                >{{ $t(item.label) }}</NuxtLinkLocale
               >
             </li>
           </ul>
         </div>
         <div class="flex flex-col items-center p-4 w-full md:w-1/3">
           <h2 class="font-bold text-primary-600 dark:text-primary-200 text-xl">
-            Gallery
+            {{ $t('footer.Gallery.title') }}
           </h2>
           <div class="-mx-2 flex flex-wrap items-center lg:mt-2">
             <div
@@ -208,7 +206,7 @@
         <div class="flex flex-col sm:w-full md:items-end">
           <div class="mb-4 opacity-25" />
           <p class="py-1 text-sm sm:text-center">
-            &copy; 2002 - 2021. All Rights Reserved - Company Name
+            &copy; 2002 - 2021. All Rights Reserved - ErHang is the King
           </p>
         </div>
       </div>

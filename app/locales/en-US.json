@@ -1,4 +1,9 @@
 {
+  "global": {
+    "siteName": "Happy Baby",
+    "description": "Enemies behind the scene are more dangerous than those on the stage.",
+    "aboutUs": "About Us"
+  },
   "messages": {
     "general": {
       "viewAll": "View All",
@@ -10,6 +15,28 @@
   "home": {
     "heroSection": {
       "start": "Start your healthy eating journey today! We offer a variety of delicious and nutritious foods to help you grow healthier. Come join us and let's discover the joy of healthy eating together!"
+    }
+  },
+  "footer": {
+    "general": {
+      "title": "General",
+      "FAQ": "FAQ",
+      "News": "News",
+      "Careers": "Careers",
+      "Contact": "Contact Us"
+    },
+    "links": {
+      "title": "Links",
+      "Nav": "Test Nav",
+      "Adopt": "Adopt",
+      "QuickStart": "Quick Start",
+      "Member": "Member",
+      "Blog": "Blog",
+      "Tools": "Tools",
+      "Mission": "Our Mission"
+    },
+    "Gallery": {
+      "title": "Gallery"
     }
   }
 }
