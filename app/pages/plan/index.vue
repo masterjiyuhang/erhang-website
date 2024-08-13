@@ -7,7 +7,7 @@
       class="my-4 bg-primary-100 p-8"
       @click="handleDetail(item)"
     >
-      <span>{{ getCnOrEn(item.titleCn, item.titleEn) }}</span>
+      <span>{{ getCnOrEn(item?.titleCn, item?.titleEn) }}</span>
     </div>
   </div>
 </template>

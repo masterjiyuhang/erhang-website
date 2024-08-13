@@ -5,9 +5,14 @@
     <!-- <p>Plan ID: {{ id }}</p> -->
     <div>
       <!-- currentItem: {{ currentItem }} -->
-      <h2>{{ getCnOrEn(currentItem.titleCn, currentItem.titleEn) }}</h2>
-      <h3>{{ currentItem.createTime }}</h3>
-      <div v-html="getCnOrEn(currentItem.contextCn, currentItem.contextEn)" />
+      <h2>{{ getCnOrEn(currentItem?.titleCn, currentItem?.titleEn) }}</h2>
+      <h3>{{ currentItem?.createTime }}</h3>
+      <div class="flex">
+        <p
+          class="break-words w-full"
+          v-html="getCnOrEn(currentItem?.contextCn, currentItem?.contextEn)"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -26,6 +31,7 @@
   definePageMeta({
     title: 'Plan Detail',
     description: 'Read, Learn, Enjoy: Your Blog Destination!',
+    hidden: true,
   })
 
   useHead({
