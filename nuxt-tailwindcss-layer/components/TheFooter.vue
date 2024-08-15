@@ -119,9 +119,10 @@
     <div class="container mx-auto px-8">
       <div class="flex flex-wrap relative">
         <div
-          class="-mx-4 flex flex-col flex-wrap items-center pl-4 pr-8 py-4 md:flex-col md:flex-nowrap -mt-4 lg:items-start lg:w-1/3"
+          class="mx-auto flex flex-col flex-wrap items-center px-8 py-4 md:flex-col md:flex-nowrap -mt-4 lg:items-start lg:w-1/3"
         >
-          <NuxtLinkLocale class="-ml-6" to="/">
+          <TheLogo />
+          <!-- <NuxtLinkLocale class="-ml-6" to="/">
             <div to="/" class="font-serif inline-flex items-center text-3xl">
               <NuxtImg
                 src="https://erhang-cdn.imgix.net/logo.png"
@@ -131,7 +132,7 @@
                 Happy Baby
               </h6>
             </div>
-          </NuxtLinkLocale>
+          </NuxtLinkLocale> -->
           <p class="my-2 text-center w-full lg:text-left">
             {{ $t('global.description') }}
           </p>

@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{ locale }}
     <select v-model="locale" aria-label="Language switcher" class="bg-white">
       <option v-for="item in locales" :key="item.code" :value="item.code">
         {{ item.name }}

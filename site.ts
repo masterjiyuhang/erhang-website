@@ -3,9 +3,9 @@
 // @unocss-include
 
 export default {
-  name: 'Happy Baby',
+  name: 'ErHang Website',
   description: 'Adopt Your Fur Mate',
-  logo: 'i-noto:baby-bottle',
+  logo: 'i-streamline-emojis:grinning-squinting-face',
   author: 'Pinegrow',
   url: 'https://erhang-website.vercel.app/',
   github: 'https://github.com/pinegrow/happy-paws-with-nuxt-tailwindcss',

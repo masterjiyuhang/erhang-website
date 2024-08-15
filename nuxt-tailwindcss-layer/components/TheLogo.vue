@@ -12,7 +12,7 @@
   >
     <BaseIcon height="40" class="mt-2" :name="logo" />
     <h6
-      class="text-primary-600 dark:text-primary-200 font-extrabold font-serif ml-2 mt-4 text-2xl"
+      class="text-primary-600 dark:text-primary-200 font-extrabold font-serif ml-2 mt-4 truncate w-3 text-xs sm:w-48 sm:text-2xl"
     >
       {{ name }}
     </h6>
