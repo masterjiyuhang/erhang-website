@@ -17,13 +17,17 @@
               class="hidden sm:flex sm:ml-6"
             />
           </div>
+          <LangSwitcher class="hidden sm:flex sm:ml-6" />
           <DarkModeSwitch />
           <div class="-mr-2 items-center relative">
+            <!-- 大屏展示 -->
             <NavHamburger
               v-if="navlinksSecondary.length"
               class="hidden sm:block"
             />
+            <!-- 移动端下展示 -->
             <NavHamburger v-if="navlinks.length" class="sm:hidden" />
+            <!-- 下拉列表 -->
             <NavSecondary
               class="hidden sm:flex sm:justify-end absolute right-0 mt-4"
               :navlinks="navlinksSecondary"
@@ -32,12 +36,15 @@
           </div>
         </div>
       </div>
+      <!-- 小屏幕的下拉列表 -->
       <NavSecondary
         class="sm:hidden"
         :navlinks="navlinks"
         :current-path="currentPath"
       />
     </nav>
+
+    <MenuBar />
   </div>
 </template>
 
