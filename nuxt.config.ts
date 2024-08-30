@@ -55,6 +55,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/eslint',
     '@nuxtjs/i18n',
+    '@element-plus/nuxt',
   ],
 
   fontMetrics: {
@@ -87,6 +88,13 @@ export default defineNuxtConfig({
         transformAssetUrls: {
           NuxtImg: ['src'],
           OgImage: ['image'],
+        },
+      },
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@use "@/assets/scss/element/index.scss" as element;`,
         },
       },
     },
@@ -205,5 +213,11 @@ export default defineNuxtConfig({
       //   },
       // ],
     },
+  },
+
+  elementPlus: {
+    /** Options */
+    icon: 'ElIcon',
+    importStyle: 'scss',
   },
 })
