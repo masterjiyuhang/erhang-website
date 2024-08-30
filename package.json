@@ -19,6 +19,7 @@
     "@vee-validate/nuxt": "^4.13.1",
     "@vueuse/core": "^10.11.0",
     "nuxt": "^3.12.3",
+    "nuxt-lodash": "^2.5.3",
     "pinia": "^2.1.7",
     "vue": "^3.4.30",
     "vue-router": "^4.4.0"
