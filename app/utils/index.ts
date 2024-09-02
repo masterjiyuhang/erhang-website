@@ -47,3 +47,35 @@ export function getCnOrEn(cn: string, en: string) {
   const { locale } = useI18n()
   return locale.value === 'cn' ? cn : en
 }
+
+/**
+ * 判断域名是否为IP
+ * @param {*} hostname
+ * @returns
+ */
+export function isIpAddress(hostname) {
+  const ipv4Pattern =
+    /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
+  const ipv6Pattern =
+    /^((?:[a-fA-F0-9]{1,4}:){7}[a-fA-F0-9]{1,4}|::|(?:[a-fA-F0-9]{1,4}:){1,7}:|:(?::[a-fA-F0-9]{1,4}){1,7})$/
+
+  return ipv4Pattern.test(hostname) || ipv6Pattern.test(hostname)
+}
+
+/**
+ * 获取一级域名
+ * @returns
+ */
+export function getFirstDomain() {
+  const { hostname } = window.location
+  const parts = hostname.split('.')
+  if (parts.length < 3 || isIpAddress(hostname)) {
+    return null
+  }
+  if (parts.length === 3) {
+    const topLevelDomain = `.${parts.slice(-2).join('.')}`
+    return topLevelDomain
+  }
+  const topLevelDomain = `.${parts.slice(-3).join('.')}`
+  return topLevelDomain
+}
