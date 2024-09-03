@@ -16,14 +16,13 @@ export const usePlanList = () => {
   }
 
   async function getPlanList() {
-    const { data, status, error, refresh, clear } =
-      await useAsyncData<ApiResponse>(
-        'mountains',
-        () => $fetch('https://sapi.jctrans.com/rms/risk/guide/guideCase/list'),
-        {
-          server: true,
-        },
-      )
+    const { data, status, error, refresh, clear } = await useAsyncData<any>(
+      'sapi.jctrans.com/rms/risk/guide/guideCase/list',
+      () => $fetch('https://sapi.jctrans.com/rms/risk/guide/guideCase/list'),
+      {
+        server: true,
+      },
+    )
 
     return {
       data,

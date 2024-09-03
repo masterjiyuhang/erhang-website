@@ -1,28 +1,41 @@
 <template>
   <div>
     {{ router.params }}
+    {{ list }}
+    <h1>BaseList</h1>
+    {{ baseList }}
+    <el-button type="primary" @click="handleClick"> test get click</el-button>
+
+    <h2>useCustomer</h2>
+
+    <el-button type="primary" @click="refresh()"> test server list</el-button>
   </div>
 </template>
 
 <script lang="ts" setup>
-  const { get, post } = useUseRequest()
+  const list = ref([])
+  const baseList = ref()
 
-  // const res = await get('/evt/evtActivity/exhibitionActivity/all')
-  // console.log('🚀 ~ file: [childId].vue:11 ~ res:', res.data.value)
+  const { data, refresh } = await useCustomFetch('/car/list')
 
-  const getList = async () => {
-    const res = await post('/e你妈脸上QWER', {
-      dictType: 'cmc_company_industry_sector',
-      // dictType: 'cmc_company_industry_sector',
+  // 直接发起请求的情景 比如直接请求静态资源
+  async function handleClick() {
+    const res: any = await $fetch('/base-api/v1/api/car/list', {
+      method: 'get',
     })
-    // const res = await post('/system/admin/dict/data/type/dictType', {
-    //   dictType: 'cmc_company_industry_sector',
-    //   // dictType: 'cmc_company_industry_sector',
-    // })
-    console.log('🚀 ~ file: [childId].vue:19 ~ getList ~ res:', res)
+    console.log('🚀 ~ file: [childId].vue:19 ~ handleClick ~ res:', res)
+    list.value = res.data.list
   }
 
-  getList()
+  // 服务端请求 页面初始化的时候加载出来 不支持点击事件请求  会跨域
+  async function getMountedList() {
+    const res = await useCustomFetch('/car/getListByName', {
+      method: 'post',
+      body: { name: '' },
+      baseURL: 'http://localhost:3000/v1/api',
+    })
+    console.log('🚀 ~ file: [childId].vue:45 ~ res:', res)
+  }
 
   definePageMeta({
     title: 'Test seo Detail',
@@ -35,6 +48,8 @@
   })
 
   const router = useRoute()
+
+  getMountedList()
 </script>
 
 <style></style>
