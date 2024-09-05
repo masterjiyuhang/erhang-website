@@ -3,6 +3,15 @@ import type { FetchError } from 'ofetch'
 import { useMySystemStore } from './../stores/system'
 import type { UseFetchOptions } from '#app'
 import { useStorage } from '@vueuse/core'
+
+// 响应类型
+const RESPONSE_TYPE = ['blob', 'stream']
+
+// 标识位
+let confirm = false
+let isRefreshing = false
+let refreshSubscribers = []
+
 export const useUseRequest = () => {
   const prjId = useSessionStorage('prjId', '')
   const clientId = useStorage('clientId', '')
@@ -11,14 +20,84 @@ export const useUseRequest = () => {
   const router = useRouter()
   const { apiBaseUrl } = useRuntimeConfig().public
 
+  function handleRefreshToken(options) {
+    // 双token 逻辑
+    // 换取 refresh token 逻辑
+    const refreshTokenStr = getRefreshToken() || ''
+    console.log(
+      '🚀 ~ file: useRequest.ts:18 ~ handleRefreshToken ~ refreshTokenStr:',
+      refreshTokenStr,
+    )
+    const expiresTimeIn = parseInt(getExpiresTimeIn(), 10)
+    console.log(
+      '🚀 ~ file: useRequest.ts:20 ~ handleRefreshToken ~ expiresTimeIn:',
+      expiresTimeIn,
+    )
+    // 提前五分中获取token
+    const distance = 60 * 5 * 1000
+
+    console.log(
+      '🚀 ~ file: useRequest.ts:42 ~ handleRefreshToken ~ expiresTimeIn - Date.now() <= distance:',
+      expiresTimeIn - Date.now() <= distance,
+    )
+    console.log(
+      '🚀 ~ file: useRequest.ts:78 ~ handleRefreshToken ~ expiresTimeIn - Date.now() > 0:',
+      expiresTimeIn - Date.now() > 0,
+    )
+    console.log(
+      '🚀 ~ file: useRequest.ts:47 ~ handleRefreshToken ~ refreshTokenStr:',
+      refreshTokenStr,
+    )
+    if (
+      refreshTokenStr
+      // refreshTokenStr &&
+      // expiresTimeIn - Date.now() <= distance &&
+      // expiresTimeIn - Date.now() > 0
+    ) {
+      if (!isRefreshing) {
+        isRefreshing = true
+        $fetch('/auth/refreshToken', {
+          method: 'POST',
+          body: {
+            refreshToken: refreshTokenStr,
+          },
+        })
+          .then((res: any) => {
+            console.log('🚀 ~ file: useRequest.ts:53 ~ .then ~ res:', res)
+            if (res.code === 0) {
+              const { accessToken, expireIn, refreshToken } = res.data
+              const newTimestamp = Date.now() + expireIn * 1000
+              setToken(accessToken)
+              setExpiresIn(expireIn)
+              setRefreshToken(refreshToken)
+              setExpiresTimeIn(newTimestamp)
+              refreshSubscribers.forEach((cb) => cb(accessToken))
+              refreshSubscribers = []
+            }
+          })
+          .catch((err) => {
+            console.log('🚀 ~ file: useRequest.ts:78 ~ .then ~ err:', err)
+          })
+          .finally(() => {
+            isRefreshing = false
+          })
+
+        return new Promise((resolve) => {
+          refreshSubscribers.push((newToken) => {
+            options.headers.Authorization = `Bearer ${newToken}`
+            resolve(options)
+          })
+        })
+      }
+    }
+  }
   function handleRequest(options) {
-    // https://sapi-sit.jctrans.com/evt/evtActivity/exhibitionActivity/all
-    options.baseURL = apiBaseUrl ?? 'https://cloudapi.jctrans.com'
+    options.headers = new Headers()
     options.headers['Accept-Language'] = $i18n.locale.value
     options.headers['APP-ID'] = systemStore.appId
     options.headers['terminal-type'] = 'PC'
-
-    const userAuth = useCookie('token')
+    options.headers['Content-Type'] = 'application/json'
+    options.headers['Access-Control-Allow-Origin'] = '*'
 
     if (!_isEmpty(prjId)) {
       options.headers['popular-channel'] = _isNumber(prjId)
@@ -38,49 +117,47 @@ export const useUseRequest = () => {
     ) {
       options.headers['page-code'] = router.currentRoute.value.meta.PageCode
     }
+
+    const token = getToken()
+    console.log('🚀 ~ file: useRequest.ts:39 ~ handleRequest ~ token:', token)
+
+    handleRefreshToken(options)
   }
 
   function handleResponse(response) {
-    console.log(
-      '🚀 ~ file: useRequest.ts:31 ~ handleResponse ~ response:',
-      response,
-    )
-    return response.data
-  }
+    if (response.data.code === 401) {
+      if (
+        response &&
+        response.data &&
+        response.data.subcode === 'TOKEN_HAS_BEEN_REJECTED'
+      ) {
+        if (!confirm) {
+          confirm = true // 设置标志为已弹窗
 
-  interface ResOptions<T> {
-    data: T
-    code: number
-    success: boolean
-    detail?: string
+          // TODO: 弹窗提示
+          confirm = false
+        }
+      }
+    } else {
+      // TODO: 跳转到登录页
+    }
   }
-  function handleError<T>({ response }) {
-    // 错误处理逻辑
-
-    console.log(
-      '🚀 ~ file: useRequest.ts:79 ~ useUseRequest ~ 处理错误:',
-      response.status,
-      response.body,
-    )
-  }
-
-  type HttpOption<T> = UseFetchOptions<ResOptions<T>, T, KeysOf<T>>
-  function fetch<T>(url: string, opt?: HttpOption<T>) {
-    const options = opt as UseFetchOptions<ResOptions<T>>
+  function fetch<T>(url: string, opt) {
+    const options = opt
     options.lazy = options?.lazy ?? true
 
-    return useFetch<ResOptions<T>>(url, {
+    const ccFetch = $fetch.create({
+      baseURL: '/base-api/v1/api',
       onRequest: ({ request, options, error }) => {
         handleRequest(options)
       },
-      onResponse: (context) => {
-        handleResponse(context)
+      onRequestError({ request, options, error }) {},
+      onResponse({ response, options, error }) {
+        handleResponse(response)
       },
-      onResponseError: (context) => {
-        handleError(context)
-      },
-      ...options,
-    }) as AsyncData<PickFrom<T, KeysOf<T>>, FetchError<ResOptions<T>> | null>
+      onResponseError({ request, options, error }) {},
+    })
+    return ccFetch(url, options)
   }
 
   const get = <T>(url: string, params = {}) => {
@@ -91,7 +168,6 @@ export const useUseRequest = () => {
   }
 
   const post = <T>(url: string, body = {}, params = {}) => {
-    console.log('🚀 ~ file: useRequest.ts:78 ~ post ~ url:', url)
     return fetch<T>(url, {
       method: 'POST',
       body,
