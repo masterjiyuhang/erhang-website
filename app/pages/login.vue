@@ -28,17 +28,17 @@
             <el-carousel class="h-full min-w-[500px]">
               <el-carousel-item>
                 <div
-                  class="bg-red-200 h-full bg-[url(@/assets/images/a1.avif)] bg-no-repeat bg-cover"
+                  class="bg-red-200 h-full bg-[url('https://erhang-cdn.imgix.net/Pika.gif?s=0d394ab763b07fa13927a48c069d801c')] bg-no-repeat bg-cover"
                 />
               </el-carousel-item>
               <el-carousel-item>
                 <div
-                  class="bg-red-200 h-full bg-[url(@/assets/images/a2.avif)] bg-no-repeat bg-cover"
+                  class="bg-red-200 h-full bg-[url('https://erhang-cdn.imgix.net/Pika.gif?s=0d394ab763b07fa13927a48c069d801c')] bg-no-repeat bg-cover"
                 />
               </el-carousel-item>
               <el-carousel-item>
                 <div
-                  class="bg-red-200 h-full bg-[url(@/assets/images/a3.avif)] bg-no-repeat bg-cover"
+                  class="bg-red-200 h-full bg-[url('https://erhang-cdn.imgix.net/Pika.gif?s=0d394ab763b07fa13927a48c069d801c')] bg-no-repeat bg-cover"
                 />
               </el-carousel-item>
             </el-carousel>
@@ -114,14 +114,6 @@
         </div>
       </section>
     </div>
-    <!-- <div
-      class="flex shadow-lg shadow-slate-500 backdrop-blur p-3 relative rounded-sm overflow-hidden border-sky-100"
-    >
-     
-      <section class="max-w-6xl m-auto w-full mt-32">
-       
-      </section>
-    </div> -->
   </div>
 </template>
 
@@ -147,7 +139,7 @@
 
 <style lang="scss" scoped>
   .background {
-    background: url('@/assets/images/bg.jpg');
+    background: url('https://erhang-cdn.imgix.net/ware.jpg?s=d14fe7d5a702027c426112a22f121f3d');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
