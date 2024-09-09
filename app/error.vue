@@ -39,12 +39,14 @@
         exist on this site.
       </div>
       <pre v-if="isDev" class="w-full whitespace-normal">{{ error }}</pre>
-      <button
+      <el-button
         class="bg-error-500 px-3 py-2 text-2xl leading-6 font-medium tracking-wide normal-case rounded-lg"
+        type="danger"
+        size="large"
         @click="handleError"
       >
         &lt; Go Back
-      </button>
+      </el-button>
     </div>
   </NuxtLayout>
 </template>

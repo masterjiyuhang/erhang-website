@@ -1,32 +1,31 @@
-<!-- file: ~/pages/login.vue -->
 <template>
   <div
-    class="background flex items-center justify-center min-h-screen relative"
+    class="background flex items-center justify-center min-h-screen relative p-3"
   >
-    <div class="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50" />
     <div
-      class="flex px-24 h-screen m-auto shadow-lg shadow-slate-500 backdrop-blur p-3 relative rounded-sm overflow-hidden border-sky-100"
+      class="absolute top-0 left-0 w-full h-full bg-secondary-300 bg-opacity-50"
+    />
+    <div
+      class="shadow-lg shadow-slate-500 backdrop-blur p-3 relative rounded-sm overflow-hidden border-sky-100 w-full"
     >
       <div
         class="flex p-5 px-10 bg-opacity-[.8] mb-5 absolute top-0 w-full left-0"
       >
         <div class="space-y-3">
-          <NuxtImg
-            class="logo"
-            src="https://element-plus.org/images/element-plus-logo.svg"
-          />
-          <NuxtLogo class="text-white" />
+          <h1>hshs</h1>
         </div>
-        <div class="ml-auto text-3xl text-gray-300 font-bold">
-          Nuxt-Admin-Template
+        <div
+          class="ml-auto text-3xl text-gray-300 font-bold invisible sm:visible"
+        >
+          Admin-login
         </div>
       </div>
-      <section class="max-w-6xl m-auto w-full">
+      <section class="max-w-6xl m-auto w-full mt-32">
         <div
           class="flex backdrop-blur items-center rounded-sm overflow-hidden h-[350px]"
         >
-          <section class="flex-1 h-full">
-            <el-carousel class="h-full w-[500px]">
+          <section class="flex-1 h-full hidden lg:block">
+            <el-carousel class="h-full min-w-[500px]">
               <el-carousel-item>
                 <div
                   class="bg-red-200 h-full bg-[url(@/assets/images/a1.avif)] bg-no-repeat bg-cover"
@@ -115,11 +114,24 @@
         </div>
       </section>
     </div>
+    <!-- <div
+      class="flex shadow-lg shadow-slate-500 backdrop-blur p-3 relative rounded-sm overflow-hidden border-sky-100"
+    >
+     
+      <section class="max-w-6xl m-auto w-full mt-32">
+       
+      </section>
+    </div> -->
   </div>
 </template>
 
 <script setup lang="ts">
   import { Lock, User } from '@element-plus/icons-vue'
+  definePageMeta({
+    hidden: true, // 隐藏menu  不在nav上展示
+    name: 'Login',
+  })
+
   const { vueApp } = useNuxtApp()
 
   const state = reactive({

@@ -7,6 +7,14 @@
 </template>
 
 <script setup lang="ts">
+  definePageMeta({
+    title: 'Nest Page',
+    description: 'Nest page have children pages.',
+    navOrder: 2,
+    type: 'secondary',
+    icon: 'i-mdi-home',
+  })
+
   const { get } = useUseRequest()
 
   async function handleRefresh() {
