@@ -48,30 +48,6 @@
       label: 'footer.links.Nav',
       path: '/nav-menu',
     },
-    {
-      label: 'footer.links.Adopt',
-      path: '/adopt',
-    },
-    {
-      label: 'footer.links.QuickStart',
-      path: '/quick-start',
-    },
-    {
-      label: 'footer.links.Member',
-      path: '/member',
-    },
-    {
-      label: 'footer.links.Blog',
-      path: '/blog',
-    },
-    {
-      label: 'footer.links.Tools',
-      path: '/tools',
-    },
-    {
-      label: 'footer.links.Mission',
-      path: '/mission',
-    },
   ])
 
   const imgList = ref([
@@ -122,17 +98,6 @@
           class="mx-auto flex flex-col flex-wrap items-center px-8 py-4 md:flex-col md:flex-nowrap -mt-4 lg:items-start lg:w-1/3"
         >
           <TheLogo />
-          <!-- <NuxtLinkLocale class="-ml-6" to="/">
-            <div to="/" class="font-serif inline-flex items-center text-3xl">
-              <NuxtImg
-                src="https://erhang-cdn.imgix.net/logo.png"
-                class="size-10 mr-2"
-              />
-              <h6 class="font-serif inline-flex items-center text-3xl">
-                Happy Baby
-              </h6>
-            </div>
-          </NuxtLinkLocale> -->
           <p class="my-2 text-center w-full lg:text-left">
             {{ $t('global.description') }}
           </p>
