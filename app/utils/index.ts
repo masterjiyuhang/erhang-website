@@ -79,3 +79,11 @@ export function getFirstDomain() {
   const topLevelDomain = `.${parts.slice(-3).join('.')}`
   return topLevelDomain
 }
+
+export const isProd = () => {
+  return process.env.NODE_ENV === 'production'
+}
+
+export const isDev = () => {
+  return process.env.NODE_ENV === 'development'
+}

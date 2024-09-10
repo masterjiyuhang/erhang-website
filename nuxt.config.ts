@@ -10,6 +10,14 @@ export default defineNuxtConfig({
     port: 3555,
     host: '0.0.0.0',
   },
+  runtimeConfig: {
+    public: {
+      // # 开发环境后端地址
+      PROXY_DOMAIN_REAL: 'https://api-dev2.jctrans.com',
+      // # 开发环境后端静态JSON地址
+      PROXY_DOMAIN_JSON: 'https://sapi-sit.jctrans.com',
+    },
+  },
   extends: [
     './nuxt-tailwindcss-layer', // NavBar and Footer components
   ],
@@ -44,6 +52,13 @@ export default defineNuxtConfig({
           name: 'viewport',
           content: 'width=device-width, initial-scale=1',
           charset: 'utf-8',
+        },
+      ],
+      script: [
+        {
+          src: '/config/config.js',
+          type: 'text/javascript',
+          defer: true,
         },
       ],
     },

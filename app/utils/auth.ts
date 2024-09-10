@@ -82,15 +82,14 @@ function setExpiresTimeIn(time) {
   expiresInTimeCookie.value = time
 }
 
-function go2LoginPage(fullPath = '/', target = '_blank') {
-  if (!window.BASE_INFO || !window.BASE_INFO.VUE_APP_LOGIN_PAGE) {
-    console.error('VUE_APP_LOGIN_PAGE is not defined or empty.')
-    return
-  }
-
+function go2LoginPage(fullPath = '/', target = '_self') {
   const appId = encodeURIComponent(getAppId())
   const encodedFullPath = encodeURIComponent(fullPath)
-  const path = `${window.BASE_INFO.VUE_APP_LOGIN_PAGE}?appId=${appId}&path=${encodedFullPath}`
+  let path = `${window.BASE_INFO.VUE_APP_LOGIN_PAGE}?appId=${appId}&path=${encodedFullPath}`
+
+  if (sessionStorage.getItem('prjId')) {
+    path += `&prjId=${sessionStorage.getItem('prjId')}`
+  }
 
   const link = document.createElement('a')
   link.href = path
