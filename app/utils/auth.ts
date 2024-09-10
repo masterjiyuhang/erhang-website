@@ -82,6 +82,30 @@ function setExpiresTimeIn(time) {
   expiresInTimeCookie.value = time
 }
 
+function go2LoginPage(fullPath = '/', target = '_blank') {
+  if (!window.BASE_INFO || !window.BASE_INFO.VUE_APP_LOGIN_PAGE) {
+    console.error('VUE_APP_LOGIN_PAGE is not defined or empty.')
+    return
+  }
+
+  const appId = encodeURIComponent(getAppId())
+  const encodedFullPath = encodeURIComponent(fullPath)
+  const path = `${window.BASE_INFO.VUE_APP_LOGIN_PAGE}?appId=${appId}&path=${encodedFullPath}`
+
+  const link = document.createElement('a')
+  link.href = path
+  link.target = target
+
+  // 使用 createEvent 创建点击事件
+  const event = new MouseEvent('click', {
+    bubbles: true,
+    cancelable: true,
+    view: window,
+  })
+
+  link.dispatchEvent(event)
+}
+
 export {
   getToken,
   setToken,
@@ -94,4 +118,5 @@ export {
   removeExpiresIn,
   removeToken,
   getAppId,
+  go2LoginPage,
 }
