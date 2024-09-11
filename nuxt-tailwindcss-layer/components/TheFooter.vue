@@ -46,7 +46,7 @@
   const linksList = ref([
     {
       label: 'footer.links.Nav',
-      path: '/nav-menu',
+      path: '/nest',
     },
   ])
 
