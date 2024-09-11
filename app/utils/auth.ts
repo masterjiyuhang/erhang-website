@@ -1,3 +1,4 @@
+import { isClient } from '@vueuse/core'
 import { getFirstDomain } from '~/utils'
 
 const TokenKey = 'JC-JAVA-Token'
@@ -5,6 +6,13 @@ const ExpiresInKey = 'ERA-Expires-In'
 const ExpiresInTimeKey = 'ERA-Expires-Time-In'
 const RefreshTokenKey = 'ERA-Refresh-Token'
 
+async function setClientId() {
+  if (isClient) {
+    const app = useNuxtApp()
+
+    localStorage.setItem('clientId', await app.$getFingerprint())
+  }
+}
 // 获取 token
 function getToken() {
   const tokenCookie = useCookie(TokenKey)
@@ -118,4 +126,5 @@ export {
   removeToken,
   getAppId,
   go2LoginPage,
+  setClientId,
 }

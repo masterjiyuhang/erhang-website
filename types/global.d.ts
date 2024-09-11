@@ -7,3 +7,15 @@ declare global {
     [key: string]: any
   }
 }
+
+declare module '#app' {
+  interface NuxtApp {
+    $getFingerprint(): Promise<string>
+  }
+}
+
+declare module 'vue' {
+  interface ComponentCustomProperties {
+    $getFingerprint(): Promise<string>
+  }
+}

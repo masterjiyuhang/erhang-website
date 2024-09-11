@@ -7,10 +7,11 @@ const { name, url } = site
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devServer: {
-    port: 3555,
+    port: 8081,
     host: '0.0.0.0',
   },
   runtimeConfig: {
+    // NODE_TLS_REJECT_UNAUTHORIZED: '0',
     public: {
       // # 开发环境后端地址
       PROXY_DOMAIN_REAL: 'https://api-dev2.jctrans.com',
@@ -36,6 +37,11 @@ export default defineNuxtConfig({
       },
       '/jc-sit-sapi': {
         target: 'https://sapi-sit.jctrans.com',
+      },
+      '/jc-api': {
+        target: 'https://api-dev2.jctrans.com',
+        changeOrigin: true,
+        secure: false,
       },
     },
   },
@@ -222,36 +228,7 @@ export default defineNuxtConfig({
   // },
   i18n: i18nConfig,
 
-  plugins: [
-    {
-      src: '@/assets/iconfont/iconfont.js',
-      ssr: false,
-    },
-  ],
-
-  pinegrow: {
-    liveDesigner: {
-      iconPreferredCase: 'unocss', // default value (can be removed), Nuxt UI uses the unocss format for icon names
-      devtoolsKey: 'devtoolsKey', // see plugins/devtools.client.ts
-      tailwindcss: {
-        /* Please ensure that you update the filenames and paths to accurately match those used in your project. */
-        configPath: 'tailwind.config.ts',
-        cssPath: '@/assets/css/tailwind.css',
-        // themePath: false, // Set to false so that Design Panel is not used
-        // restartOnConfigUpdate: true,
-        restartOnThemeUpdate: true,
-      },
-      // plugins: [
-      //   {
-      //     name: 'My Awesome Lib 3.0',
-      //     key: 'my-awesome-lib',
-      //     pluginPath: fileURLToPath(
-      //       new URL('./web-types/my-awesome-lib.json', import.meta.url),
-      //     ),
-      //   },
-      // ],
-    },
-  },
+  plugins: ['~/plugins/fingerprint'],
 
   elementPlus: {
     /** Options */

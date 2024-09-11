@@ -24,10 +24,7 @@
 <script lang="ts" setup>
   const layoutRef = ref<HTMLElement | null>(null)
 
-  const { x, y } = useScroll(layoutRef)
-  // console.log('🚀 ~ file: default.vue:22 ~ x, y:', x, y)
   const route = useRoute()
-  console.log('🚀 ~ file: default.vue:24 ~ route:', route)
 
   const isLoginPage = computed(() => route.path.includes('/login'))
 </script>
