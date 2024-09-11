@@ -38,5 +38,97 @@
     "Gallery": {
       "title": "Gallery"
     }
+  },
+  "common": {
+    "pleaseSelect": "Please select",
+    "pleaseUpload": "Please upload",
+    "to": "To",
+    "startTime": "Start Time",
+    "endTime": "End Time",
+    "total": "Total",
+    "tips": "Tips",
+    "failed": "Failed",
+    "loading": "Loading",
+    "onlyLookAtOneself": "My Transactions Only",
+    "all": "all",
+    "isRequired": "is required",
+
+    // header
+    "balance": "Balance",
+    "hotLine": "Hot Line",
+    "email": "E-mail",
+    "qa": "FQ&A",
+    "manual": "Manual",
+    "logOut": "Log out",
+    "logIn": "Log in",
+    "cn": "CN",
+    "en": "EN",
+
+    // 星期日期
+    "week1": "Monday",
+    "week2": "Tuesday",
+    "week3": "Wednesday",
+    "week4": "Thursday",
+    "week5": "Friday",
+    "week6": "Saturday",
+    "week7": "Sunday",
+    "yearof": "Year of {0}",
+
+    "history": "History",
+    "code": "Code",
+    "description": "Description",
+    "user": "User",
+    "modify_time": "Modify Time",
+    "hblno": "HBL No.",
+
+    "input_guide": "Input Guide",
+    "field": "Field",
+    "m_c_o": "M/C/O",
+    "max_length": "Max. Length",
+    "close": "Close",
+    "sure": "Sure",
+    "back_check": "Back",
+    "download": "Download Template",
+    "fail": "Fail",
+    "warning": "Warning",
+    "succeed": "Succeed",
+    "submit_succeed": "Submitted successfully",
+    "opt_failed": "Operation Failed",
+    "error_msg": "Oops, the interface is abnormal. Please contact customer service.",
+
+    // 删除提示语
+    "delete_confirm": "Are you sure to delete?",
+    // 提交提示语
+    "submit_confirm": "Are you sure to submit?",
+    // 取消提示语
+    "cancel_confirm": "Are you sure to cancel?",
+    // 导出提示语
+    "exportSucceeded": "Succeeded! Please click the download icon in the upper right corner to view the export record",
+    "exportFailedExceeds": "Failed! Only data within 60 days can be exported. Please adjust the time range and try again",
+    "exportFailed": "Failed! Please contact customer service for support",
+    // 导入提示语
+    "importSucceeded": "Import succeeded. Please view the imported data in the list page!",
+    "importFailed": "Import failed. Please check the file and try again!",
+    "file_error": "File format error",
+    "parse_error": "Failed, please check the reason via click the import/export botton on the right header",
+    // 空状态
+    "no_data": "Sorry, no data available",
+
+    "required": "Required",
+    "format_error": "Format error",
+    "upload": "Upload",
+    // 上传图片
+    "error1": "Please upload file less than 10 MB.",
+    "error2": "Please upload images in JPG/PNG.",
+    "error3": "Please upload picture.",
+    "supplement_information": "Please supplement the box cargo information",
+    "must_usa_port": "Please select a port in the United States",
+    "not_usa_port": "Please select a port outside the United States",
+    "emailIsWrongFormat": "Please enter a valid email.",
+    "integermustmorethan0": "Please enter a positive integer.",
+    "cusServiceDontExist": "Customer service information does not exist",
+    "cardInfoDontExist": "Rate information does not exist",
+    "sureLogout": "Are you sure to log out?",
+    "reLoginDesc": "This account has been logged in from another location, and you have been forced to log out. If you are unaware of this operation, please change your password to ensure the security of your account."
   }
 }

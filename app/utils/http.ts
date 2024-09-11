@@ -1,100 +1,88 @@
-import type { FetchError, FetchResponse, SearchParameters } from 'ofetch'
-import { hash } from 'ohash'
-import type { AsyncData, UseFetchOptions } from '#app'
-import type { KeysOf, PickFrom } from '#app/composables/asyncData'
+/**
+ * @description http模块
+ */
 
-type UrlType =
-  | string
-  | Request
-  | Ref<string | Request>
-  | (() => string | Request)
+// 接口基地址
+const BASE_URL = import.meta.env.VITE_BASE_URL
 
-type HttpOption<T> = UseFetchOptions<ResOptions<T>, T, KeysOf<T>>
-interface ResOptions<T> {
-  data: T
-  code: number
-  success: boolean
-  detail?: string
+// 环境
+const MODE = import.meta.env.VITE_MODE ?? 'development'
+
+// 生产环境
+const MODE_PRODUCTION = 'production'
+
+// GET请求方法
+const METHOD_GET = 'GET'
+
+// 成功状态
+const SUCCESS_STATUS_TEXT = 'OK'
+
+// 响应类型
+const RESPONSE_TYPE = ['blob', 'stream']
+
+// 请求拦截器
+const requestInterceptor = (config) => {
+  if (config.options.meta?.needAuth) {
+    const token = getToken()
+
+    const method = config.options.method?.toUpperCase()
+
+    if (method === METHOD_GET) {
+      const query = config.options.query || {}
+      config.options.query = { ...query, token }
+    } else {
+      const body = config.options.body || {}
+      config.options.body = { ...body, token }
+    }
+  }
+  return config
 }
 
-function handleError<T>(
-  _method: string | undefined,
-  _response: FetchResponse<ResOptions<T>> & FetchResponse<ResponseType>,
-) {
-  // Handle the error
+// 响应拦截器
+const responseInterceptor = (response) => {
+  const res = response.response
+
+  if (
+    res.status === 200 &&
+    res.statusText === SUCCESS_STATUS_TEXT &&
+    res._data.data &&
+    RESPONSE_TYPE.includes(res?.type)
+  ) {
+    return response
+  }
+
+  if (MODE !== MODE_PRODUCTION) {
+    console.log(res.url, {
+      code: res._data.code,
+      data: res._data.data,
+      res: res._data,
+      params: response.options,
+      resHeaders: res.headers,
+    })
+  }
+
+  if (res._data.code === 0 || res._data.code === 200) {
+    return response
+  } else if (res._data.code === -50) {
+    // token过期或失效
+
+    removeToken()
+
+    return Promise.reject(res._data)
+  }
+  return Promise.reject(res._data)
 }
 
-function checkRef(obj: Record<string, any>) {
-  return Object.keys(obj).some((key) => isRef(obj[key]))
+// 错误拦截器
+const errorInterceptor = (err) => {
+  return Promise.reject(err.error)
 }
 
-function fetch<T>(url: UrlType, opts: HttpOption<T>) {
-  // Check the `key` option
-  const { key, params, watch } = opts
-  if (!key && ((params && checkRef(params)) || (watch && checkRef(watch))))
-    console.error(
-      '\x1B[31m%s\x1B[0m %s',
-      '[useHttp] [error]',
-      'The `key` option is required when `params` or `watch` has ref properties, please set a unique key for the current request.',
-    )
+const httpInstance = $fetch.create({
+  baseURL: BASE_URL,
+  onRequest: requestInterceptor,
+  onResponse: responseInterceptor,
+  onRequestError: errorInterceptor,
+})
 
-  const options = opts as UseFetchOptions<ResOptions<T>>
-  options.lazy = options.lazy ?? true
-
-  const { apiBaseUrl } = useRuntimeConfig().public
-
-  return useFetch<ResOptions<T>>(url, {
-    // Request interception
-    onRequest({ options }) {
-      // Set the base URL
-      options.baseURL = apiBaseUrl as string
-      // Set the request headers
-      const { $i18n } = useNuxtApp()
-      const locale = $i18n.locale.value
-      options.headers = new Headers(options.headers)
-      options.headers.set('Content-Language', locale)
-    },
-    // Response interception
-    onResponse(_context) {
-      // Handle the response
-    },
-    // Error interception
-    onResponseError({ response, options: { method } }) {
-      handleError<T>(method, response)
-    },
-    // Set the cache key
-    key: key ?? hash(['api-fetch', url, JSON.stringify(options)]),
-    // Merge the options
-    ...options,
-  }) as AsyncData<PickFrom<T, KeysOf<T>>, FetchError<ResOptions<T>> | null>
-}
-
-export const useHttp = {
-  get: <T>(url: UrlType, params?: SearchParameters, option?: HttpOption<T>) => {
-    return fetch<T>(url, { method: 'get', params, ...option })
-  },
-
-  post: <T>(
-    url: UrlType,
-    body?: RequestInit['body'] | Record<string, any>,
-    option?: HttpOption<T>,
-  ) => {
-    return fetch<T>(url, { method: 'post', body, ...option })
-  },
-
-  put: <T>(
-    url: UrlType,
-    body?: RequestInit['body'] | Record<string, any>,
-    option?: HttpOption<T>,
-  ) => {
-    return fetch<T>(url, { method: 'put', body, ...option })
-  },
-
-  delete: <T>(
-    url: UrlType,
-    body?: RequestInit['body'] | Record<string, any>,
-    option?: HttpOption<T>,
-  ) => {
-    return fetch<T>(url, { method: 'delete', body, ...option })
-  },
-}
+export default httpInstance
