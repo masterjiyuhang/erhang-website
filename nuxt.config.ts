@@ -23,6 +23,17 @@ export default defineNuxtConfig({
     './nuxt-tailwindcss-layer', // NavBar and Footer components
   ],
 
+  // Defaults options
+  tailwindcss: {
+    cssPath: ['~/assets/css/tailwind.css', { injectPosition: 'first' }],
+    configPath: 'tailwind.config',
+    exposeConfig: {
+      level: 2,
+    },
+    config: {},
+    viewer: true,
+  },
+
   site: {
     name,
     url,
@@ -88,6 +99,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@element-plus/nuxt',
     'nuxt-lodash',
+    '@nuxtjs/tailwindcss',
   ],
 
   lodash: {
@@ -112,11 +124,7 @@ export default defineNuxtConfig({
     },
   },
 
-  css: [
-    '@/assets/css/tailwind.css',
-    '@/assets/css/global.css',
-    '@/assets/iconfont/iconfont.css',
-  ],
+  css: ['@/assets/css/global.css', '@/assets/iconfont/iconfont.css'],
 
   postcss: {
     plugins: {
