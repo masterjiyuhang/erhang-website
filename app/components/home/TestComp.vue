@@ -6,9 +6,10 @@
     <el-button class="mb-3" type="primary" @click="handleClickRouter"
       >Router</el-button
     >
-    <NuxtLink :to="switchLocalePath('en')">English</NuxtLink>
-    <h1>asdasd</h1>
-    <NuxtLink :to="switchLocalePath('cn')">Chinese</NuxtLink>
+    <div class="flex flex-col">
+      <NuxtLink :to="switchLocalePath('en')">English</NuxtLink>
+      <NuxtLink :to="switchLocalePath('cn')">Chinese</NuxtLink>
+    </div>
   </div>
 </template>
 

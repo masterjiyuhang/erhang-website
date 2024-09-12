@@ -10,6 +10,12 @@ export default defineNuxtConfig({
     port: 3555,
     host: '0.0.0.0',
   },
+
+  runtimeConfig: {
+    public: {
+      apiBaseUrl: '/api',
+    },
+  },
   extends: [
     './nuxt-tailwindcss-layer', // NavBar and Footer components
   ],
@@ -215,12 +221,7 @@ export default defineNuxtConfig({
   // },
   i18n: i18nConfig,
 
-  plugins: [
-    {
-      src: '@/assets/iconfont/iconfont.js',
-      ssr: false,
-    },
-  ],
+  plugins: [],
 
   pinegrow: {
     liveDesigner: {

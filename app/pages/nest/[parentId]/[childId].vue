@@ -18,6 +18,7 @@
 
   const { data, refresh } = await useCustomFetch('/car/list')
 
+  baseList.value = data
   // 直接发起请求的情景 比如直接请求静态资源
   async function handleClick() {
     const res: any = await $fetch('/base-api/v1/api/car/list', {
@@ -34,7 +35,7 @@
       body: { name: '' },
       baseURL: 'http://localhost:3000/v1/api',
     })
-    console.log('🚀 ~ file: [childId].vue:45 ~ res:', res)
+    console.log('🚀 ~ file: [childId].vue:45 ~ res:', res.data)
   }
 
   definePageMeta({
@@ -49,7 +50,7 @@
 
   const router = useRoute()
 
-  getMountedList()
+  // getMountedList()
 </script>
 
 <style></style>
