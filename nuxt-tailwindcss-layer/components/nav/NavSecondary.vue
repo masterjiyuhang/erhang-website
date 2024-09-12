@@ -32,7 +32,7 @@
           size="md"
           @click="isMobileMenuOpen = !isMobileMenuOpen"
         >
-          <span class="w-full sm:text-center">{{ navlink.text }}</span>
+          <span class="w-full sm:text-center">{{ navlink.text }}11</span>
         </BaseButton>
       </div>
     </div>

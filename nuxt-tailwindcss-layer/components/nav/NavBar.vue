@@ -17,7 +17,7 @@
               class="hidden sm:flex sm:ml-6"
             />
           </div>
-          <LangSwitcher class="hidden sm:flex sm:ml-6" />
+          <LangSwitcher class="hidden xl:flex xl:ml-6" />
           <DarkModeSwitch />
           <div class="-mr-2 items-center relative">
             <!-- 大屏展示 -->
@@ -34,6 +34,7 @@
               :current-path="currentPath"
             />
           </div>
+          <el-button type="danger" class="ml-6">login</el-button>
         </div>
       </div>
       <!-- 小屏幕的下拉列表 -->
