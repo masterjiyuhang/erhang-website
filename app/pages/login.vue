@@ -17,7 +17,7 @@
         <div
           class="ml-auto text-3xl text-gray-300 font-bold invisible sm:visible"
         >
-          Admin-login
+          login-page
         </div>
       </div>
       <section class="max-w-6xl m-auto w-full mt-32">
@@ -28,23 +28,23 @@
             <el-carousel class="h-full min-w-[500px]">
               <el-carousel-item>
                 <div
-                  class="bg-red-200 h-full bg-[url('https://erhang-cdn.imgix.net/Pika.gif?s=0d394ab763b07fa13927a48c069d801c')] bg-no-repeat bg-cover"
+                  class="h-full bg-[url('https://erhang-cdn.imgix.net/Pika.gif?s=0d394ab763b07fa13927a48c069d801c')] bg-no-repeat bg-cover"
                 />
               </el-carousel-item>
               <el-carousel-item>
                 <div
-                  class="bg-red-200 h-full bg-[url('https://erhang-cdn.imgix.net/Pika.gif?s=0d394ab763b07fa13927a48c069d801c')] bg-no-repeat bg-cover"
+                  class="h-full bg-[url('https://erhang-cdn.imgix.net/Pika.gif?s=0d394ab763b07fa13927a48c069d801c')] bg-no-repeat bg-cover"
                 />
               </el-carousel-item>
               <el-carousel-item>
                 <div
-                  class="bg-red-200 h-full bg-[url('https://erhang-cdn.imgix.net/Pika.gif?s=0d394ab763b07fa13927a48c069d801c')] bg-no-repeat bg-cover"
+                  class="h-full bg-[url('https://erhang-cdn.imgix.net/Pika.gif?s=0d394ab763b07fa13927a48c069d801c')] bg-no-repeat bg-cover"
                 />
               </el-carousel-item>
             </el-carousel>
           </section>
-          <section class="min-w-[350px] h-full">
-            <div class="bg-black bg-opacity-50 p-3 h-full">
+          <section class="min-w-[350px] h-full m-auto">
+            <div class="bg-secondary-100 bg-opacity-50 p-3 h-full">
               <div
                 class="text-slate-50 text-2xl font-baloo font-bold text-center"
               >
@@ -52,6 +52,7 @@
               </div>
               <div>
                 <el-form
+                  ref="loginFormRef"
                   class="login-form mt-5"
                   :model="form"
                   label-width="0px"
@@ -59,7 +60,7 @@
                   <el-form-item prop="username">
                     <el-input
                       v-model="form.username"
-                      class=""
+                      class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                       size="large"
                       placeholder="Username"
                       :prefix-icon="User"
@@ -119,6 +120,7 @@
 
 <script setup lang="ts">
   import { Lock, User } from '@element-plus/icons-vue'
+  import { useCssVar } from '@vueuse/core'
   definePageMeta({
     hidden: true, // 隐藏menu  不在nav上展示
     name: 'Login',
@@ -129,16 +131,25 @@
   const state = reactive({
     showPassword: false,
     form: {
-      username: 'admin',
-      password: 'admin',
+      username: 'erhang',
+      password: '123456',
     },
   })
   const form = ref(state.form)
   const signIn = async (e) => {}
+
+  const loginFormRef = ref(null)
+
+  const color1 = useCssVar('--el-text-color-placeholder', loginFormRef)
+  color1.value = '#fff'
 </script>
 
 <style lang="scss" scoped>
   .background {
+    --el-text-color-regular: #333;
+    --el-input-focus-color: transparent;
+    --tw-ring-color: red;
+
     background: url('https://erhang-cdn.imgix.net/ware.jpg?s=d14fe7d5a702027c426112a22f121f3d');
     background-repeat: no-repeat;
     background-size: cover;

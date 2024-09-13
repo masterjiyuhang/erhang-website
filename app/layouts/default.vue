@@ -7,7 +7,7 @@
       <template v-if="!isLoginPage">
         <NavBar class="fixed shadow z-20 bg-white dark:bg-neutral-950" />
         <div class="mt-52">
-          <main class="container shadow">
+          <main class="shadow">
             <slot />
           </main>
         </div>
