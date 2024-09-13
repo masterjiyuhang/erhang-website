@@ -1,6 +1,7 @@
 import tailwindTypography from '@tailwindcss/typography'
 import tailwindForms from '@tailwindcss/forms'
 import tailwindCssPluginPinegrow from '@pinegrow/tailwindcss-plugin'
+import tailwindAspectRatio from '@tailwindcss/aspect-ratio'
 
 import {
   pg_colors,
@@ -27,7 +28,10 @@ export default {
   },
   plugins: [
     tailwindTypography,
-    tailwindForms,
+    tailwindForms({
+      strategy: 'class',
+    }),
+    tailwindAspectRatio,
     tailwindCssPluginPinegrow({
       colors: pg_colors, // primary, secondary etc
       fonts: getFontsWithFallback(pg_fonts),

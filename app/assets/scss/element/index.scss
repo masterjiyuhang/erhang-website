@@ -11,7 +11,7 @@ $-colors: (
     800: #abc4ff,
     900: #b8c0ff,
     950: #bbd0ff,
-    'base': #b8bedd,
+    'base': #2d7bd4,
   ),
   'success': (
     'base': #67c23a,
@@ -33,3 +33,7 @@ $-colors: (
 @forward 'element-plus/theme-chalk/src/common/var.scss' with (
   $colors: $-colors
 );
+
+// :root {
+//   --el-text-color-placeholder: $primary;
+// }
