@@ -45,7 +45,7 @@
       />
     </nav>
 
-    <MenuBar />
+    <!-- <MenuBar /> -->
   </div>
 </template>
 
