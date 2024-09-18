@@ -9,7 +9,7 @@
     title: 'Nav Menu',
     description: 'Global website nav menu.',
     type: 'secondary',
-    navOrder: 7,
+    navOrder: 111,
   })
 
   useSeoMeta({
