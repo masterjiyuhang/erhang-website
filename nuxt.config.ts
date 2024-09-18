@@ -14,6 +14,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiBaseUrl: '/api',
+      nestBaseUrl: '/base-api',
     },
   },
   extends: [

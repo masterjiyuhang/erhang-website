@@ -121,10 +121,13 @@
 <script setup lang="ts">
   import { Lock, User } from '@element-plus/icons-vue'
   import { useCssVar } from '@vueuse/core'
+
   definePageMeta({
     hidden: true, // 隐藏menu  不在nav上展示
     name: 'Login',
   })
+
+  const { post } = useUseRequest()
 
   const { vueApp } = useNuxtApp()
 
@@ -132,11 +135,25 @@
     showPassword: false,
     form: {
       username: 'erhang',
-      password: '123456',
+      password: '1234561',
     },
   })
   const form = ref(state.form)
-  const signIn = async (e) => {}
+  const signIn = async (e) => {
+    post(
+      `/auth/login`,
+      {
+        username: state.form.username,
+        password: state.form.password,
+      },
+      {},
+      {
+        baseApi: '/base-api/v1/api',
+      },
+    ).catch((err) => {
+      console.log(err)
+    })
+  }
 
   const loginFormRef = ref(null)
 
