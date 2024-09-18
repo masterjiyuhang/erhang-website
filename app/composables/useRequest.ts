@@ -130,25 +130,72 @@ export const useUseRequest = () => {
       console.error('处理响应时发生错误:', error)
     }
   }
-  function fetch<T>(url: string, opt) {
+  function fetch<T>(url: string, opt: any, apiOptions: any = {}) {
     const options = opt
     options.lazy = options?.lazy ?? true
 
     const ccFetch = $fetch.create({
-      baseURL: publicConfig.apiBaseUrl ?? '/api',
+      baseURL: apiOptions?.baseApi ?? publicConfig.apiBaseUrl ?? '/api',
       onRequest: ({ request, options, error }) => {
         handleRequest(options)
       },
       onRequestError({ request, options, error }) {
+        console.log(
+          '🚀 ~ file: useRequest.ts:147 ~ onRequestError ~ error:',
+          error,
+        )
         return Promise.reject(error)
       },
       onResponse({ response, options, error }) {
         handleResponse(response)
       },
       onResponseError({ response, options, error }) {
+        // 检查是否有 response 数据
         if (response && response._data) {
-          return Promise.reject(error)
+          const { code, describe } = response._data
+
+          // // 根据不同的状态码进行统一处理
+          // switch (code) {
+          //   case 400:
+          //     // 处理客户端错误，如输入验证错误
+          //     console.error('400 错误: ', describe || '请求无效')
+          //     break
+          //   case 401:
+          //     // 处理未授权的请求
+          //     console.error('401 错误: 未授权')
+          //     // 可以选择在这里执行登出操作或者重定向到登录页
+          //     // logoutUser();
+          //     break
+          //   case 403:
+          //     // 处理权限不足的请求
+          //     console.error('403 错误: 权限不足')
+          //     break
+          //   case 404:
+          //     // 处理资源未找到的请求
+          //     console.error('404 错误: 资源未找到')
+          //     break
+          //   case 500:
+          //     // 处理服务器错误
+          //     console.error('500 错误: 服务器内部错误')
+          //     break
+          //   default:
+          //     // 处理其他错误
+          //     console.error('未知错误: ', describe || '发生了错误')
+          // }
+
+          // 将错误抛出，方便调用者可以根据情况处理
+          return Promise.reject({
+            message: describe || '请求失败',
+            code: code || 500,
+            data: response._data,
+          })
         }
+
+        // 如果 response 数据不存在，返回通用错误
+        return Promise.reject({
+          message: error.message || '发生未知错误',
+          code: 500,
+        })
       },
     })
     return ccFetch(url, options)
@@ -161,12 +208,16 @@ export const useUseRequest = () => {
     })
   }
 
-  const post = <T>(url: string, body = {}, params = {}) => {
-    return fetch<T>(url, {
-      method: 'POST',
-      body,
-      params,
-    })
+  const post = <T>(url: string, body = {}, params = {}, options = {}) => {
+    return fetch<T>(
+      url,
+      {
+        method: 'POST',
+        body,
+        params,
+      },
+      options,
+    )
   }
 
   return {
