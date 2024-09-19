@@ -40,6 +40,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
   nitro: {
+    preset: 'vercel-edge',
     devProxy: {
       '/base-api': {
         target: 'http://localhost:3000', // 本地环境
