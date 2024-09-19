@@ -21,6 +21,7 @@
     "nuxt": "^3.12.3",
     "nuxt-lodash": "^2.5.3",
     "pinia": "^2.1.7",
+    "element-plus": "^2.8.1",
     "vue": "^3.4.30",
     "vue-router": "^4.4.0"
   },
@@ -48,7 +49,6 @@
     "@vue/devtools": "^6.6.3",
     "@vueuse/nuxt": "^10.11.0",
     "autoprefixer": "^10.4.19",
-    "element-plus": "^2.8.1",
     "eslint": "^9.6.0",
     "eslint-config-prettier": "^9.1.0",
     "npm-run-all": "^4.1.5",
