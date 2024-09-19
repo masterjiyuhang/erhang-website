@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center items-center">
-    <!-- <el-popover
+    <el-popover
       placement="bottom"
       title="Title"
       :width="200"
@@ -10,13 +10,14 @@
       <template #reference>
         <el-button class="m-2">Click to activate</el-button>
       </template>
-    </el-popover> -->
+    </el-popover>
     <el-button class="m-2">Click to activate</el-button>
   </div>
 </template>
 
 <script setup>
-  // import { computed } from 'vue'
+import { ElPopover } from 'element-plus'
+// import { computed } from 'vue'
   // import bg_en from '@/assets/images/headerJoinUs/bg_popover_joinus_en@2x.png'
   // import bg_cn from '@/assets/images/headerJoinUs/bg_popover_joinus_cn@2x.png'
 
