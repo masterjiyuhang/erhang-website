@@ -76,7 +76,9 @@
   import bg_en from '../public/images/layouts/headerJoinUs/bg_popover_joinus_en@2x.png'
   import bg_cn from '../public/images/layouts/headerJoinUs/bg_popover_joinus_cn@2x.png'
 
-  const { isEnglish } = useGlobal()
+  const { locale } = useI18n()
+
+  const isEnglish = computed(() => locale.value === 'en')
   const currentImg = computed(() => {
     return isEnglish.value ? bg_en : bg_cn
   })
