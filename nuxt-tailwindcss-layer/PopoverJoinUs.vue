@@ -50,9 +50,9 @@
             3
           </h2>
         </div>
-        <button class="ml-4 join-btn">
+        <!-- <button class="ml-4 join-btn">
           {{ $t('home.JoinUs') }}
-        </button>
+        </button> -->
       </div>
       <template #reference>
         <div
