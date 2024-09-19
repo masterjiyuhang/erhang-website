@@ -9,14 +9,7 @@
       :show-arrow="false"
       popper-class="popover-join-us-content"
     >
-      <div
-        :style="{
-          backgroundImage: `url(${currentImg})`,
-          width: '332px',
-          height: isEnglish ? '274px' : '235px',
-        }"
-        class="join-us-content"
-      >
+      <div class="join-us-content">
         <!-- <h1 class="title">
           {{ $t('home.header.JoinMember.title') }}
         </h1> -->
@@ -64,7 +57,7 @@
       <template #reference>
         <div
           class="flex items-center justify-center cursor-pointer"
-          :class="isEnglish ? 'become-member-en' : 'become-member-cn'"
+          :class="'become-member-en'"
         >
           {{ getCnOrEn(`加入会员`, `Become a member`) }}
         </div>
@@ -74,14 +67,14 @@
 </template>
 
 <script setup>
-  import { computed } from 'vue'
-  import bg_en from '@/assets/images/headerJoinUs/bg_popover_joinus_en@2x.png'
-  import bg_cn from '@/assets/images/headerJoinUs/bg_popover_joinus_cn@2x.png'
+  // import { computed } from 'vue'
+  // import bg_en from '@/assets/images/headerJoinUs/bg_popover_joinus_en@2x.png'
+  // import bg_cn from '@/assets/images/headerJoinUs/bg_popover_joinus_cn@2x.png'
 
-  const isEnglish = ref(false)
-  const currentImg = computed(() => {
-    return isEnglish.value ? bg_en : bg_cn
-  })
+  // const isEnglish = ref(false)
+  // const currentImg = computed(() => {
+  //   return isEnglish.value ? bg_en : bg_cn
+  // })
   defineProps({
     top: {
       type: Number,
