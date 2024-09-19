@@ -1,74 +1,16 @@
 <template>
   <div class="flex justify-center items-center">
-    <el-button>asas</el-button>
-    <!-- <el-popover
-      placement="bottom-start"
-      :append-to-body="false"
-      :visible-arrow="false"
-      width="332"
+    <el-popover
+      placement="bottom"
+      title="Title"
+      :width="200"
       trigger="click"
-      :show-arrow="false"
-      popper-class="popover-join-us-content"
+      content="this is content, this is content, this is content"
     >
-      <div
-        :style="{
-          backgroundImage: `url(${currentImg})`,
-          width: '332px',
-          height: isEnglish ? '274px' : '235px',
-        }"
-        class="join-us-content"
-      >
-        <h1 class="title">
-          {{ $t('home.header.JoinMember.title') }}
-        </h1>
-        <div class="flex flex-col pl-4 pr-5 pb-6 items-start">
-          <h2
-            class="flex justify-start items-center flex-1 desc"
-            @click="viewMemberIntroduction"
-          >
-            <NuxtImg
-              class="icon mb-auto"
-              src="/images/layouts/headerJoinUs/icon_intro_why_1@2x.png"
-              alt=""
-            />
-            <span>{{ $t('home.header.JoinMember.desc1') }}</span>
-          </h2>
-          <h2
-            class="flex justify-center items-center flex-1 desc py-3"
-            @click="viewMemberIntroduction"
-          >
-            <NuxtImg
-              class="icon mb-auto"
-              src="/images/layouts/headerJoinUs/icon_intro_why_2@2x.png"
-              alt=""
-            />
-            <span class="ml-4">{{ $t('home.header.JoinMember.desc2') }}</span>
-          </h2>
-          <h2
-            class="flex justify-center items-center flex-1 desc"
-            @click="viewMemberIntroduction"
-          >
-            <NuxtImg
-              class="icon mb-auto"
-              src="/images/layouts/headerJoinUs/icon_intro_why_3@2x.png"
-              alt=""
-            />
-            <span>{{ $t('home.header.JoinMember.desc3') }}</span>
-          </h2>
-        </div>
-        <button class="ml-4 join-btn">
-          {{ $t('home.JoinUs') }}
-        </button>
-      </div>
       <template #reference>
-        <div
-          class="flex items-center justify-center cursor-pointer"
-          :class="isEnglish ? 'become-member-en' : 'become-member-cn'"
-        >
-          {{ getCnOrEn(`加入会员`, `Become a member`) }}
-        </div>
+        <el-button class="m-2">Click to activate</el-button>
       </template>
-    </el-popover> -->
+    </el-popover>
   </div>
 </template>
 
