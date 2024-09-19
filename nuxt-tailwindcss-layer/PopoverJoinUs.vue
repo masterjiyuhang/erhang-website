@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center items-center">
-    <el-popover
+    <!-- <el-popover
       placement="bottom"
       title="Title"
       :width="200"
@@ -10,7 +10,8 @@
       <template #reference>
         <el-button class="m-2">Click to activate</el-button>
       </template>
-    </el-popover>
+    </el-popover> -->
+    <el-button class="m-2">Click to activate</el-button>
   </div>
 </template>
 
@@ -37,7 +38,7 @@
   // function viewMemberIntroduction() {}
 </script>
 
-<style lang="scss">
+<!-- <style lang="scss">
   .become-member-en {
     width: 174px;
     height: 28px;
@@ -138,4 +139,4 @@
       display: none;
     }
   }
-</style>
+</style> -->
