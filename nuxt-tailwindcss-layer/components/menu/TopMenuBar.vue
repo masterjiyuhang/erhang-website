@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-    <div @click="navigateToLocalizedPath('/')">
+    <!-- <div @click="navigateToLocalizedPath('/')">
       <NuxtImg
         src="/images/panada2.png"
         class="w-[154px] h-[41px] cursor-pointer"
       />
-    </div>
+    </div> -->
 
     <div>
       <PopoverJoinUs />
@@ -15,7 +15,7 @@
 
 <script lang="ts" setup>
   import PopoverJoinUs from '../../PopoverJoinUs.vue'
-  const { navigateToLocalizedPath } = usePath()
+  // const { navigateToLocalizedPath } = usePath()
 </script>
 
 <style></style>
