@@ -1,6 +1,7 @@
 <template>
   <div class="flex justify-center items-center">
-    <el-popover
+    <el-button>asas</el-button>
+    <!-- <el-popover
       placement="bottom-start"
       :append-to-body="false"
       :visible-arrow="false"
@@ -9,10 +10,17 @@
       :show-arrow="false"
       popper-class="popover-join-us-content"
     >
-      <div class="join-us-content">
-        <!-- <h1 class="title">
+      <div
+        :style="{
+          backgroundImage: `url(${currentImg})`,
+          width: '332px',
+          height: isEnglish ? '274px' : '235px',
+        }"
+        class="join-us-content"
+      >
+        <h1 class="title">
           {{ $t('home.header.JoinMember.title') }}
-        </h1> -->
+        </h1>
         <div class="flex flex-col pl-4 pr-5 pb-6 items-start">
           <h2
             class="flex justify-start items-center flex-1 desc"
@@ -22,8 +30,8 @@
               class="icon mb-auto"
               src="/images/layouts/headerJoinUs/icon_intro_why_1@2x.png"
               alt=""
-            />1
-            <!-- <span>{{ $t('home.header.JoinMember.desc1') }}</span> -->
+            />
+            <span>{{ $t('home.header.JoinMember.desc1') }}</span>
           </h2>
           <h2
             class="flex justify-center items-center flex-1 desc py-3"
@@ -34,8 +42,7 @@
               src="/images/layouts/headerJoinUs/icon_intro_why_2@2x.png"
               alt=""
             />
-            <!-- <span class="ml-4">{{ $t('home.header.JoinMember.desc2') }}</span> -->
-            2
+            <span class="ml-4">{{ $t('home.header.JoinMember.desc2') }}</span>
           </h2>
           <h2
             class="flex justify-center items-center flex-1 desc"
@@ -46,35 +53,34 @@
               src="/images/layouts/headerJoinUs/icon_intro_why_3@2x.png"
               alt=""
             />
-            <!-- <span>{{ $t('home.header.JoinMember.desc3') }}</span> -->
-            3
+            <span>{{ $t('home.header.JoinMember.desc3') }}</span>
           </h2>
         </div>
-        <!-- <button class="ml-4 join-btn">
+        <button class="ml-4 join-btn">
           {{ $t('home.JoinUs') }}
-        </button> -->
+        </button>
       </div>
       <template #reference>
         <div
           class="flex items-center justify-center cursor-pointer"
-          :class="'become-member-en'"
+          :class="isEnglish ? 'become-member-en' : 'become-member-cn'"
         >
           {{ getCnOrEn(`加入会员`, `Become a member`) }}
         </div>
       </template>
-    </el-popover>
+    </el-popover> -->
   </div>
 </template>
 
 <script setup>
-  // import { computed } from 'vue'
-  // import bg_en from '@/assets/images/headerJoinUs/bg_popover_joinus_en@2x.png'
-  // import bg_cn from '@/assets/images/headerJoinUs/bg_popover_joinus_cn@2x.png'
+  import { computed } from 'vue'
+  import bg_en from '@/assets/images/headerJoinUs/bg_popover_joinus_en@2x.png'
+  import bg_cn from '@/assets/images/headerJoinUs/bg_popover_joinus_cn@2x.png'
 
-  // const isEnglish = ref(false)
-  // const currentImg = computed(() => {
-  //   return isEnglish.value ? bg_en : bg_cn
-  // })
+  const isEnglish = ref(false)
+  const currentImg = computed(() => {
+    return isEnglish.value ? bg_en : bg_cn
+  })
   defineProps({
     top: {
       type: Number,
