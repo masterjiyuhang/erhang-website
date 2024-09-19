@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center items-center">
-    <el-tooltip
+    <el-popover
       placement="bottom"
       title="Title"
       :width="200"
@@ -10,7 +10,7 @@
       <template #reference>
         <el-button class="m-2">Click to activate</el-button>
       </template>
-    </el-tooltip>
+    </el-popover>
   </div>
 </template>
 
