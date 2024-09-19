@@ -1,6 +1,7 @@
 <template>
   <div class="flex justify-center items-center">
     <el-popover
+      ref="popoverRef"
       placement="bottom-start"
       :append-to-body="false"
       :visible-arrow="false"
@@ -41,7 +42,7 @@
               src="/images/layouts/headerJoinUs/icon_intro_why_2@2x.png"
               alt=""
             />
-            <span class="ml-4">{{ $t('home.header.JoinMember.desc2') }}</span>
+            <span>{{ $t('home.header.JoinMember.desc2') }}</span>
           </h2>
           <h2
             class="flex justify-center items-center flex-1 desc"
@@ -55,7 +56,8 @@
             <span>{{ $t('home.header.JoinMember.desc3') }}</span>
           </h2>
         </div>
-        <button class="ml-4 join-btn">
+
+        <button class="ml-4 join-btn" @click="handleClickJoinUs">
           {{ $t('home.JoinUs') }}
         </button>
       </div>
@@ -80,6 +82,7 @@
   const currentImg = computed(() => {
     return isEnglish.value ? bg_en : bg_cn
   })
+  const popoverRef = ref(null)
   defineProps({
     top: {
       type: Number,
@@ -92,6 +95,15 @@
   })
 
   function viewMemberIntroduction() {}
+
+  const { $globalJoinUs } = useNuxtApp()
+  console.log('🚀 ~ file: PopoverJoinUs.vue:98 ~ globalJoinUs:', $globalJoinUs)
+  function handleClickJoinUs() {
+    popoverRef.value.hide()
+    $globalJoinUs({
+      link: 'https://www.jctrans.com/member/join',
+    })
+  }
 </script>
 
 <style lang="scss">
@@ -132,11 +144,12 @@
     width: 332px;
     min-height: 235px;
     padding: 0;
-    border: none;
+    border: none !important;
     border-radius: 8px;
     background: #000c31;
 
     --el-popover-padding: 0;
+    --el-popover-border-radius: 8px;
 
     .join-us-content {
       width: 100%;

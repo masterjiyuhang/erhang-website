@@ -52,6 +52,9 @@ export default defineNuxtConfig({
       apiBaseUrl: '/api2',
       nestBaseUrl: '/base-api',
       baseUrl: '/api',
+      constant: {
+        OPEN_JOIN_US: 'OPEN_JOIN_US',
+      },
     },
     app: {},
   },

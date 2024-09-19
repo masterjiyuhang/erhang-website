@@ -5,7 +5,6 @@
       class="min-h-screen h-screen overflow-scroll flex flex-col bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50"
     >
       <template v-if="!isLoginPage">
-        <!-- <NavBar class="fixed shadow z-20 bg-white dark:bg-neutral-950" /> -->
         <MenuBar />
         <div class="mt-52">
           <main class="shadow">
@@ -18,6 +17,9 @@
       <template v-else>
         <slot />
       </template>
+
+      <!-- 全局加入我们弹窗 -->
+      <JoinUsDialog />
     </div>
   </div>
 </template>

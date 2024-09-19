@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container flex">
     <div @click="navigateToLocalizedPath('/')">
       <NuxtImg
         src="/images/panada2.png"

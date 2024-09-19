@@ -115,6 +115,9 @@ devDependencies:
   eslint-config-prettier:
     specifier: ^9.1.0
     version: 9.1.0(eslint@9.6.0)
+  mitt:
+    specifier: ^3.0.1
+    version: 3.0.1
   npm-run-all:
     specifier: ^4.1.5
     version: 4.1.5
