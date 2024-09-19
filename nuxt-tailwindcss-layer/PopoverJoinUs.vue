@@ -73,8 +73,8 @@
 
 <script setup>
   import { computed } from 'vue'
-  import bg_en from '../public/images/layouts/headerJoinUs/bg_popover_joinus_en@2x.png'
-  import bg_cn from '../public/images/layouts/headerJoinUs/bg_popover_joinus_cn@2x.png'
+  import bg_en from '@/assets/images/headerJoinUs/bg_popover_joinus_en@2x.png'
+  import bg_cn from '@/assets/images/headerJoinUs/bg_popover_joinus_cn@2x.png'
 
   const isEnglish = ref(false)
   const currentImg = computed(() => {
