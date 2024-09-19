@@ -1,6 +1,7 @@
 <template>
   <div class="flex justify-center items-center">
-    <el-popover
+    加入我们吧
+    <!-- <el-popover
       placement="bottom-start"
       :append-to-body="false"
       :visible-arrow="false"
@@ -67,7 +68,7 @@
           加入会员
         </div>
       </template>
-    </el-popover>
+    </el-popover> -->
   </div>
 </template>
 
