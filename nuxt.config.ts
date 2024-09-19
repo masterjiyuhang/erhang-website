@@ -8,7 +8,6 @@ const { name, url } = site
 export default defineNuxtConfig({
   devServer: {
     port: 3555,
-    host: '0.0.0.0',
   },
 
   runtimeConfig: {
@@ -191,10 +190,10 @@ export default defineNuxtConfig({
     // dirs: ['my-components'],
   },
 
-  sourcemap: {
-    client: false,
-    server: false,
-  },
+  // sourcemap: {
+  //   client: false,
+  //   server: false,
+  // },
 
   routeRules: {
     '/hidden': { robots: false },
