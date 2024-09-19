@@ -8,7 +8,8 @@
     </div>
 
     <div>
-      <PopoverJoinUs />
+      <!-- <PopoverJoinUs /> -->
+      sss
     </div>
   </div>
 </template>
