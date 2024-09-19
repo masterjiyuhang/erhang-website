@@ -15,26 +15,26 @@
 </template>
 
 <script setup>
-  import { computed } from 'vue'
-  import bg_en from '@/assets/images/headerJoinUs/bg_popover_joinus_en@2x.png'
-  import bg_cn from '@/assets/images/headerJoinUs/bg_popover_joinus_cn@2x.png'
+  // import { computed } from 'vue'
+  // import bg_en from '@/assets/images/headerJoinUs/bg_popover_joinus_en@2x.png'
+  // import bg_cn from '@/assets/images/headerJoinUs/bg_popover_joinus_cn@2x.png'
 
-  const isEnglish = ref(false)
-  const currentImg = computed(() => {
-    return isEnglish.value ? bg_en : bg_cn
-  })
-  defineProps({
-    top: {
-      type: Number,
-      default: 6,
-    },
-    value: {
-      type: Boolean,
-      default: false,
-    },
-  })
+  // const isEnglish = ref(false)
+  // const currentImg = computed(() => {
+  //   return isEnglish.value ? bg_en : bg_cn
+  // })
+  // defineProps({
+  //   top: {
+  //     type: Number,
+  //     default: 6,
+  //   },
+  //   value: {
+  //     type: Boolean,
+  //     default: false,
+  //   },
+  // })
 
-  function viewMemberIntroduction() {}
+  // function viewMemberIntroduction() {}
 </script>
 
 <style lang="scss">
