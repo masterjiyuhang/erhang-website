@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "build": "nuxt build && mkdir .output/server/node_modules/@popperjs && mv .output/server/node_modules/@sxzz/popperjs-es .output/server/node_modules/@popperjs/core",
+    "build": "nuxt build",
     "now": "npm run build && npm run preview",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
@@ -25,7 +25,6 @@
     "vue-router": "^4.4.0"
   },
   "devDependencies": {
-    "@popperjs/core": "npm:@sxzz/popperjs-es@^2.11.7",
     "@element-plus/nuxt": "^1.0.10",
     "@iconify/json": "^2.2.226",
     "@nuxt/content": "^2.13.1",
