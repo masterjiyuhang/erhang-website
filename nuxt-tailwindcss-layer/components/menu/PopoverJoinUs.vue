@@ -97,7 +97,6 @@
   function viewMemberIntroduction() {}
 
   const { $globalJoinUs } = useNuxtApp()
-  console.log('🚀 ~ file: PopoverJoinUs.vue:98 ~ globalJoinUs:', $globalJoinUs)
   function handleClickJoinUs() {
     popoverRef.value.hide()
     $globalJoinUs({
