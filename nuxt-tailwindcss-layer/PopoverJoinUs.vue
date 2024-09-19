@@ -64,7 +64,7 @@
           class="flex items-center justify-center cursor-pointer"
           :class="isEnglish ? 'become-member-en' : 'become-member-cn'"
         >
-          {{ getCnOrEn(`加入会员`, `Become a member`) }}
+          加入会员
         </div>
       </template>
     </el-popover>
