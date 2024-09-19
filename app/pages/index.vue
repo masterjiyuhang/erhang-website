@@ -1,7 +1,7 @@
 <template>
   <!-- <div class="flex flex-col min-h-screen"> -->
   <div>
-    <el-popover
+    <!-- <el-popover
       placement="bottom"
       title="Title"
       :width="200"
@@ -11,7 +11,7 @@
       <template #reference>
         <el-button class="m-2">Click to activate</el-button>
       </template>
-    </el-popover>
+    </el-popover> -->
     <HomeTestComp />
     <HomeHeroSection />
     <CurveShape />
