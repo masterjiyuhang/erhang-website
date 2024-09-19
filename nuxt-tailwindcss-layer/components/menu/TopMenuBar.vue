@@ -9,7 +9,7 @@
 
     <div class="flex items-center">
       <!-- <PopoverJoinUs /> -->
-      <PhoneShow />
+      <!-- <PhoneShow /> -->
     </div>
   </div>
 </template>
