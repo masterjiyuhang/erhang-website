@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@nuxt/content": "^2.13.2",
-    "@nuxtjs/i18n": "^8.3.1",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "@pinia/nuxt": "^0.5.1",
     "@vee-validate/nuxt": "^4.13.1",
@@ -35,6 +34,7 @@
     "@nuxtjs/critters": "^0.7.1",
     "@nuxtjs/fontaine": "^0.4.3",
     "@nuxtjs/html-validator": "^1.8.2",
+    "@nuxtjs/i18n": "^8.5.3",
     "@nuxtjs/seo": "2.0.0-rc.12",
     "@pinegrow/nuxt-module": "^3.0.60",
     "@pinegrow/tailwindcss-plugin": "^3.0.25",
