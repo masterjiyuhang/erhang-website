@@ -14,11 +14,12 @@
     "format": "prettier --write \"**/*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts,html,css,md,mdx,json}\" !public --ignore-path .gitignore"
   },
   "dependencies": {
+    "@element-plus/nuxt": "^1.0.10",
     "@nuxtjs/i18n": "^8.3.1",
     "@pinia/nuxt": "^0.5.1",
     "@vee-validate/nuxt": "^4.13.1",
     "@vueuse/core": "^10.11.0",
-    "element-plus": "^2.8.1",
+    "element-plus": "^2.8.3",
     "nuxt": "^3.12.3",
     "nuxt-lodash": "^2.5.3",
     "pinia": "^2.1.7",
@@ -26,7 +27,6 @@
     "vue-router": "^4.4.0"
   },
   "devDependencies": {
-    "@element-plus/nuxt": "^1.0.10",
     "@iconify/json": "^2.2.226",
     "@nuxt/content": "^2.13.1",
     "@nuxt/eslint": "^0.3.13",

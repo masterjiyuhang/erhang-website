@@ -82,9 +82,9 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/eslint',
     '@nuxtjs/i18n',
-    '@element-plus/nuxt',
     'nuxt-lodash',
     '@nuxtjs/tailwindcss',
+    '@element-plus/nuxt',
   ],
 
   lodash: {
