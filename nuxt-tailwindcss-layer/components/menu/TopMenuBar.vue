@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts" setup>
-  import PopoverJoinUs from '../../PopoverJoinUs.vue'
+  import PopoverJoinUs from './PopoverJoinUs.vue'
   const { navigateToLocalizedPath } = usePath()
 </script>
 
