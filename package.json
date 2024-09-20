@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "builds": "nuxt build",
     "build": "nuxi build",
     "created": "mkdir .output/server/node_modules/@popperjs && mv .output/server/node_modules/@sxzz/popperjs-es .output/server/node_modules/@popperjs/core",
     "now": "npm run build && npm run preview",
@@ -41,6 +40,8 @@
     "@pinegrow/nuxt-module": "^3.0.60",
     "@pinegrow/tailwindcss-plugin": "^3.0.25",
     "@pinia-plugin-persistedstate/nuxt": "^1.2.1",
+    "@popperjs/core": "npm:@sxzz/popperjs-es@^2.11.7",
+    "@sxzz/popperjs-es": "^2.11.7",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.13",
@@ -57,8 +58,7 @@
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.39",
     "prettier": "^3.3.2",
-    "typescript": "^5.5.3",
-    "@popperjs/core": "npm:@sxzz/popperjs-es@^2.11.7"
+    "typescript": "^5.5.3"
   },
   "pnpm": {
     "overrides": {
@@ -68,5 +68,5 @@
   "overrides": {
     "nuxi": "3.8.4"
   },
-  "packageManager": "yarn@1.22.22"
+  "packageManager": "pnpm@8.15.6"
 }
