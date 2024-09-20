@@ -8,7 +8,7 @@
     </div>
 
     <div class="flex items-center">
-      <!-- <PopoverJoinUs /> -->
+      <PopoverJoinUs />
       <!-- <PhoneShow /> -->
     </div>
   </div>
