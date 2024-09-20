@@ -8,3 +8,7 @@
     </NuxtLayout>
   </div>
 </template>
+
+<script setup>
+  provideHeadlessUseId(() => useId())
+</script>
