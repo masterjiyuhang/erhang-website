@@ -14,12 +14,11 @@
     "format": "prettier --write \"**/*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts,html,css,md,mdx,json}\" !public --ignore-path .gitignore"
   },
   "dependencies": {
-    "@element-plus/nuxt": "^1.0.10",
-    "@nuxtjs/i18n": "^8.3.1",
+    "@nuxt/content": "^2.13.2",
+    "@nuxtjs/tailwindcss": "^6.12.1",
     "@pinia/nuxt": "^0.5.1",
     "@vee-validate/nuxt": "^4.13.1",
     "@vueuse/core": "^10.11.0",
-    "element-plus": "^2.8.3",
     "nuxt": "^3.12.3",
     "nuxt-lodash": "^2.5.3",
     "pinia": "^2.1.7",
@@ -27,16 +26,16 @@
     "vue-router": "^4.4.0"
   },
   "devDependencies": {
+    "@element-plus/nuxt": "^1.0.10",
     "@iconify/json": "^2.2.226",
-    "@nuxt/content": "^2.13.1",
     "@nuxt/eslint": "^0.3.13",
     "@nuxt/icon": "^1.0.0",
     "@nuxt/image": "^1.7.0",
     "@nuxtjs/critters": "^0.7.1",
     "@nuxtjs/fontaine": "^0.4.3",
     "@nuxtjs/html-validator": "^1.8.2",
+    "@nuxtjs/i18n": "^8.5.3",
     "@nuxtjs/seo": "2.0.0-rc.12",
-    "@nuxtjs/tailwindcss": "^6.12.1",
     "@pinegrow/nuxt-module": "^3.0.60",
     "@pinegrow/tailwindcss-plugin": "^3.0.25",
     "@pinia-plugin-persistedstate/nuxt": "^1.2.1",
@@ -49,12 +48,13 @@
     "@vue/devtools": "^6.6.3",
     "@vueuse/nuxt": "^10.11.0",
     "autoprefixer": "^10.4.19",
+    "element-plus": "^2.8.1",
     "eslint": "^9.6.0",
     "eslint-config-prettier": "^9.1.0",
+    "mitt": "^3.0.1",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.39",
     "prettier": "^3.3.2",
-    "tailwindcss": "^3.4.4",
     "typescript": "^5.5.3"
   },
   "pnpm": {

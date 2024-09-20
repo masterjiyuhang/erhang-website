@@ -3,7 +3,8 @@ export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
 
   const $customFetch = $fetch.create({
-    baseURL: (config.baseUrl as string) ?? 'http://localhost:3000/v1/api',
+    baseURL:
+      (config.public.baseFetchUrl as string) ?? 'http://localhost:3000/v1/api',
     onRequest({ request, options, error }) {
       console.log('🚀 ~ file: customFetch.ts:8 ~ onRequest ~ request:', request)
       if (userAuth.value) {

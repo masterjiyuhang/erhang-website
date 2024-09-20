@@ -1,61 +1,42 @@
 import presetIcons from '@unocss/preset-icons'
-import { resolve } from 'pathe'
 import { i18nConfig } from './app/config/i18n.config'
 import site from './site'
+import { resolve } from 'pathe'
 
 const { name, url } = site
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devServer: {
-    port: 3555,
-  },
-
-  runtimeConfig: {
-    public: {
-      apiBaseUrl: '/api',
-      nestBaseUrl: '/base-api',
-    },
-  },
   extends: [
     './nuxt-tailwindcss-layer', // NavBar and Footer components
   ],
 
-  // Defaults options
-  tailwindcss: {
-    cssPath: ['~/assets/css/tailwind.css', { injectPosition: 'first' }],
-    configPath: 'tailwind.config',
-    exposeConfig: {
-      level: 2,
-    },
-    config: {},
-    viewer: true,
+  future: {
+    compatibilityVersion: 4,
   },
-
+  routeRules: {
+    '/hidden': { robots: false },
+  },
+  sourcemap: {
+    client: false,
+    server: false,
+  },
   site: {
     name,
     url,
   },
 
-  compatibilityDate: '2024-04-03',
-  devtools: { enabled: true },
-  nitro: {
-    devProxy: {
-      '/base-api': {
-        target: 'http://localhost:3000', // 本地环境
-      },
-      '/jc-sit-sapi': {
-        target: 'https://sapi-sit.jctrans.com',
-      },
+  linkChecker: {
+    enabled: false,
+    excludeLinks: ['https://twitter.com/vuedesigner'],
+    report: {
+      html: true,
+      markdown: true,
     },
   },
-  future: {
-    compatibilityVersion: 4,
-  },
-
   app: {
     baseURL: '/',
     head: {
-      title: 'Nuxt 3',
+      title: 'Nuxt App',
       meta: [
         {
           name: 'viewport',
@@ -66,27 +47,69 @@ export default defineNuxtConfig({
     },
   },
 
+  runtimeConfig: {
+    public: {
+      apiBaseUrl: '/api2',
+      nestBaseUrl: '/base-api',
+      baseUrl: '/api',
+      constant: {
+        OPEN_JOIN_US: 'OPEN_JOIN_US',
+      },
+    },
+    app: {},
+  },
+
+  devServer: {
+    port: 3555,
+  },
+  css: ['@/assets/css/global.css', '@/assets/iconfont/iconfont.css'],
+
+  nitro: {
+    devProxy: {
+      '/base-api': {
+        target: 'http://localhost:3000', // 本地环境
+      },
+      '/jc-sit-sapi': {
+        target: 'https://sapi-sit.jctrans.com',
+      },
+    },
+  },
+  devtools: { enabled: true },
+
   modules: [
     '@pinegrow/nuxt-module',
     '@unocss/nuxt',
     '@nuxt/devtools',
-    '@nuxt/content',
-    '@vueuse/nuxt',
     '@pinia/nuxt',
     '@pinia-plugin-persistedstate/nuxt',
     '@nuxt/image',
     '@vee-validate/nuxt',
+    // '@nuxtjs/fontaine',
     '@nuxtjs/seo',
-    '@nuxtjs/fontaine',
-    '@nuxtjs/critters',
     '@nuxt/icon',
     '@nuxt/eslint',
     '@nuxtjs/i18n',
+    '@nuxtjs/fontaine',
+    '@nuxtjs/critters',
+    '@element-plus/nuxt',
     'nuxt-lodash',
     '@nuxtjs/tailwindcss',
-    '@element-plus/nuxt',
+    '@nuxt/content',
   ],
+  fontMetrics: {
+    fonts: ['Inter', 'Kalam'],
+  },
 
+  critters: {
+    config: {
+      preload: 'swap',
+    },
+  },
+  i18n: i18nConfig,
+
+  tailwindcss: {
+    viewer: true,
+  },
   lodash: {
     prefix: '_',
     prefixSkip: ['string'],
@@ -99,23 +122,26 @@ export default defineNuxtConfig({
     ],
   },
 
-  fontMetrics: {
-    fonts: ['Inter', 'Kalam'],
-  },
-
-  critters: {
-    config: {
-      preload: 'swap',
+  image: {
+    format: ['webp, png, jpg'],
+    providers: {
+      ipx: {
+        sharp: {
+          webp: {
+            quality: 120,
+          },
+        },
+      },
     },
-  },
-
-  css: ['@/assets/css/global.css', '@/assets/iconfont/iconfont.css'],
-
-  postcss: {
-    plugins: {
-      'tailwindcss/nesting': {},
-      tailwindcss: {},
-      autoprefixer: {},
+    // dir: 'assets/images',
+    presets: {
+      avatar: {
+        modifiers: {
+          format: 'webp',
+          width: 100,
+          height: 100,
+        },
+      },
     },
   },
 
@@ -137,9 +163,41 @@ export default defineNuxtConfig({
     },
   },
 
+  pinia: {
+    storesDirs: ['app/stores/**'],
+  },
+  unocss: {
+    presets: [
+      presetIcons({
+        prefix: 'i-', // default prefix, do not change
+      }),
+    ],
+  },
+
+  elementPlus: {
+    /** Options */
+    icon: 'ElIcon',
+    importStyle: 'scss',
+    themes: ['dark'],
+  },
+
+  pinegrow: {
+    liveDesigner: {
+      iconPreferredCase: 'unocss', // default value (can be removed), Nuxt UI uses the unocss format for icon names
+      devtoolsKey: 'devtoolsKey', // see plugins/devtools.client.ts
+      tailwindcss: {
+        /* Please ensure that you update the filenames and paths to accurately match those used in your project. */
+        configPath: 'tailwind.config.ts',
+        cssPath: '@/assets/css/tailwind.css',
+
+        restartOnThemeUpdate: true,
+      },
+    },
+  },
+
   content: {
     sources: {
-      contetnt: {
+      content: {
         driver: 'fs',
         base: resolve(__dirname, 'app/content'),
       },
@@ -158,88 +216,5 @@ export default defineNuxtConfig({
       ],
     },
   },
-
-  pinia: {
-    storesDirs: ['app/stores/**'],
-  },
-
-  image: {
-    format: ['webp, png, jpg'],
-    providers: {
-      ipx: {
-        sharp: {
-          webp: {
-            quality: 80,
-          },
-        },
-      },
-    },
-    // dir: 'assets/images',
-    presets: {
-      avatar: {
-        modifiers: {
-          format: 'webp',
-          width: 100,
-          height: 100,
-        },
-      },
-    },
-  },
-
-  imports: {
-    // dirs: ['my-components'],
-  },
-
-  // sourcemap: {
-  //   client: false,
-  //   server: false,
-  // },
-
-  routeRules: {
-    '/hidden': { robots: false },
-  },
-
-  linkChecker: {
-    enabled: false,
-    excludeLinks: ['https://twitter.com/vuedesigner'],
-    report: {
-      html: true,
-      markdown: true,
-    },
-  },
-
-  unocss: {
-    presets: [
-      presetIcons({
-        prefix: 'i-', // default prefix, do not change
-      }),
-    ],
-  },
-
-  // i18n: {
-  //   vueI18n: './app/config/i18n.config.ts',
-  // },
-  i18n: i18nConfig,
-
-  plugins: [],
-
-  pinegrow: {
-    liveDesigner: {
-      iconPreferredCase: 'unocss', // default value (can be removed), Nuxt UI uses the unocss format for icon names
-      devtoolsKey: 'devtoolsKey', // see plugins/devtools.client.ts
-      tailwindcss: {
-        /* Please ensure that you update the filenames and paths to accurately match those used in your project. */
-        configPath: 'tailwind.config.ts',
-        cssPath: '@/assets/css/tailwind.css',
-
-        restartOnThemeUpdate: true,
-      },
-    },
-  },
-
-  elementPlus: {
-    /** Options */
-    icon: 'ElIcon',
-    importStyle: 'scss',
-  },
+  compatibilityDate: '2024-09-19',
 })
