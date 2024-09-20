@@ -5,7 +5,7 @@
   "scripts": {
     "builds": "nuxt build",
     "build": "nuxi build && npm run created",
-    "created": "mkdir .output/server/node_modules/@popperjs && mv .output/server/node_modules/@sxzz/popperjs-es .output/server/node_modules/@popperjs/core",
+    "created": "mkdir .vercel/output/server/node_modules/@popperjs && mv .vercel/output/server/node_modules/@sxzz/popperjs-es .vercel/output/server/node_modules/@popperjs/core",
     "now": "npm run build && npm run preview",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
