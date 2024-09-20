@@ -65,6 +65,7 @@ export default defineNuxtConfig({
   css: ['@/assets/css/global.css', '@/assets/iconfont/iconfont.css'],
 
   nitro: {
+    preset: 'vercel-edge',
     devProxy: {
       '/base-api': {
         target: 'http://localhost:3000', // 本地环境
