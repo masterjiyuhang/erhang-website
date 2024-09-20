@@ -95,6 +95,7 @@ export default defineNuxtConfig({
     'nuxt-lodash',
     '@nuxtjs/tailwindcss',
     '@nuxt/content',
+    'nuxt-headlessui',
   ],
   fontMetrics: {
     fonts: ['Inter', 'Kalam'],
@@ -215,6 +216,9 @@ export default defineNuxtConfig({
         ],
       ],
     },
+  },
+  headlessui: {
+    prefix: 'Headless',
   },
   compatibilityDate: '2024-09-19',
 })

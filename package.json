@@ -20,6 +20,7 @@
     "@vee-validate/nuxt": "^4.13.1",
     "@vueuse/core": "^10.11.0",
     "nuxt": "^3.12.3",
+    "nuxt-headlessui": "^1.2.0",
     "nuxt-lodash": "^2.5.3",
     "pinia": "^2.1.7",
     "vue": "^3.4.30",
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "@element-plus/nuxt": "^1.0.10",
+    "@headlessui/tailwindcss": "^0.2.1",
     "@iconify/json": "^2.2.226",
     "@nuxt/eslint": "^0.3.13",
     "@nuxt/icon": "^1.0.0",
