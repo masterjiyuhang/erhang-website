@@ -1,5 +1,70 @@
 <template>
-  <el-popover
+  <BasePopover trigger="hover">
+    <template #button>
+      <div class="phone-show mx-6">
+        <NuxtImg
+          :src="'/images/layouts/headerPhoneShow/icon_phone_nor@2x.png'"
+          alt=""
+        />
+      </div>
+    </template>
+    <div
+      class="header-phone-show-content overflow-hidden rounded-lg shadow-lg ring-1 ring-black/5"
+    >
+      <div class="phone-show-content">
+        <div class="phone-show-content__left flex flex-wrap flex-col">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-col space-between h-[96px]">
+              <p class="title">{{ getCnOrEn(`移动端`, 'Mobile Version') }}</p>
+              <p class="desc">
+                {{
+                  getCnOrEn(
+                    `商机合作更便捷`,
+                    `Convenient way to develop business`,
+                  )
+                }}
+              </p>
+              <p class="paper mt-auto">
+                {{
+                  getCnOrEn(`扫码体验移动端`, `Scan QR code for mobile version`)
+                }}
+              </p>
+            </div>
+            <div class="shrink-0">
+              <img :src="qr_h5" class="w-[96px] h-[96px]" />
+            </div>
+          </div>
+          <img :src="cutline_phone" alt="" class="my-6 w-full" />
+          <div class="flex items-center justify-between">
+            <div class="flex flex-col space-between h-[96px]">
+              <p class="title">
+                {{ getCnOrEn(`全球会议APP`, 'JCtrans Event APP') }}
+              </p>
+              <p class="desc">
+                {{
+                  getCnOrEn(
+                    `打造舒适的有价值的会议体验`,
+                    `Create a comfortable & valuable conference experience`,
+                  )
+                }}
+              </p>
+              <p class="paper mt-auto">
+                {{ getCnOrEn(`扫码下载APP`, `Scan QR code to download`) }}
+              </p>
+            </div>
+            <div class="shrink-0">
+              <img :src="qr_app" class="w-[96px] h-[96px]" />
+            </div>
+          </div>
+        </div>
+        <div class="phone-show-content__logo relative overflow-hidden">
+          <img :src="EventLogo" alt="" class="absolute" />
+        </div>
+      </div>
+    </div>
+  </BasePopover>
+
+  <!-- <el-popover
     size="mini"
     :trigger="isDev ? 'click' : 'hover'"
     :placement="'bottom'"
@@ -13,58 +78,8 @@
         />
       </div>
     </template>
-    <div class="phone-show-content">
-      <div class="phone-show-content__left flex flex-wrap flex-col">
-        <div class="flex items-center justify-between">
-          <div class="flex flex-col space-between h-[96px]">
-            <p class="title">{{ getCnOrEn(`移动端`, 'Mobile Version') }}</p>
-            <p class="desc">
-              {{
-                getCnOrEn(
-                  `商机合作更便捷`,
-                  `Convenient way to develop business`,
-                )
-              }}
-            </p>
-            <p class="paper mt-auto">
-              {{
-                getCnOrEn(`扫码体验移动端`, `Scan QR code for mobile version`)
-              }}
-            </p>
-          </div>
-          <div class="shrink-0">
-            <img :src="qr_h5" class="w-[96px] h-[96px]" />
-          </div>
-        </div>
-        <!-- <div class="border my-6"></div> -->
-        <img :src="cutline_phone" alt="" class="my-6 w-full" />
-        <div class="flex items-center justify-between">
-          <div class="flex flex-col space-between h-[96px]">
-            <p class="title">
-              {{ getCnOrEn(`全球会议APP`, 'JCtrans Event APP') }}
-            </p>
-            <p class="desc">
-              {{
-                getCnOrEn(
-                  `打造舒适的有价值的会议体验`,
-                  `Create a comfortable & valuable conference experience`,
-                )
-              }}
-            </p>
-            <p class="paper mt-auto">
-              {{ getCnOrEn(`扫码下载APP`, `Scan QR code to download`) }}
-            </p>
-          </div>
-          <div class="shrink-0">
-            <img :src="qr_app" class="w-[96px] h-[96px]" />
-          </div>
-        </div>
-      </div>
-      <div class="phone-show-content__logo relative overflow-hidden">
-        <img :src="EventLogo" alt="" class="absolute" />
-      </div>
-    </div>
-  </el-popover>
+    
+  </el-popover> -->
 </template>
 
 <script lang="ts" setup>
