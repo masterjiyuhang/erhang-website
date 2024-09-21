@@ -6,11 +6,19 @@
     <HeadlessPopoverButton
       as="div"
       class="group inline-flex items-center rounded-md text-base font-medium outline-none"
-      @mouseover="(e) => hoverPopover(e, open)"
-      @mouseleave="closePopover(close)"
     >
-      <slot name="button">
-        <span>{{ btnTitle }}</span>
+      <slot
+        name="button"
+        :hover-popover="hoverPopover"
+        :close-popover="closePopover"
+        :open="open"
+        :close="close"
+      >
+        <span
+          @mouseover="(e) => hoverPopover(e, open)"
+          @mouseleave="closePopover(close)"
+          >{{ btnTitle }}</span
+        >
       </slot>
     </HeadlessPopoverButton>
     <transition

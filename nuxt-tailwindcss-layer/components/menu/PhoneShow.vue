@@ -1,7 +1,11 @@
 <template>
   <BasePopover trigger="hover">
-    <template #button>
-      <div class="phone-show mx-6">
+    <template #button="{ hoverPopover, closePopover, close, open }">
+      <div
+        class="phone-show mx-6 cursor-pointer"
+        @mouseover="(e) => hoverPopover(e, open)"
+        @mouseleave="closePopover(close)"
+      >
         <NuxtImg
           :src="'/images/layouts/headerPhoneShow/icon_phone_nor@2x.png'"
           alt=""
