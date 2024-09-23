@@ -1,14 +1,16 @@
 <template>
   <div
-    class="min-w-full sm:px-0 flex flex-col bg-tertiary-100 text-black fixed z-50 transition-all duration-700 ease-in-out"
+    class="min-w-full sm:px-0 flex flex-col text-white fixed z-50 transition-all duration-700 ease-in-out menu-header"
     :style="{
-      top: isScroll ? '-48px' : '0',
+      top: isScroll ? (isScrollUp ? '0' : '-48px') : '0',
     }"
   >
-    <div class="flex flex-1 font-bold h-24 items-center justify-between">
-      <TopMenuBar />
+    <div class="h-12 py-2 flex font-bold items-center justify-between">
+      <TopMenuBar :is-white="!isScroll" />
     </div>
-    <div><BottomMenuBar />{{ isScroll }}</div>
+    <div class="container h-12">
+      <BottomMenuBar />
+    </div>
   </div>
 </template>
 
@@ -20,6 +22,10 @@
     scrollY: {
       type: Number,
       default: 0,
+    },
+    isScrollUp: {
+      type: Boolean,
+      default: false,
     },
     arrivedState: {
       type: Object,
@@ -39,4 +45,8 @@
   const isTop = computed(() => props.arrivedState.top)
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+  .menu-header {
+    background-color: transparent;
+  }
+</style>

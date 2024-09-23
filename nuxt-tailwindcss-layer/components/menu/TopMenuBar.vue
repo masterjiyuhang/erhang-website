@@ -2,14 +2,18 @@
   <div class="container flex justify-between">
     <div @click="navigateToLocalizedPath('/')">
       <NuxtImg
-        src="/images/panada2.png"
-        class="w-[154px] h-[41px] cursor-pointer"
+        :src="
+          isWhite
+            ? 'https://resources.jctrans.com/res/hzh/pc/img/logo_dark@2x.png'
+            : 'https://resources.jctrans.com/res/hzh/pc/img/logo_nor@2x.png'
+        "
+        class="w-[298px] h-[32px] cursor-pointer"
       />
     </div>
 
     <div class="flex items-center">
       <PopoverJoinUs />
-      <PhoneShow />
+      <PhoneShow :is-white="isWhite" />
       <LoginShow />
     </div>
   </div>
@@ -21,6 +25,9 @@
   import LoginShow from './LoginShow.vue'
 
   const { navigateToLocalizedPath } = usePath()
+  defineProps({
+    isWhite: { type: Boolean, default: false },
+  })
 </script>
 
 <style></style>

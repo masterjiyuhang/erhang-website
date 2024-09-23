@@ -7,7 +7,11 @@
         @mouseleave="closePopover(close)"
       >
         <NuxtImg
-          :src="'/images/layouts/headerPhoneShow/icon_phone_nor@2x.png'"
+          :src="
+            isWhite
+              ? '/images/layouts/headerPhoneShow/icon_phone_dark@2x.png'
+              : '/images/layouts/headerPhoneShow/icon_phone_nor@2x.png'
+          "
           alt=""
         />
       </div>
@@ -67,23 +71,6 @@
       </div>
     </div>
   </BasePopover>
-
-  <!-- <el-popover
-    size="mini"
-    :trigger="isDev ? 'click' : 'hover'"
-    :placement="'bottom'"
-    popper-class="header-phone-show-content"
-  >
-    <template #reference>
-      <div class="phone-show mx-6">
-        <NuxtImg
-          :src="'/images/layouts/headerPhoneShow/icon_phone_nor@2x.png'"
-          alt=""
-        />
-      </div>
-    </template>
-    
-  </el-popover> -->
 </template>
 
 <script lang="ts" setup>
@@ -93,6 +80,10 @@
   import qr_app from '@/assets/images/headerPhone/img_qr_app@2x.png'
   const isDev = computed(() => {
     return import.meta.env.MODE === 'development'
+  })
+
+  defineProps({
+    isWhite: { type: Boolean, default: false },
   })
 </script>
 <style lang="scss" scoped>
