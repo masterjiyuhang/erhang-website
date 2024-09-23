@@ -23,6 +23,7 @@
     navOrder: 1,
     type: 'primary',
     icon: 'i-mdi-home',
+    isWhite: true,
   })
 </script>
 

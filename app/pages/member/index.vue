@@ -9,6 +9,7 @@
     navOrder: 2,
     type: 'secondary',
     icon: 'i-mdi-home',
+    isWhite: false,
   })
 </script>
 

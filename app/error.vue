@@ -24,6 +24,10 @@
   function handleError() {
     return clearError({ redirect: '/' })
   }
+
+  definePageMeta({
+    isWhite: true,
+  })
 </script>
 <template>
   <NuxtLoadingIndicator />

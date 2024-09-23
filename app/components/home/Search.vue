@@ -1,5 +1,7 @@
 <template>
-  <div class="home-search">Home Search</div>
+  <div class="home-search">
+    <div class="text-white pt-32 container">Home Search</div>
+  </div>
 </template>
 
 <script lang="ts" setup></script>
