@@ -1,3 +1,7 @@
+import { isClient } from '@vueuse/core'
+
 export default defineNuxtRouteMiddleware((to, from) => {
-  console.log('running global auth middleware.')
+  if (isClient) {
+    console.log('running global auth middleware.')
+  }
 })
