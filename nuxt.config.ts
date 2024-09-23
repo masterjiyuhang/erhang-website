@@ -62,7 +62,11 @@ export default defineNuxtConfig({
   devServer: {
     port: 3555,
   },
-  css: ['@/assets/css/global.css', '@/assets/iconfont/iconfont.css'],
+  css: [
+    '@/assets/css/global.css',
+    '@/assets/iconfont/iconfont.css',
+    '@/assets/fonts/index.css',
+  ],
 
   nitro: {
     devProxy: {

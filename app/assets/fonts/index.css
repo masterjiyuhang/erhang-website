@@ -1,0 +1,104 @@
+@font-face {
+  font-family: Poppins-Regular;
+  src: url(./Poppins-Regular.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins-Medium;
+  src: url(./Poppins-Medium.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins-SemiBold;
+  src: url(./Poppins-SemiBold.ttf) format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins-SemiBoldItalic;
+  src: url(./Poppins-SemiBoldItalic.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url(./Poppins-Bold.ttf) format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins-Black;
+  src: url(./Poppins-Bold.ttf) format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins-ExtraBold;
+  src: url(./Poppins-ExtraBold.ttf) format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins-R;
+  src: url(./Poppins-Regular.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins-M;
+  src: url(./Poppins-Medium.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins-S;
+  src: url(./Poppins-SemiBold.ttf) format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins-I;
+  src: url(./Poppins-SemiBoldItalic.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins-B;
+  src: url(./Poppins-Bold.ttf) format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins-Black;
+  src: url(./Poppins-Bold.ttf) format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins-E;
+  src: url(./Poppins-ExtraBold.ttf) format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Poppins;
+  src: url(./Poppins-Regular.ttf) format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
