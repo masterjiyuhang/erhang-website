@@ -1,12 +1,20 @@
 <template>
   <!-- <div class="flex flex-col min-h-screen"> -->
-  <div>
+  <div class="-top-24 relative">
     <HomeSearch />
+    <HomeTopBanner />
     <HomeTestComp />
     <HomeHeroSection />
     <CurveShape />
     <HomeHeroCard />
     <HomeAboutUs />
+
+    <div
+      class="h-[235px] w-[90px] bg-[#7e7e7e] absolute top-[370px] left-0 lg:left-[8%]"
+    ></div>
+    <div
+      class="h-[235px] w-[90px] bg-[#7e7e7e] absolute top-[370px] right-0 lg:right-[8%]"
+    ></div>
   </div>
 </template>
 

@@ -50,7 +50,6 @@
     background-size: cover;
     background-position: center;
     height: 325px;
-    top: -96px;
     position: relative;
   }
 </style>
