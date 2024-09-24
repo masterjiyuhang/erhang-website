@@ -52,6 +52,7 @@ export default defineNuxtConfig({
       apiBaseUrl: '/api2',
       nestBaseUrl: '/base-api',
       baseUrl: '/api',
+      baseFetchUrl: 'https://api-dev2.jctrans.com',
       constant: {
         OPEN_JOIN_US: 'OPEN_JOIN_US',
       },
@@ -60,7 +61,7 @@ export default defineNuxtConfig({
   },
 
   devServer: {
-    port: 3555,
+    port: 8095,
   },
   css: [
     '@/assets/css/global.css',
@@ -75,6 +76,11 @@ export default defineNuxtConfig({
       },
       '/jc-sit-sapi': {
         target: 'https://sapi-sit.jctrans.com',
+      },
+      '/api2': {
+        target: 'https://api-dev2.jctrans.com',
+        changeOrigin: true,
+        secure: false,
       },
     },
   },

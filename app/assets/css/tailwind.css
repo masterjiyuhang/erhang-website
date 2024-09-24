@@ -6,6 +6,10 @@
   .btn-blue {
     @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
   }
+
+  .bg-home-search {
+    background: linear-gradient(90deg, #ff5000 0%, #ff8f12 100%);
+  }
 }
 
 @layer base {
@@ -13,6 +17,6 @@
   optgroup,
   select,
   textarea {
-    @apply text-black;
+    @apply text-black border-none outline-none;
   }
 }

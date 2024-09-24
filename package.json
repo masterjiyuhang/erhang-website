@@ -29,6 +29,7 @@
   "devDependencies": {
     "@element-plus/nuxt": "^1.0.10",
     "@headlessui/tailwindcss": "^0.2.1",
+    "@heroicons/vue": "^2.1.5",
     "@iconify/json": "^2.2.226",
     "@nuxt/eslint": "^0.3.13",
     "@nuxt/icon": "^1.0.0",

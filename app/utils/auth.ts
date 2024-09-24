@@ -13,7 +13,7 @@ function getToken() {
 
 // 工程默认APPID获取
 function getAppId() {
-  return 'ERA'
+  return 'HZH'
 }
 
 // 设置 token

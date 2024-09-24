@@ -3,7 +3,7 @@ import { defineStore } from 'pinia'
 export const useMySystemStore = defineStore({
   id: 'mySystemStore',
   state: () => ({
-    appId: 'ERA',
+    appId: getAppId(),
   }),
   getters: {
     appid: (state) => {

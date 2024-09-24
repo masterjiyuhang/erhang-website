@@ -1,5 +1,5 @@
 import { useMySystemStore } from './../stores/system'
-import { useStorage } from '@vueuse/core'
+import { useSessionStorage, useStorage } from '@vueuse/core'
 
 // 标识位
 let confirm = false
