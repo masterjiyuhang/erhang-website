@@ -1,16 +1,30 @@
 <template>
-  <div class="base-title-sww" @click="$emit('click')">{{ title }}</div>
+  <div class="base-title-sww" @click="$emit('click')">
+    <div>{{ title }}</div>
+    <div
+      v-if="showMore"
+      class="w-10 text-xs text-paper-50 ml-auto flex items-center"
+      @click.stop="() => $emit('more')"
+    >
+      更多<ChevronRightIcon class="size-4" />
+    </div>
+  </div>
 </template>
 
 <script lang="ts" setup>
+  import { ChevronRightIcon } from '@heroicons/vue/16/solid'
   defineProps({
     title: {
       type: String,
       default: '默认标题',
     },
+    showMore: {
+      type: Boolean,
+      default: false,
+    },
   })
 
-  defineEmits(['click'])
+  defineEmits(['click', 'more'])
 </script>
 
 <style lang="scss" scoped>
@@ -19,11 +33,10 @@
     font-family:
       Alibaba PuHuiTi-Bold,
       Alibaba PuHuiTi,
-      Poppins-B;
+      Poppins-R;
     font-weight: bold;
     font-size: 18px;
     color: #242323;
-    line-height: 21px;
     text-align: left;
     display: flex;
     align-items: center;
