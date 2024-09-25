@@ -3,6 +3,7 @@
   <div class="-top-24 relative">
     <HomeSearch />
     <HomeTopBanner />
+
     <HomeTestComp />
     <HomeHeroSection />
     <CurveShape />

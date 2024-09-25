@@ -1,14 +1,14 @@
 <template>
-  <div class="flex container">
-    <div class="w-[25.8%]">
+  <div class="flex container top-banner">
+    <div class="w-[310px]">
       <div class="w-full h-20 bg-primary-100"></div>
-      <div class="w-full h-20 bg-primary-100 mt-1.5"></div>
+      <div class="w-full h-20 bg-primary-100 my-1.5"></div>
 
       <!-- 今日焦点 -->
-      <div class="mt-1.5">
-        <BaseTitle :title="'今日焦点'" />
+      <div class="pt-2">
+        <BaseTitle :title="'今日焦点'" class="my-2" />
         <div
-          class="h-[131px] mt-2 p-2 bg-white rounded shadow-custom-banner font-extrabold"
+          class="h-[131px] p-2 bg-white rounded shadow-custom-banner font-extrabold"
         >
           <div class="text-primary text-xl mb-2 cursor-pointer">
             震惊！CMA首次穿越红海
@@ -27,10 +27,10 @@
       </div>
 
       <!-- 航运企业公告 -->
-      <div class="mt-1.5">
+      <div class="pt-2 mt-1.5">
         <BaseTitle :title="'航运企业公告'" />
         <div
-          class="h-24 mt-2 p-2 bg-white rounded shadow-custom-banner font-normal"
+          class="h-[92px] mt-2 p-2 bg-white rounded shadow-custom-banner font-normal"
         >
           <div v-for="(item, i) in ShippingCompanyAnnouncementList" :key="i">
             <div
@@ -133,18 +133,71 @@
       <!-- 首屏左侧按钮  -->
       <div class="w-full h-[45px] mt-1.5 bg-primary-100 rounded"></div>
     </div>
-    <div class="mx-1.5 flex-1">
+    <div class="mx-1.5 flex-1 min-w-[648px]">
       <div class="w-full h-20 bg-primary-100"></div>
       <div class="w-full h-[250px] bg-primary-100 mt-1.5"></div>
+      <!-- 精品商家展示 -->
+      <div class="w-full">
+        <div class="w-full px-2 py-1.5 sm:px-0">
+          <HeadlessTabGroup>
+            <HeadlessTabList class="flex space-x-0.5">
+              <HeadlessTab
+                v-for="category in Object.keys(categories)"
+                :key="category"
+                v-slot="{ selected }"
+                as="template"
+              >
+                <button
+                  :class="[
+                    'w-full max-w-20 h-9 truncate rounded px-4 py-2.5 text-xs font-normal leading-3',
+                    'ring-white/60 ring-offset-2 ring-offset-transparent focus:outline-none focus:ring-2',
+                    selected
+                      ? 'bg-primary text-white shadow'
+                      : 'bg-white text-paper hover:bg-primary/[0.62] hover:text-white',
+                  ]"
+                >
+                  {{ category }}
+                </button>
+              </HeadlessTab>
+            </HeadlessTabList>
+          </HeadlessTabGroup>
+        </div>
+        <BaseTitle :title="'精品商家'" class="my-2.5" />
+        <div>
+          <el-carousel
+            :interval="5000"
+            arrow="hover"
+            indicator-position="outside"
+            height="202px"
+          >
+            <el-carousel-item v-for="item in 4" :key="item">
+              <div class="w-full flex justify-between">
+                <div class="w-[320px] h-[202px] rounded bg-white"></div>
+                <div class="w-[320px] h-[202px] rounded bg-white"></div>
+              </div>
+            </el-carousel-item>
+          </el-carousel>
+        </div>
+      </div>
+
+      <div class="w-full pb-1.5">
+        <div class="flex space-x-[15px]">
+          <div class="h-20 w-[206px] bg-primary-100 rounded-lg border"></div>
+          <div class="h-20 w-[206px] bg-primary-100 rounded-lg border"></div>
+          <div class="h-20 w-[206px] bg-primary-100 rounded-lg border"></div>
+        </div>
+      </div>
+
+      <div class="w-full rounded shadow-custom-banner bg-white h-[45px]"></div>
     </div>
 
-    <div class="w-[25.8%]">
+    <div class="w-[230px]">
       <div class="w-full h-20 bg-primary-100"></div>
       <div class="w-full h-20 bg-primary-100 mt-1.5"></div>
 
       <!-- 物流企业公告 -->
-      <div class="mt-1.5">
-        <BaseTitle :title="'物流企业公告'" />
+      <div class="mt-1.5 pt-2">
+        <BaseTitle :title="'物流企业公告'" class="mt-1" />
         <div
           class="h-[275px] mt-2 py-2.5 px-3 bg-white rounded shadow-custom-banner font-normal"
         >
@@ -171,14 +224,68 @@
       </div>
 
       <div class="mt-1.5 w-full h-[88px] bg-primary-100 rounded"></div>
-      <div class="mt-1.5 w-full h-[88px] bg-primary-100 rounded"></div>
+      <div class="mt-1.5 w-full h-[100px] bg-primary-100 rounded"></div>
       <div class="mt-1.5 w-full h-[45px] bg-primary-100 rounded"></div>
       <div class="mt-1.5 w-full h-[45px] bg-primary-100 rounded"></div>
     </div>
   </div>
+  <div class="mt-1.5 flex container h-[120px]">
+    <div class="w-full bg-primary-100 rounded"></div>
+  </div>
 </template>
 
 <script lang="ts" setup>
+  const categories = ref({
+    Recent: [
+      {
+        id: 1,
+        title: 'Does drinking coffee make you smarter?',
+        date: '5h ago',
+        commentCount: 5,
+        shareCount: 2,
+      },
+      {
+        id: 2,
+        title: "So you've bought coffee... now what?",
+        date: '2h ago',
+        commentCount: 3,
+        shareCount: 2,
+      },
+    ],
+    Popular: [
+      {
+        id: 1,
+        title: 'Is tech making coffee better or worse?',
+        date: 'Jan 7',
+        commentCount: 29,
+        shareCount: 16,
+      },
+      {
+        id: 2,
+        title: 'The most innovative things happening in coffee',
+        date: 'Mar 19',
+        commentCount: 24,
+        shareCount: 12,
+      },
+    ],
+    Trending: [
+      {
+        id: 1,
+        title: 'Ask Me Anything: 10 answers to your questions about coffee',
+        date: '2d ago',
+        commentCount: 9,
+        shareCount: 5,
+      },
+      {
+        id: 2,
+        title: "The worst advice we've ever heard about coffee",
+        date: '4d ago',
+        commentCount: 1,
+        shareCount: 2,
+      },
+    ],
+  })
+
   // 航运企业公告
   const ShippingCompanyAnnouncementList = ref([
     {
@@ -238,4 +345,16 @@
   ])
 </script>
 
-<style></style>
+<style lang="scss">
+  .top-banner {
+    .el-carousel__button {
+      background-color: #d8d8d8;
+      opacity: 1;
+    }
+
+    .el-carousel__indicator.is-active button {
+      opacity: 1;
+      background-color: #ff6a00;
+    }
+  }
+</style>
