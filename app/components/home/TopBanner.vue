@@ -1,8 +1,8 @@
 <template>
-  <div class="flex container top-banner">
+  <div class="flex container p-0 relative -top-10 top-banner">
     <div class="w-[310px]">
-      <div class="w-full h-20 bg-primary-100"></div>
-      <div class="w-full h-20 bg-primary-100 my-1.5"></div>
+      <div class="w-full h-20 bg-primary-100 rounded"></div>
+      <div class="w-full h-20 bg-primary-100 my-1.5 rounded"></div>
 
       <!-- 今日焦点 -->
       <div class="pt-2">
@@ -134,8 +134,8 @@
       <div class="w-full h-[45px] mt-1.5 bg-primary-100 rounded"></div>
     </div>
     <div class="mx-1.5 flex-1 min-w-[648px]">
-      <div class="w-full h-20 bg-primary-100"></div>
-      <div class="w-full h-[250px] bg-primary-100 mt-1.5"></div>
+      <div class="w-full h-20 bg-primary-100 rounded"></div>
+      <div class="w-full h-[250px] bg-primary-100 mt-1.5 rounded"></div>
       <!-- 精品商家展示 -->
       <div class="w-full">
         <div class="w-full px-2 py-1.5 sm:px-0">
@@ -190,10 +190,9 @@
 
       <div class="w-full rounded shadow-custom-banner bg-white h-[45px]"></div>
     </div>
-
     <div class="w-[230px]">
-      <div class="w-full h-20 bg-primary-100"></div>
-      <div class="w-full h-20 bg-primary-100 mt-1.5"></div>
+      <div class="w-full h-20 bg-primary-100 rounded"></div>
+      <div class="w-full h-20 bg-primary-100 mt-1.5 rounded"></div>
 
       <!-- 物流企业公告 -->
       <div class="mt-1.5 pt-2">
@@ -229,7 +228,7 @@
       <div class="mt-1.5 w-full h-[45px] bg-primary-100 rounded"></div>
     </div>
   </div>
-  <div class="mt-1.5 flex container h-[120px]">
+  <div class="mt-1.5 flex container h-[120px] p-0 relative -top-10">
     <div class="w-full bg-primary-100 rounded"></div>
   </div>
 </template>

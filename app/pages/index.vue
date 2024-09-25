@@ -11,10 +11,10 @@
     <HomeAboutUs />
 
     <div
-      class="h-[235px] w-[90px] bg-[#7e7e7e] absolute top-[370px] left-0 lg:left-[8%]"
+      class="h-[235px] w-[90px] bg-[#7e7e7e] absolute top-[370px] left-0 xl:left-[8%] hidden 2xl:block"
     ></div>
     <div
-      class="h-[235px] w-[90px] bg-[#7e7e7e] absolute top-[370px] right-0 lg:right-[8%]"
+      class="h-[235px] w-[90px] bg-[#7e7e7e] absolute top-[370px] right-0 xl:right-[8%] hidden 2xl:block"
     ></div>
   </div>
 </template>

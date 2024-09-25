@@ -23,7 +23,8 @@ export default {
     },
     extend: {
       screens: {
-        '2xl': '1400px',
+        xl: '1200px',
+        '2xl': '1200px',
       },
       boxShadow: {
         'custom-banner': '0px 4px 6px 0px #E9E9E9',
