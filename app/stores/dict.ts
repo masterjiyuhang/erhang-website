@@ -298,10 +298,183 @@ export const useDictStore = defineStore({
         href: 'https://shipping.jctrans.com/air?fromId=2975&fromPortName=%E6%88%90%E9%83%BD&transportType=air&cabType=0&routerId=20000018',
       },
     ],
+
+    // 陆运 始发区域
+    landDepartures: [],
+    // 陆运 目的区域
+    landArrivals: [],
+    // 陆运 运输方式
+    landTransportTypes: [],
+
+    // 综合服务 快递公司
+    expressCompanies: [],
+    // 综合服务 仓储配送
+    warehouseDelivery: [],
+    // 综合服务 报关报检
+    customsDeclaration: [],
+    // 综合服务 多式联运
+    multimodalTransport: [],
+
+    // 海外代理 美洲
+    usOverseasAgents: [
+      {
+        name: '美国',
+        href: 'https://www.jctrans.com/cn/membership/list?countryId=dsf47Fb2n4ceSbczipUOKA%3D%3D&country=United%20States&memberYears=0',
+      },
+      {
+        name: '加拿大',
+        href: 'https://www.jctrans.com/cn/membership/list?countryId=oiVvUIob5Zbj39wcbw57%2Bw%3D%3D&country=Canada&memberYears=0',
+      },
+      {
+        name: '墨西哥',
+        href: 'https://www.jctrans.com/cn/membership/list?countryId=hrLnhlk1tcWEZ7SZOlamFg%3D%3D&country=Mexico&memberYears=0',
+      },
+      {
+        name: '巴西',
+        href: 'https://www.jctrans.com/cn/membership/list?countryId=Ofl0XUe8Yc3RMkMnP%2F9J6A%3D%3D&country=Brazil&memberYears=0',
+      },
+      {
+        name: '智利',
+        href: 'https://www.jctrans.com/cn/membership/list?countryId=WaOjuhQIvvGwdyUFaZVIRg%3D%3D&country=Chile&memberYears=0',
+      },
+    ],
+    // 海外代理 欧洲
+    europeOverseasAgents: [
+      {
+        name: '英国',
+        href: 'https://www.jctrans.com/cn/membership/list?countryId=KwAbhLyO1b0G1EfMxsrBRg%3D%3D&country=United%20Kingdom&memberYears=0',
+      },
+      {
+        name: '德国',
+        href: 'https://www.jctrans.com/cn/membership/list?countryId=hAWnz%2FwED29E4Nk6Y%2BS8UQ%3D%3D&country=Germany&memberYears=0',
+      },
+      {
+        name: '荷兰',
+        href: 'https://www.jctrans.com/cn/membership/list?countryId=Kd%2FxH0MJvFFbai%2BkJ6MmGA%3D%3D&country=Netherlands&memberYears=0',
+      },
+      {
+        name: '比利时',
+        href: 'https://www.jctrans.com/cn/membership/list?countryId=aD05rij1AyhXmRQWhz5VnA%3D%3D&country=Belgium&memberYears=0',
+      },
+      {
+        name: '法国',
+        href: 'https://www.jctrans.com/cn/membership/list?countryId=k5ZpzvYA1mb9b4Szkj4%2FGw%3D%3D&country=France&memberYears=0',
+      },
+    ],
+    // 海外代理 中东印巴
+    indiaOverseasAgents: [
+      {
+        name: '印度',
+        href: 'https://www.jctrans.com/cn/membership/list?countryId=mQ0kNs%2BVjbIXFi7IKz44%2BA%3D%3D&country=India&memberYears=0',
+      },
+      {
+        name: '巴基斯坦',
+        href: 'https://www.jctrans.com/cn/membership/list?countryId=%2FfWWhgtFozSfs3D%2B6Vm0dQ%3D%3D&country=Pakistan&memberYears=0',
+      },
+      {
+        name: '约旦',
+        href: 'https://www.jctrans.com/cn/membership/list?countryId=O0ZrJtSrKJ4C4icz%2FS%2BKFg%3D%3D&country=Jordan&memberYears=0',
+      },
+      {
+        name: '阿联酋迪拜',
+        href: 'https://www.jctrans.com/cn/membership/list?countryId=8ZRz%2Fg73oFxPcSqczMV7Yw%3D%3D&country=United%20Arab%20Emirates&memberYears=0',
+      },
+    ],
+    // 海外代理 东南亚
+    southeastAsiaOverseasAgents: [
+      {
+        name: '越南',
+        href: 'https://www.jctrans.com/cn/membership/list?countryId=rEVhnMSP%2F4IWyjEKM0ITVw%3D%3D&country=Vietnam&memberYears=0',
+      },
+      {
+        name: '马来西亚',
+        href: 'https://www.jctrans.com/cn/membership/list?countryId=lTRImS3H7pTq9425jPqvzQ%3D%3D&country=Malaysia&memberYears=0',
+      },
+      {
+        name: '泰国',
+        href: 'https://www.jctrans.com/cn/membership/list?countryId=39bOm4pbKuug9KNMMwbYxw%3D%3D&country=Thailand&memberYears=0',
+      },
+      {
+        name: '印尼',
+        href: 'https://www.jctrans.com/cn/membership/list?countryId=aAEf7ziPze%2BLJ1%2BMbXfAew%3D%3D&country=Indonesia&memberYears=0',
+      },
+      {
+        name: '菲律宾',
+        href: 'https://www.jctrans.com/cn/membership/list?countryId=a548Auk%2FFRE62dcGyAVljg%3D%3D&country=Philippines&memberYears=0',
+      },
+    ],
+    // 海外代理 非洲
+    africaOverseasAgents: [
+      {
+        name: '南非',
+        href: 'https://www.jctrans.com/cn/membership/list?countryId=2VeEXGhDP7CkEA%2F0aFcDvw%3D%3D&country=South%20Africa&memberYears=0',
+      },
+      {
+        name: '尼日利亚',
+        href: 'https://www.jctrans.com/cn/membership/list?countryId=8BzbsOx0rDmhi4B8zitwgg%3D%3D&country=Nigeria&memberYears=0',
+      },
+      {
+        name: '埃及',
+        href: 'https://www.jctrans.com/cn/membership/list?countryId=CAhM5FAwcWvGbLpNFg5tmQ%3D%3D&country=Egypt&memberYears=0',
+      },
+      {
+        name: '毛里求斯',
+        href: 'https://www.jctrans.com/cn/membership/list?countryId=756iXFCGG98ChCi213dDhg%3D%3D&country=Mauritius&memberYears=0',
+      },
+      {
+        name: '加纳',
+        href: 'https://www.jctrans.com/cn/membership/list?countryId=rR7gwq%2B9lK5LKwM9a6dngA%3D%3D&country=Ghana&memberYears=0',
+      },
+    ],
   }),
   getters: {
     nameDict(state) {
       return {
+        overseas: [
+          {
+            name: '美国',
+            dict: state.usOverseasAgents,
+          },
+          {
+            name: '欧洲',
+            dict: state.europeOverseasAgents,
+          },
+          {
+            name: '中东印巴',
+            dict: state.indiaOverseasAgents,
+          },
+          {
+            name: '东南亚',
+            dict: state.southeastAsiaOverseasAgents,
+          },
+          {
+            name: '非洲',
+            dict: state.africaOverseasAgents,
+          },
+        ],
+        comprehensive: [
+          {
+            name: '快递公司',
+            dict: state.expressCompanies,
+          },
+          {
+            name: '仓储配送',
+            dict: state.warehouseDelivery,
+          },
+          {
+            name: '报关报检',
+            dict: state.customsDeclaration,
+          },
+          {
+            name: '多式联运',
+            dict: state.multimodalTransport,
+          },
+        ],
+        land: [
+          { name: '始发区域', dict: state.landDepartures },
+          { name: '目的区域', dict: state.landArrivals },
+          { name: '运输方式', dict: state.landTransportTypes },
+        ],
         air: [
           {
             name: '国际到达',

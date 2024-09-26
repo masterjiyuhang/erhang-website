@@ -29,6 +29,9 @@ export default {
       boxShadow: {
         'custom-banner': '0px 4px 6px 0px #E9E9E9',
       },
+      borderRadius: {
+        'custom-rounded': '8px 8px 1px 8px',
+      },
     },
   },
   plugins: [

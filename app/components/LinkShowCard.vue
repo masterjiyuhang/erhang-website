@@ -2,6 +2,7 @@
   <div class="min-h-[75px] w-[661px] p-2 bg-white rounded">
     <div>
       <div
+        v-if="title"
         class="mb-2 w-full h-[19px] truncate text-sm font-bold text-paper leading-4 text-left"
       >
         {{ title }}
