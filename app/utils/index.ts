@@ -79,3 +79,13 @@ export function getFirstDomain() {
   const topLevelDomain = `.${parts.slice(-3).join('.')}`
   return topLevelDomain
 }
+
+export function splitArrayIntoGroups(arr: any[], groupSize: number) {
+  const result = []
+
+  for (let i = 0; i < arr.length; i += groupSize) {
+    result.push(arr.slice(i, i + groupSize))
+  }
+
+  return result
+}

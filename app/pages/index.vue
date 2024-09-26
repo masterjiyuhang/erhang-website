@@ -3,12 +3,13 @@
   <div class="-top-24 relative">
     <HomeSearch />
     <HomeTopBanner />
-
+    <HomeRecommendMerchant />
+    <HomeSeaTransport />
     <HomeTestComp />
-    <HomeHeroSection />
+    <!-- <HomeHeroSection />
     <CurveShape />
     <HomeHeroCard />
-    <HomeAboutUs />
+    <HomeAboutUs /> -->
 
     <div
       class="h-[235px] w-[90px] bg-[#7e7e7e] absolute top-[370px] left-0 xl:left-[8%] hidden 2xl:block"

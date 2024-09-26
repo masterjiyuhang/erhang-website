@@ -1,5 +1,9 @@
 <template>
-  <div class="base-title-sww" @click="$emit('click')">
+  <div
+    class="base-title-sww"
+    :class="[!showTag ? 'before:!hidden' : '']"
+    @click="$emit('click')"
+  >
     <div>{{ title }}</div>
     <div
       v-if="showMore"
@@ -21,6 +25,10 @@
     showMore: {
       type: Boolean,
       default: false,
+    },
+    showTag: {
+      type: Boolean,
+      default: true,
     },
   })
 

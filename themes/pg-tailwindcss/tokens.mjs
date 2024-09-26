@@ -102,7 +102,11 @@ const pg_colors = {
   },
   paper: {
     50: '#686868',
+    100: '#CFD1D5',
     DEFAULT: '#242323',
+  },
+  content: {
+    DEFAULT: '#f5f5f5',
   },
   primary: {
     50: '#ff8800',
