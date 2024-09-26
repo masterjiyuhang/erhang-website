@@ -13,7 +13,7 @@
       </div>
       <div class="w-[281px] bg-white rounded p-2">
         <BaseTitle :show-tag="false" show-more title="热门运价" />
-        <div class="flex flex-col space-y-2">
+        <div class="flex flex-col space-y-2 mt-2">
           <div v-for="item in 3" :key="item">
             <RateCard />
           </div>

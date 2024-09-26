@@ -5,6 +5,7 @@
     <HomeTopBanner />
     <HomeRecommendMerchant />
     <HomeSeaTransport />
+    <HomeAirTransport />
     <HomeTestComp />
     <!-- <HomeHeroSection />
     <CurveShape />

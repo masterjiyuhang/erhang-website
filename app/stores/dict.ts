@@ -162,7 +162,167 @@ export const useDictStore = defineStore({
         href: 'https://shipping.jctrans.com/fcl?fromId=2882&fromPortName=%E6%B7%B1%E5%9C%B3&transportType=fcl&cabType=0&routerId=20000000',
       },
     ],
+
+    // 空运 国际到达
+    internationalArrivals: [
+      {
+        name: '大洋洲',
+        href: 'https://shipping.jctrans.com/air?fromId=5001157&fromPortName=%E4%B8%8A%E6%B5%B7%E6%B5%A6%E4%B8%9C%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&transportType=air&cabType=0&routerId=20000028',
+      },
+      {
+        name: '非洲',
+        href: 'https://shipping.jctrans.com/air?fromId=5001157&fromPortName=%E4%B8%8A%E6%B5%B7%E6%B5%A6%E4%B8%9C%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&transportType=air&cabType=0&routerId=20000024',
+      },
+      {
+        name: '美洲',
+        href: 'https://shipping.jctrans.com/air?fromId=4019&fromPortName=%E4%B8%8A%E6%B5%B7&transportType=air&cabType=0&routerId=20000021',
+      },
+      {
+        name: '欧洲',
+        href: 'https://shipping.jctrans.com/air?fromId=4019&fromPortName=%E4%B8%8A%E6%B5%B7&transportType=air&cabType=0&routerId=20000022',
+      },
+      {
+        name: '亚洲',
+        href: 'https://shipping.jctrans.com/air?fromId=5001157&fromPortName=%E4%B8%8A%E6%B5%B7%E6%B5%A6%E4%B8%9C%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&transportType=air&cabType=0&routerId=20000026',
+      },
+    ],
+
+    // 空运 国内航线
+    domesticLines: [
+      {
+        name: '上海',
+        href: 'https://shipping.jctrans.com/air?fromId=4019&fromPortName=%E4%B8%8A%E6%B5%B7&transportType=air&cabType=0&routerId=20000018',
+      },
+      {
+        name: '北京',
+        href: 'https://shipping.jctrans.com/air?fromId=5003945&fromPortName=%E5%8C%97%E4%BA%AC%E9%A6%96%E9%83%BD%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&transportType=air&cabType=0&routerId=20000020',
+      },
+      {
+        name: '深圳',
+        href: 'https://shipping.jctrans.com/air?fromId=2882&fromPortName=%E6%B7%B1%E5%9C%B3&transportType=air&cabType=0&routerId=20000018',
+      },
+      {
+        name: '广州',
+        href: 'https://shipping.jctrans.com/air?fromId=2880&fromPortName=%E5%B9%BF%E5%B7%9E&transportType=air&cabType=0&routerId=20000018',
+      },
+      {
+        name: '厦门',
+        href: 'https://shipping.jctrans.com/air?fromId=5003213&fromPortName=%E5%8E%A6%E9%97%A8%E9%AB%98%E5%B4%8E%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&transportType=air&cabType=0&routerId=20000018',
+      },
+      {
+        name: '杭州',
+        href: 'https://shipping.jctrans.com/air?fromId=5000057&fromPortName=%E6%9D%AD%E5%B7%9E%E8%90%A7%E5%B1%B1%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&transportType=air&cabType=0&routerId=20000018',
+      },
+      {
+        name: '宁波',
+        href: 'https://shipping.jctrans.com/air?fromId=2768&fromPortName=%E5%AE%81%E6%B3%A2&transportType=air&cabType=0&routerId=20000018',
+      },
+      {
+        name: '青岛',
+        href: 'https://shipping.jctrans.com/air?fromId=5001199&fromPortName=%E9%9D%92%E5%B2%9B%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&transportType=air&cabType=0&routerId=20000018',
+      },
+      {
+        name: '大连',
+        href: 'https://shipping.jctrans.com/air?fromId=2701&fromPortName=%E5%A4%A7%E8%BF%9E&transportType=air&cabType=0&routerId=20000020',
+      },
+      {
+        name: '成都',
+        href: 'https://shipping.jctrans.com/air?fromId=2975&fromPortName=%E6%88%90%E9%83%BD&transportType=air&cabType=0&routerId=20000018',
+      },
+    ],
+
+    // 空运 航空公司
+    ariCarriers: [
+      {
+        name: '中国国航',
+        href: 'https://shipping.jctrans.com/air?fromId=4019&fromPortName=%E4%B8%8A%E6%B5%B7&transportType=air&cabType=0&routerId=20000021',
+      },
+      {
+        name: '中国南航',
+        href: 'https://shipping.jctrans.com/air?fromId=4019&fromPortName=%E4%B8%8A%E6%B5%B7&transportType=air&cabType=0&routerId=20000021',
+      },
+      {
+        name: '中国东航',
+        href: 'https://shipping.jctrans.com/air?fromId=4019&fromPortName=%E4%B8%8A%E6%B5%B7&transportType=air&cabType=0&routerId=20000021',
+      },
+      {
+        name: '中国海航',
+        href: 'https://shipping.jctrans.com/air?fromId=4019&fromPortName=%E4%B8%8A%E6%B5%B7&transportType=air&cabType=0&routerId=20000021',
+      },
+      {
+        name: '土尔其航空',
+        href: 'https://shipping.jctrans.com/air?fromId=4019&fromPortName=%E4%B8%8A%E6%B5%B7&transportType=air&cabType=0&routerId=20000021',
+      },
+      {
+        name: '阿联酋航空',
+        href: 'https://shipping.jctrans.com/air?fromId=4019&fromPortName=%E4%B8%8A%E6%B5%B7&transportType=air&cabType=0&routerId=20000021',
+      },
+      {
+        name: '卡塔尔航空',
+        href: 'https://shipping.jctrans.com/air?fromId=4019&fromPortName=%E4%B8%8A%E6%B5%B7&transportType=air&cabType=0&routerId=20000021',
+      },
+      {
+        name: '阿联酋水晶',
+        href: 'https://shipping.jctrans.com/air?fromId=4019&fromPortName=%E4%B8%8A%E6%B5%B7&transportType=air&cabType=0&routerId=20000021',
+      },
+      {
+        name: '美国航空公',
+        href: 'https://shipping.jctrans.com/air?fromId=4019&fromPortName=%E4%B8%8A%E6%B5%B7&transportType=air&cabType=0&routerId=20000021',
+      },
+      {
+        name: '大韩航空公',
+        href: 'https://shipping.jctrans.com/air?fromId=4019&fromPortName=%E4%B8%8A%E6%B5%B7&transportType=air&cabType=0&routerId=20000021',
+      },
+    ],
+
+    // 空运 国际始发
+    internationalDepartures: [
+      {
+        name: '广州',
+        href: ' https://shipping.jctrans.com/air?fromId=2880&fromPortName=%E5%B9%BF%E5%B7%9E&transportType=air&cabType=0&routerId=20000018',
+      },
+      {
+        name: '北京',
+        href: 'https://shipping.jctrans.com/air?fromId=5003945&fromPortName=%E5%8C%97%E4%BA%AC%E9%A6%96%E9%83%BD%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&transportType=air&cabType=0&routerId=20000020',
+      },
+      {
+        name: '深圳',
+        href: 'https://shipping.jctrans.com/air?fromId=2882&fromPortName=%E6%B7%B1%E5%9C%B3&transportType=air&cabType=0&routerId=20000018',
+      },
+      {
+        name: '上海',
+        href: 'https://shipping.jctrans.com/air?fromId=4019&fromPortName=%E4%B8%8A%E6%B5%B7&transportType=air&cabType=0&routerId=20000018',
+      },
+      {
+        name: '成都',
+        href: 'https://shipping.jctrans.com/air?fromId=2975&fromPortName=%E6%88%90%E9%83%BD&transportType=air&cabType=0&routerId=20000018',
+      },
+    ],
   }),
+  getters: {
+    nameDict(state) {
+      return {
+        air: [
+          {
+            name: '国际到达',
+            dict: state.internationalArrivals,
+          },
+          {
+            name: '国内航线',
+            dict: state.domesticLines,
+          },
+          {
+            name: '航空公司',
+            dict: state.ariCarriers,
+          },
+          {
+            name: '国际始发',
+            dict: state.internationalDepartures,
+          },
+        ],
+      }
+    },
+  },
   actions: {},
   persist: {
     key: 'globalDict',

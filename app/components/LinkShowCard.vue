@@ -7,7 +7,7 @@
         {{ title }}
       </div>
       <HeadlessTabGroup>
-        <HeadlessTabList class="flex space-x-0">
+        <HeadlessTabList class="flex flex-wrap space-x-0">
           <HeadlessTab
             v-for="link in linkList"
             :key="link.name"
@@ -22,8 +22,12 @@
                 selected ? ' text-paper-50' : 'bg-white text-paper-50 ',
               ]"
             >
-              <a :href="link.href" :class="['focus:z-10']" target="_blank">
-                {{ link.name }}</a
+              <NuxtLink
+                :href="link.href"
+                :class="['focus:z-10']"
+                target="_blank"
+              >
+                {{ link.name }}</NuxtLink
               >
             </button>
           </HeadlessTab>
