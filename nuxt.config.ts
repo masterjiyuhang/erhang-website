@@ -172,6 +172,9 @@ export default defineNuxtConfig({
         },
       },
     },
+    optimizeDeps: {
+      include: ['@element-plus/icons-vue', '@vueuse/core', 'lodash-es'],
+    },
   },
 
   pinia: {
