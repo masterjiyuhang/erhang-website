@@ -82,6 +82,11 @@ export default defineNuxtConfig({
         changeOrigin: true,
         secure: false,
       },
+      '/mock': {
+        target: 'https://mock.erhang.fun/mock/649d33991d5a0a36692f05e2/erhang',
+        changeOrigin: true,
+        secure: false,
+      },
     },
   },
   devtools: { enabled: true },
@@ -193,6 +198,7 @@ export default defineNuxtConfig({
     icon: 'ElIcon',
     importStyle: 'scss',
     themes: ['dark'],
+    defaultLocale: 'zh-cn',
   },
 
   pinegrow: {

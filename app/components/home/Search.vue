@@ -34,6 +34,12 @@
       <template v-if="currentSearchType === 'rate'">
         <HomeSearchCompsRateSearchBox />
       </template>
+      <template v-if="currentSearchType === 'company'">
+        <HomeSearchCompsCompanySearchBox />
+      </template>
+      <template v-if="currentSearchType === 'shipping'">
+        <HomeSearchCompsScheduleSearchBox />
+      </template>
     </div>
   </div>
 </template>
