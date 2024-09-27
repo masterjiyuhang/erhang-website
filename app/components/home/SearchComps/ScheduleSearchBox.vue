@@ -15,7 +15,7 @@
       />
     </div>
     <div class="h-11 flex-1">
-      <el-date-picker
+      <!-- <el-date-picker
         v-model="searchForm.date"
         :clearable="false"
         lang="zh"
@@ -23,7 +23,7 @@
         placeholder="选择日期"
         size="large"
         class="!h-full"
-      />
+      /> -->
     </div>
     <div class="h-11 flex-1 flex items-center">
       <span
