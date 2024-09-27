@@ -45,6 +45,10 @@
     icon: 'i-mdi-home',
     isWhite: true,
   })
+
+  const { getCompanyAdvantage } = useDictStore()
+
+  getCompanyAdvantage()
 </script>
 
 <style></style>

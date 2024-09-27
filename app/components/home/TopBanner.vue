@@ -98,32 +98,22 @@
           >
             今日特价
           </div>
+
           <div
-            v-for="item in 2"
-            :key="item"
-            class="ml-[38px] p-2 text-xs flex justify-center h-14 bg-[#f5f5f5] rounded flex-col"
+            v-for="(item, idx) in TodaySpecialsList"
+            :key="idx"
+            class="ml-[30px] p-2 text-xs flex justify-center h-14 bg-[#f5f5f5] rounded flex-col"
           >
-            <div class="text-paper text-xs font-normal">
-              宁波晨晟国际物流有限公司特价来袭
+            <div class="text-paper text-xs font-medium truncate">
+              {{ item.title }}
             </div>
-            <div class="flex justify-between">
-              <div class="w-[38px] px-2 py-1 text-primary bg-white rounded">
-                100
-              </div>
-              <div class="w-[38px] px-2 py-1 text-primary bg-white rounded">
-                100
-              </div>
-              <div class="w-[38px] px-2 py-1 text-primary bg-white rounded">
-                100
-              </div>
-              <div class="w-[38px] px-2 py-1 text-primary bg-white rounded">
-                100
-              </div>
-              <div class="w-[38px] px-2 py-1 text-primary bg-white rounded">
-                100
-              </div>
-              <div class="w-[38px] px-2 py-1 text-primary bg-white rounded">
-                100
+            <div class="flex space-x-1 overflow-hidden">
+              <div
+                v-for="price in item.specialPriceList"
+                :key="price.id"
+                class="w-[38px] px-2 py-1 text-primary bg-white rounded"
+              >
+                {{ price.price }}
               </div>
             </div>
           </div>
@@ -180,7 +170,7 @@
         </div>
       </div>
 
-      <div class="w-full pb-1.5">
+      <div class="w-full pt-1 pb-1.5">
         <div class="flex space-x-[15px]">
           <div class="h-20 w-[206px] bg-primary-100 rounded-lg border"></div>
           <div class="h-20 w-[206px] bg-primary-100 rounded-lg border"></div>
@@ -212,10 +202,10 @@
               <div
                 class="px-1 py-0.5 bg-primary-50 bg-opacity-10 h-5 text-primary shrink-0"
               >
-                {{ item.label }}
+                {{ item.compShorter }}
               </div>
               <div class="ml-1 py-0.5 truncate text-paper text-xs font-normal">
-                {{ item.value }}
+                {{ item.title }}
               </div>
             </div>
           </div>
@@ -234,6 +224,8 @@
 </template>
 
 <script lang="ts" setup>
+  import { BANNER_BASE_API } from './constant'
+
   const categories = ref({
     Recent: [
       {
@@ -301,47 +293,51 @@
       value: '说大话鸡尾酒莫失莫忘',
     },
   ])
-  const TransPortCompanyAnnouncementList = ref([
-    {
-      label: '上海相近相亲',
-      value:
-        '说大话鸡尾酒莫失莫忘说大话鸡尾酒莫失莫忘说大话鸡尾酒莫失莫忘说大话鸡尾酒莫失莫忘说大话鸡尾酒莫失莫忘',
-    },
-    {
-      label: '上海相近相亲',
-      value: '说大话鸡尾酒莫失莫忘',
-    },
-    {
-      label: '上海相近相亲',
-      value: '说大话鸡尾酒莫失莫忘',
-    },
-    {
-      label: '上海相近相亲',
-      value:
-        '说大话鸡尾酒莫失莫忘说大话鸡尾酒莫失莫忘说大话鸡尾酒莫失莫忘说大话鸡尾酒莫失莫忘说大话鸡尾酒莫失莫忘',
-    },
-    {
-      label: '上海相近相亲',
-      value: '说大话鸡尾酒莫失莫忘',
-    },
-    {
-      label: '上海相近相亲',
-      value: '说大话鸡尾酒莫失莫忘',
-    },
-    {
-      label: '上海相近相亲',
-      value:
-        '说大话鸡尾酒莫失莫忘说大话鸡尾酒莫失莫忘说大话鸡尾酒莫失莫忘说大话鸡尾酒莫失莫忘说大话鸡尾酒莫失莫忘',
-    },
-    {
-      label: '上海相近相亲',
-      value: '说大话鸡尾酒莫失莫忘',
-    },
-    {
-      label: '上海相近相亲',
-      value: '说大话鸡尾酒莫失莫忘',
-    },
-  ])
+
+  // 今日特价
+  const TodaySpecialsList = useState(() => [])
+  // 物流企业公告
+  const TransPortCompanyAnnouncementList = useState(() => [])
+  /**
+   * 获取今日特价
+   */
+  function getPlatformSpecialOffer() {
+    useFetch('/hzh/fr/freightPrice/getPlatformSpecialOffer', {
+      method: 'post',
+      baseURL: BANNER_BASE_API,
+      lazy: true,
+      server: true,
+    })
+      .then((res) => {
+        if (res.status.value === 'success') {
+          const r: any = res.data.value
+          TodaySpecialsList.value = r.data.records
+        }
+        return
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
+
+  /**
+   * 获取右侧物流企业公告
+   */
+  function getHomePageNewsList() {
+    useFetch('/hzh/fr/center/shop/getHomePageNewsList', {
+      method: 'post',
+      baseURL: BANNER_BASE_API,
+      lazy: true,
+      server: true,
+    }).then((res) => {
+      if (res.status.value === 'success') {
+        const r: any = res.data.value
+        TransPortCompanyAnnouncementList.value = r.data.records
+      }
+    })
+  }
+  getPlatformSpecialOffer()
+  getHomePageNewsList()
 </script>
 
 <style lang="scss">

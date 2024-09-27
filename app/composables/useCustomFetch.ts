@@ -1,4 +1,3 @@
-import { isClient } from '@vueuse/core'
 import type { UseFetchOptions } from 'nuxt/app'
 
 export function useCustomFetch<T>(

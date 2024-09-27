@@ -426,6 +426,8 @@ export const useDictStore = defineStore({
         href: 'https://www.jctrans.com/cn/membership/list?countryId=rR7gwq%2B9lK5LKwM9a6dngA%3D%3D&country=Ghana&memberYears=0',
       },
     ],
+
+    companyAdvantageList: [],
   }),
   getters: {
     nameDict(state) {
@@ -496,7 +498,43 @@ export const useDictStore = defineStore({
       }
     },
   },
-  actions: {},
+  actions: {
+    getDict(dictType: string) {
+      return useFetch('/system/admin/dict/data/type/dictType', {
+        method: 'post',
+        body: {
+          dictType: dictType,
+        },
+        baseURL: 'https://api-dev2.jctrans.com',
+      })
+    },
+    /**
+     * 获取公司优势信息字典
+     *
+     * 本函数通过调用字典服务来获取与'cmc_company_advantage'相关的数据字典条目，
+     * 主要用于展示或利用公司优势信息进行后续处理。
+     */
+    getCompanyAdvantage() {
+      // 调用getDict方法，传入'company_advantage'作为参数来获取相应字典数据
+      this.getDict('cmc_company_advantage').then((res: any) => {
+        // 输出获取到的公司优势数据到控制台，以便调试或验证
+        this.companyAdvantageList = res.data.value.data.records
+        console.log(
+          '🚀 ~ file: dict.ts:522 ~ this.getDict ~ this.companyAdvantageList:',
+          this.companyAdvantageList,
+        )
+      })
+    },
+
+    getDictLabelByCode(dict: string, code: string) {
+      if (this[dict]) {
+        return this[dict].find((item: any) => item.dictValue === code)
+          ?.dictLabel
+      } else {
+        console.error('未定义字典')
+      }
+    },
+  },
   persist: {
     key: 'globalDict',
   },

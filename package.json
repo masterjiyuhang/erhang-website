@@ -4,6 +4,8 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
+    "builds": "nuxt build && npm run created",
+    "created": "mkdir .output/server/node_modules/@popperjs && mv .output/server/node_modules/@sxzz/popperjs-es .output/server/node_modules/@popperjs/core",
     "now": "npm run build && npm run preview",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
