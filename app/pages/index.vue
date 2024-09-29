@@ -46,9 +46,9 @@
     isWhite: true,
   })
 
-  const { getCompanyAdvantage } = useDictStore()
+  // const { getCompanyAdvantage } = useDictStore()
 
-  getCompanyAdvantage()
+  // getCompanyAdvantage()
 </script>
 
 <style></style>
