@@ -516,14 +516,19 @@ export const useDictStore = defineStore({
      */
     getCompanyAdvantage() {
       // 调用getDict方法，传入'company_advantage'作为参数来获取相应字典数据
-      this.getDict('cmc_company_advantage').then((res: any) => {
-        // 输出获取到的公司优势数据到控制台，以便调试或验证
-        this.companyAdvantageList = res.data.value.data.records
-        console.log(
-          '🚀 ~ file: dict.ts:522 ~ this.getDict ~ this.companyAdvantageList:',
-          this.companyAdvantageList,
-        )
-      })
+      this.getDict('cmc_company_advantage')
+        .then((res: any) => {
+          // 输出获取到的公司优势数据到控制台，以便调试或验证
+          this.companyAdvantageList = res.data.value.data.records
+          console.log(
+            '🚀 ~ file: dict.ts:522 ~ this.getDict ~ this.companyAdvantageList:',
+            this.companyAdvantageList,
+          )
+        })
+        .catch((err) => {
+          this.companyAdvantageList = []
+          console.error(err)
+        })
     },
 
     getDictLabelByCode(dict: string, code: string) {
