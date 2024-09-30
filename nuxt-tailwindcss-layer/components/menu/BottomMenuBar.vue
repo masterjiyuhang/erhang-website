@@ -8,6 +8,8 @@
       :key="index"
       class="cursor-pointer"
       :class="[currentActiveIndex === index ? `current-item` : '']"
+      @mouseenter.self="handleMouseEnter(item, index)"
+      @mouseleave.self="handleMouseLeave(item)"
     >
       <!-- 本站自定义路由 直接跳转 selfLink -->
       <div
@@ -15,8 +17,6 @@
         class="text-center text-inherit font-normal text-sm relative tab-title"
         :class="[currentActiveIndex === index ? 'tab-title-active' : '']"
         @click="navigateToLocalizedPath(item.path)"
-        @mouseenter.self="handleMouseEnter(item, index)"
-        @mouseleave.self="handleMouseLeave(item)"
       >
         {{ getCnOrEn(item.nameCn, item.nameEn) }}
       </div>
@@ -32,8 +32,6 @@
             <HeadlessMenuButton
               class="text-center text-inherit font-normal text-sm relative tab-title"
               :class="[currentActiveIndex === index ? 'tab-title-active' : '']"
-              @mouseenter.self="handleMouseEnter(item, index, open)"
-              @mouseleave.self="handleMouseLeave(item, open)"
             >
               {{ item.nameCn }}
             </HeadlessMenuButton>
@@ -70,35 +68,32 @@
         </HeadlessMenu>
       </div>
 
-      <div v-if="item.menuType === 'popover'" class="text-right">
-        <BasePopover trigger="click">
-          <template #button="{ hoverPopover, closePopover, close, open }">
-            <div
-              class="text-center text-inherit font-normal text-sm relative tab-title"
-              :class="[currentActiveIndex === index ? 'tab-title-active' : '']"
-              @mouseover="
-                (e) => {
-                  hoverPopover(e, open)
-                  handleMouseEnter(item, index)
-                }
-              "
-              @mouseleave="
-                () => {
-                  closePopover(close)
-                  handleMouseLeave(item, open)
-                }
-              "
-            >
-              {{ item.nameCn }}
-            </div>
-          </template>
+      <!-- 弹出层 popover -->
+      <template v-if="item.menuType === 'popover'">
+        <div class="text-center text-inherit font-normal text-sm">
           <div
-            class="bg-white overflow-hidden rounded-lg shadow-lg ring-1 ring-black/5"
+            class="tab-title space-x-4"
+            :class="[currentTabIndex === index ? 'tab-title-active' : '']"
           >
-            hahah
+            {{ item.nameCn }}
+            <!-- <i class="hot-tag hot-tag-header relative bottom-2">HOT</i>
+            <i class="new-tag-header relative bottom-2">NEW</i> -->
           </div>
-        </BasePopover>
-      </div>
+          <!-- v-if="item.children && item.children.length > 0" -->
+          <div
+            class="animated-tab-content"
+            :style="{
+              height: `${customerFnNumber}px`,
+            }"
+          >
+            <div class="tab-content">
+              <div class="animated-tab-content-children">
+                {{ item }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </template>
 
       <!-- 外站链接 直接跳转 link -->
       <div
@@ -106,8 +101,6 @@
         class="text-center text-inherit font-normal text-sm relative tab-title"
         :class="[currentActiveIndex === index ? 'tab-title-active' : '']"
         @click="navigateToLocalizedPath(item.path)"
-        @mouseenter.self="handleMouseEnter(item, index)"
-        @mouseleave.self="handleMouseLeave(item)"
       >
         {{ getCnOrEn(item.nameCn, item.nameEn) }}
       </div>
@@ -116,20 +109,31 @@
 </template>
 
 <script lang="ts" setup>
+  import { useTransition } from '@vueuse/core'
+
   const emits = defineEmits(['change'])
   const { menuList } = useMenu()
   const { navigateToLocalizedPath } = usePath()
 
   const currentActiveIndex = ref(-1)
   const currentTabIndex = ref(-1)
+  const contentHeight = ref(340)
+
+  const customerFnNumber = useTransition(contentHeight, {
+    duration: 200,
+  })
 
   function handleMouseEnter(item: MenuItem, index: number, open?: boolean) {
     currentActiveIndex.value = index
+    currentTabIndex.value = index
+    contentHeight.value = item.children?.length * 48
     emits('change', '#ff6a00')
   }
 
   function handleMouseLeave(item: MenuItem, open?: boolean) {
     currentActiveIndex.value = -1
+    currentTabIndex.value = -1
+    contentHeight.value = 200
     emits('change', '#fff')
   }
 </script>
@@ -154,7 +158,6 @@
 
     .tab-title {
       color: #ff6a00;
-      // font-family: Poppins-S, Poppins;
     }
   }
 
@@ -162,14 +165,19 @@
     color: var(--menu-item-color);
     height: 48px;
     line-height: 48px;
-    font-family: Poppins-R, Poppins;
+    font-family: Poppins-S, Poppins;
     font-weight: 500;
+
+    position: relative;
+    height: 48px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 48px;
+    text-align: center;
+    cursor: pointer;
   }
 
   .tab-title-active {
-    // color: var(--menu-item-active-color);
-    // font-family: Poppins-S, Poppins;
-
     &::after {
       content: ' ';
       display: block;
@@ -180,5 +188,73 @@
       animation: sub-header-title-hover 0.3s cubic-bezier(0.6, 0, 0.4, 1) both;
       border-bottom: 2px solid var(--menu-item-active-color) !important;
     }
+  }
+
+  .animated-tab-content {
+    visibility: hidden;
+    position: absolute;
+    z-index: 999;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    border-top: 1px solid #e7e7e8;
+    opacity: 0;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+
+    .tab-content {
+      display: flex;
+      position: relative;
+      justify-content: flex-start;
+      width: 100%;
+      min-width: 1200px;
+      height: 100%;
+
+      .content-bg {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: cover;
+      }
+    }
+  }
+
+  .current-item {
+    .animated-tab-content {
+      visibility: visible;
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .tab-title {
+      color: #ff6a00;
+      font-family: Poppins-S, Poppins;
+    }
+  }
+
+  .animated-tab-content-children {
+    width: 100%;
+    min-width: 1200px;
+    max-width: 1200px;
+    margin: 24px auto;
+    padding: 0 4px;
+    border-radius: 0;
+  }
+
+  // 蒙层样式
+  .menu-mask {
+    position: fixed;
+    top: 150px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.4;
+    background: #000;
   }
 </style>

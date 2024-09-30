@@ -3,13 +3,14 @@ import { ref } from 'vue'
 type MenuType = 'link' | 'dropdown' | 'popover' | 'button' | 'selfLink'
 
 export interface MenuItem {
-  nameEn: string
   nameCn: string
   isActive: boolean
   menuType: MenuType
+  nameEn?: string
   path?: string
-  children?: MenuItem[]
+  children?: SubMenuItem[]
 }
+export type SubMenuItem = Omit<MenuItem, 'menuType'>
 const menuList = ref<MenuItem[]>([
   {
     nameEn: 'MemberShip',
@@ -37,21 +38,66 @@ const menuList = ref<MenuItem[]>([
     nameCn: '询盘',
     isActive: false,
     menuType: 'popover',
-    children: [],
+    children: [
+      {
+        nameCn: '询盘大厅',
+        path: '',
+        isActive: false,
+      },
+      { nameCn: '货代圈', path: '', isActive: false },
+      { nameCn: '找代理', path: '', isActive: false },
+    ],
   },
   {
     nameEn: 'Global Event',
     nameCn: '全球会议',
     isActive: false,
     menuType: 'popover',
-    children: [],
+    children: [
+      {
+        nameCn: '询盘大厅',
+        path: '',
+        isActive: false,
+      },
+      {
+        nameCn: '询盘大厅',
+        path: '',
+        isActive: false,
+      },
+      {
+        nameCn: '询盘大厅',
+        path: '',
+        isActive: false,
+      },
+      {
+        nameCn: '询盘大厅',
+        path: '',
+        isActive: false,
+      },
+    ],
   },
   {
     nameEn: 'Financial Payment',
     nameCn: '金融支付',
     isActive: false,
     menuType: 'popover',
-    children: [],
+    children: [
+      {
+        nameCn: '询盘大厅',
+        path: '',
+        isActive: false,
+      },
+      {
+        nameCn: '询盘大厅',
+        path: '',
+        isActive: false,
+      },
+      {
+        nameCn: '询盘大厅',
+        path: '',
+        isActive: false,
+      },
+    ],
   },
   {
     nameCn: '工具',
