@@ -73,10 +73,10 @@
       // )
       // 如果处于顶部 通过路由meta信息判断颜色
       if (isTopVal) {
-        itemColor.value = isWhiteVal ? '#fff' : '#333'
+        itemColor.value = isWhiteVal ? '#fff' : '#242323'
       } else {
         // 如果不处于顶部的话 通过页面是否滚动判断颜色
-        itemColor.value = isScrollVal ? '#333' : '#fff'
+        itemColor.value = isScrollVal ? '#242323' : '#fff'
       }
     },
     {
