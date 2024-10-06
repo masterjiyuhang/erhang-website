@@ -15,11 +15,6 @@
     </div>
 
     <HomeTools class="mt-4" />
-    <!-- <HomeTestComp /> -->
-    <!-- <HomeHeroSection />
-    <CurveShape />
-    <HomeHeroCard />
-    <HomeAboutUs /> -->
 
     <div
       class="h-[235px] w-[90px] bg-[#7e7e7e] absolute top-[370px] left-0 xl:left-[8%] hidden 2xl:block"
@@ -44,11 +39,8 @@
     type: 'primary',
     icon: 'i-mdi-home',
     isWhite: true,
+    name: cc,
   })
-
-  // const { getCompanyAdvantage } = useDictStore()
-
-  // getCompanyAdvantage()
 </script>
 
 <style></style>
