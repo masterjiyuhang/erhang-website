@@ -9,11 +9,6 @@ export default defineNuxtPlugin((nuxtApp) => {
     if (isClient) {
       const config: any = useRuntimeConfig()
       const key = config.public?.constant.OPEN_JOIN_US
-      console.log(
-        '🚀 ~ file: globalJoinUs.ts:16 ~ globalJoinUs ~ data:',
-        key,
-        data,
-      )
       emitter.emit(key, data)
     } else {
       console.error('globalJoinUs is only available on client side')
