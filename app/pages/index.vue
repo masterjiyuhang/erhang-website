@@ -26,12 +26,6 @@
 </template>
 
 <script lang="ts" setup>
-  import { useGlobalStore } from '@/stores/global'
-  const store = useGlobalStore()
-  const { increment } = useGlobalStore()
-
-  const cc = store.name
-
   definePageMeta({
     title: 'Home',
     description: ' Thousands of nutrition plans, one act of improvement',
@@ -39,7 +33,6 @@
     type: 'primary',
     icon: 'i-mdi-home',
     isWhite: true,
-    name: cc,
   })
 </script>
 
