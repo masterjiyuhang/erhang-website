@@ -18,3 +18,17 @@ select {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.hot-tag-header {
+  padding: 0 3px;
+  border-radius: 3px 3px 3px 0;
+  background: linear-gradient(90deg, #ff5000 0%, #ff8f12 100%);
+  color: #fff;
+  font-family: Poppins-I, Poppins;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 12px;
+  text-align: left;
+  text-transform: none;
+}

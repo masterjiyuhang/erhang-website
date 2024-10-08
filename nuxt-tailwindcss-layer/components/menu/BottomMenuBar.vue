@@ -88,7 +88,11 @@
           >
             <div class="tab-content">
               <div class="animated-tab-content-children">
-                {{ item }}
+                <div class="container">
+                  <div v-if="item.nameEn === 'Inquiry'">
+                    <MenuSrcInquiryMenu :current-item="item" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -126,7 +130,7 @@
   function handleMouseEnter(item: MenuItem, index: number, open?: boolean) {
     currentActiveIndex.value = index
     currentTabIndex.value = index
-    contentHeight.value = item.children?.length * 48
+    contentHeight.value = item.children?.length * 78
     emits('change', '#ff6a00')
   }
 
