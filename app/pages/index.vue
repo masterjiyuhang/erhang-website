@@ -1,5 +1,4 @@
 <template>
-  <!-- <div class="flex flex-col min-h-screen"> -->
   <div class="-top-24 relative">
     <HomeSearch />
     <HomeTopBanner />
