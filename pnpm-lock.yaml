@@ -49,9 +49,6 @@ devDependencies:
   '@heroicons/vue':
     specifier: ^2.1.5
     version: 2.1.5(vue@3.5.11)
-  '@iconify/json':
-    specifier: ^2.2.226
-    version: 2.2.258
   '@nuxt/eslint':
     specifier: ^0.3.13
     version: 0.3.13(eslint@9.12.0)(rollup@4.24.0)(typescript@5.6.3)(vite@5.4.8)
@@ -1303,13 +1300,6 @@ packages:
     resolution: {integrity: sha512-L1fCxNvUQQXR2FQgIfwN1mBVXhtgsyq2U2KyM8qZyWx+r8MxTU9b9lFfWIu/1ZlINc9KiXK1A26kVhAL1zko5g==}
     dependencies:
       '@iconify/types': 2.0.0
-    dev: true
-
-  /@iconify/json@2.2.258:
-    resolution: {integrity: sha512-BW622A/EZ5651qOYkPkXn906U1bLsk/Cv/rYtmkArbZz/h+0c4WdcdrAHiC+weMqjQIUxB1JE20bpERT79BFIg==}
-    dependencies:
-      '@iconify/types': 2.0.0
-      pathe: 1.1.2
     dev: true
 
   /@iconify/types@2.0.0:
