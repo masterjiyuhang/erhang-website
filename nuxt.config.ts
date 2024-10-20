@@ -173,6 +173,7 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
+          api: 'modern-compiler',
           additionalData: `@use "@/assets/scss/element/index.scss" as element;`,
         },
       },
@@ -196,8 +197,8 @@ export default defineNuxtConfig({
   elementPlus: {
     /** Options */
     icon: 'ElIcon',
-    importStyle: 'scss',
-    themes: ['dark'],
+    importStyle: 'css',
+    // themes: ['dark'],
     defaultLocale: 'zh-cn',
   },
 
