@@ -1,5 +1,5 @@
 <template>
-  <div class="login-btn" @click="handleLogin">
+  <div class="login-btn bg-white" @click="handleLogin">
     {{ getCnOrEn('登录', 'SIGN IN') }}
   </div>
 </template>
