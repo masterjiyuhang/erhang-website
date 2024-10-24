@@ -5,7 +5,7 @@
 export default {
   name: 'ErHang Website',
   description: 'Adopt Your Fur Mate',
-  logo: 'i-streamline-emojis:grinning-squinting-face',
+  logo: 'i-line-md-sun-rising-loop',
   author: 'Pinegrow',
   url: 'https://erhang-website.vercel.app/',
   github: 'https://github.com/pinegrow/happy-paws-with-nuxt-tailwindcss',

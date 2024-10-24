@@ -2,6 +2,7 @@
   <div class="-top-24 relative">
     <HomeSearch />
 
+    <HomeHeroCard />
     <HomeTools class="mt-4" />
   </div>
 </template>

@@ -1,14 +1,7 @@
 <template>
   <div class="container flex justify-between">
     <div @click="navigateToLocalizedPath('/')">
-      <NuxtImg
-        :src="
-          isWhite
-            ? 'https://resources.jctrans.com/res/hzh/pc/img/logo_dark@2x.png'
-            : 'https://resources.jctrans.com/res/hzh/pc/img/logo_nor@2x.png'
-        "
-        class="w-[298px] h-[32px] cursor-pointer"
-      />
+      <TheLogo :class="isWhite ? 'text-primary-200' : 'text-primary-400'" />
     </div>
 
     <div class="flex items-center">

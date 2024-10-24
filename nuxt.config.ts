@@ -190,6 +190,7 @@ export default defineNuxtConfig({
     presets: [
       presetIcons({
         prefix: 'i-', // default prefix, do not change
+        scale: 1.4,
       }),
     ],
   },
@@ -240,5 +241,6 @@ export default defineNuxtConfig({
   headlessui: {
     prefix: 'Headless',
   },
+
   compatibilityDate: '2024-09-19',
 })

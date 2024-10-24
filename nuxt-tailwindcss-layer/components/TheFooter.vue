@@ -1,6 +1,4 @@
 <script setup lang="ts">
-  // ...
-
   const iconList = ref([
     {
       href: 'https://www.facebook.com/vuedesigner',
@@ -93,24 +91,6 @@
     {
       path: '/images/cat/cat6.png',
     },
-    // {
-    //   path: 'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?ixid=MnwyMDkyMnwwfDF8c2VhcmNofDF8fHBldHxlbnwwfHx8fDE2MzA0NjI1MjM&ixlib=rb-1.2.1q=85&fm=jpg&crop=faces&cs=srgb&w=300&h=250&fit=crop',
-    // },
-    // {
-    //   path: 'https://images.unsplash.com/photo-1491485880348-85d48a9e5312?ixid=MnwyMDkyMnwwfDF8c2VhcmNofDE1fHxjYXR8ZW58MHx8fHwxNjMwNDY3NzE4&ixlib=rb-1.2.1q=85&fm=jpg&crop=faces&cs=srgb&w=300&h=250&fit=crop',
-    // },
-    // {
-    //   path: 'https://images.unsplash.com/photo-1591946614720-90a587da4a36?ixid=MnwyMDkyMnwwfDF8c2VhcmNofDIzfHxwZXR8ZW58MHx8fHwxNjMwNDYyNTIz&ixlib=rb-1.2.1q=85&fm=jpg&crop=faces&cs=srgb&w=300&h=250&fit=crop',
-    // },
-    // {
-    //   path: 'https://images.unsplash.com/photo-1513360371669-4adf3dd7dff8?ixid=MnwyMDkyMnwwfDF8c2VhcmNofDI3fHxjYXR8ZW58MHx8fHwxNjMwNDY3NzE4&ixlib=rb-1.2.1q=85&fm=jpg&crop=faces&cs=srgb&w=300&h=250&fit=crop',
-    // },
-    // {
-    //   path: 'https://images.unsplash.com/photo-1524511751214-b0a384dd9afe?ixid=MnwyMDkyMnwwfDF8c2VhcmNofDI4fHxwZXR8ZW58MHx8fHwxNjMwNDYyNTIz&ixlib=rb-1.2.1q=85&fm=jpg&crop=faces&cs=srgb&w=300&h=250&fit=crop',
-    // },
-    // {
-    //   path: 'https://images.unsplash.com/photo-1591561582301-7ce6588cc286?ixid=MnwyMDkyMnwwfDF8c2VhcmNofDMwfHxyYWJiaXR8ZW58MHx8fHwxNjMwNDY3NjUw&ixlib=rb-1.2.1q=85&fm=jpg&crop=faces&cs=srgb&w=300&h=250&fit=crop',
-    // },
   ])
 </script>
 
@@ -121,18 +101,8 @@
         <div
           class="mx-auto flex flex-col flex-wrap items-center px-8 py-4 md:flex-col md:flex-nowrap -mt-4 lg:items-start lg:w-1/3"
         >
-          <TheLogo />
-          <!-- <NuxtLinkLocale class="-ml-6" to="/">
-            <div to="/" class="font-serif inline-flex items-center text-3xl">
-              <NuxtImg
-                src="https://erhang-cdn.imgix.net/logo.png"
-                class="size-10 mr-2"
-              />
-              <h6 class="font-serif inline-flex items-center text-3xl">
-                Happy Baby
-              </h6>
-            </div>
-          </NuxtLinkLocale> -->
+          <TheLogo class="text-primary-600" />
+
           <p class="my-2 text-center w-full lg:text-left">
             {{ $t('global.description') }}
           </p>
@@ -152,7 +122,7 @@
             </div>
           </div>
           <div class="my-6 text-center flex flex-col">
-            <NuxtLinkLocale to="/">+1 234 567-890</NuxtLinkLocale>
+            <NuxtLinkLocale to="/">+86 15555558888</NuxtLinkLocale>
             <NuxtLinkLocale to="/">hello@fantico.com</NuxtLinkLocale>
           </div>
         </div>
@@ -207,7 +177,7 @@
         <div class="flex flex-col sm:w-full md:items-end">
           <div class="mb-4 opacity-25" />
           <p class="py-1 text-sm sm:text-center">
-            &copy; 2002 - 2021. All Rights Reserved - ErHang is the King
+            &copy; 2022 - 2024. All Rights Reserved - ErHang is the King
           </p>
         </div>
       </div>
