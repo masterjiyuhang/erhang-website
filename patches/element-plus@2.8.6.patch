@@ -1,0 +1,115 @@
+diff --git a/theme-chalk/src/color/index.scss b/theme-chalk/src/color/index.scss
+index 086d30f2d20dfc30d278feb38cc71e96c75c09a7..9571ba80fddd63d57f1ae4fb650f914d4a1a811c 100644
+--- a/theme-chalk/src/color/index.scss
++++ b/theme-chalk/src/color/index.scss
+@@ -2,7 +2,7 @@
+ @use 'sass:string';
+ 
+ @function rgb2hex($color) {
+-  @return unquote('#' + #{string.slice(color.ie-hex-str($color), 4)});
++  @return string.unquote('#' + #{string.slice(color.ie-hex-str($color), 4)});
+ }
+ 
+ // rgba color above solid color
+diff --git a/theme-chalk/src/common/var.scss b/theme-chalk/src/common/var.scss
+index d5c4a1b90b56eac9fffd36e823942b024ef4fefa..6084a01b18f70afbe51e2276f57fece22739055c 100644
+--- a/theme-chalk/src/common/var.scss
++++ b/theme-chalk/src/common/var.scss
+@@ -1,4 +1,5 @@
+ /* Element Chalk Variables */
++@use "sass:color";
+ @use 'sass:math';
+ @use 'sass:map';
+ 
+@@ -60,7 +61,7 @@ $color-info: map.get($colors, 'info', 'base') !default;
+     (
+       $type: (
+         '#{$mode}-#{$number}':
+-          mix(
++          color.mix(
+             $mix-color,
+             map.get($colors, $type, 'base'),
+             math.percentage(math.div($number, 10))
+diff --git a/theme-chalk/src/dark/var.scss b/theme-chalk/src/dark/var.scss
+index 212af416347d92afbd67be19de728aabbbb615be..42c80dc2890fda573c7d2b8de86cd9994418f2a7 100644
+--- a/theme-chalk/src/dark/var.scss
++++ b/theme-chalk/src/dark/var.scss
+@@ -1,3 +1,4 @@
++@use "sass:color";
+ @use 'sass:map';
+ @use 'sass:math';
+ 
+@@ -30,7 +31,7 @@ $colors: () !default;
+     (
+       $type: (
+         '#{$mode}-#{$number}':
+-          mix(
++        color.mix(
+             $mix-color,
+             map.get($colors, $type, 'base'),
+             math.percentage(math.div($number, 10))
+diff --git a/theme-chalk/src/mixins/function.scss b/theme-chalk/src/mixins/function.scss
+index c6c449c3e82a97dd8804c282b5873284a0a2b8d9..7ae00a8d6b388e4417b8ab2f614cc803f8d5fa73 100644
+--- a/theme-chalk/src/mixins/function.scss
++++ b/theme-chalk/src/mixins/function.scss
+@@ -1,16 +1,18 @@
+ @use 'config';
++@use "sass:meta";
++@use "sass:string";
+ 
+ // BEM support Func
+ @function selectorToString($selector) {
+-  $selector: inspect($selector);
+-  $selector: str-slice($selector, 2, -2);
++  $selector: meta.inspect($selector);
++  $selector: string.slice($selector, 2, -2);
+   @return $selector;
+ }
+ 
+ @function containsModifier($selector) {
+   $selector: selectorToString($selector);
+ 
+-  @if str-index($selector, config.$modifier-separator) {
++  @if string.index($selector, config.$modifier-separator) {
+     @return true;
+   } @else {
+     @return false;
+@@ -20,7 +22,7 @@
+ @function containWhenFlag($selector) {
+   $selector: selectorToString($selector);
+ 
+-  @if str-index($selector, '.' + config.$state-prefix) {
++  @if string.index($selector, '.' + config.$state-prefix) {
+     @return true;
+   } @else {
+     @return false;
+@@ -30,7 +32,7 @@
+ @function containPseudoClass($selector) {
+   $selector: selectorToString($selector);
+ 
+-  @if str-index($selector, ':') {
++  @if string.index($selector, ':') {
+     @return true;
+   } @else {
+     @return false;
+diff --git a/theme-chalk/src/mixins/mixins.scss b/theme-chalk/src/mixins/mixins.scss
+index f45df0b8d926c106a688b0f600d7f690f99dc2e3..ee62c194d61adccff9a5ebfb23b111a96242db48 100644
+--- a/theme-chalk/src/mixins/mixins.scss
++++ b/theme-chalk/src/mixins/mixins.scss
+@@ -1,3 +1,5 @@
++@use "sass:map";
++@use "sass:string";
+ @use 'function' as *;
+ @use '../common/var' as *;
+ // forward mixins
+@@ -9,8 +11,8 @@
+ // Break-points
+ @mixin res($key, $map: $breakpoints) {
+   // loop breakpoint Map, return if present
+-  @if map-has-key($map, $key) {
+-    @media only screen and #{unquote(map-get($map, $key))} {
++  @if map.has-key($map, $key) {
++    @media only screen and #{string.unquote(map.get($map, $key))} {
+       @content;
+     }
+   } @else {

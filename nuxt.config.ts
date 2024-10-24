@@ -61,7 +61,7 @@ export default defineNuxtConfig({
   },
 
   devServer: {
-    port: 8095,
+    port: 3003,
   },
   css: [
     '@/assets/css/global.css',
