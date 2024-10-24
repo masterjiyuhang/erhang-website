@@ -11,12 +11,6 @@
           :arrived-state="arrivedState"
         />
         <div class="mt-24">
-          <!-- <h1>{{ y }}</h1>
-          {{ isScrolling }}
-          {{ arrivedState }}
-          {{ directions }}
-          {{ isScrollIngUp }}
-          {{ lastScrollTop }} -->
           <main class="shadow">
             <slot />
           </main>
