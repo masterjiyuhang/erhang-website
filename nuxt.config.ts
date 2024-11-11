@@ -1,7 +1,5 @@
 import presetIcons from '@unocss/preset-icons'
-import { i18nConfig } from './app/config/i18n.config'
 import site from './site'
-import { resolve } from 'pathe'
 
 const { name, url } = site
 // https://nuxt.com/docs/api/configuration/nuxt-config
@@ -13,30 +11,33 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
+
   routeRules: {
     '/hidden': { robots: false },
   },
+
   sourcemap: {
     client: false,
     server: false,
   },
+
   site: {
     name,
     url,
   },
 
-  linkChecker: {
-    enabled: false,
-    excludeLinks: ['https://twitter.com/vuedesigner'],
-    report: {
-      html: true,
-      markdown: true,
-    },
-  },
   app: {
     baseURL: '/',
+    buildAssetsDir: '/statics/',
     head: {
-      title: 'Nuxt App',
+      title: '中国站',
+      link: [
+        {
+          rel: 'icon',
+          type: 'image/x-icon',
+          href: 'https://resources.jctrans.com/res/jc/pc/img/fav.jpg',
+        },
+      ],
       meta: [
         {
           name: 'viewport',
@@ -44,25 +45,51 @@ export default defineNuxtConfig({
           charset: 'utf-8',
         },
       ],
+      // script: [
+      //   {
+      //     src: '/config/config.js',
+      //     type: 'text/javascript',
+      //     defer: true,
+      //   },
+      // ],
+      script: [
+        {
+          src: 'https://resources.jctrans.com/res/eratracking/pc/static/js/ZWZtracking.js',
+          type: 'text/javascript',
+          defer: true,
+        },
+      ],
     },
   },
 
   runtimeConfig: {
+    // NODE_TLS_REJECT_UNAUTHORIZED: '0', client + server
     public: {
-      apiBaseUrl: '/api2',
-      nestBaseUrl: '/base-api',
-      baseUrl: '/api',
-      baseFetchUrl: 'https://api-dev2.jctrans.com',
+      JCIM_DOMAIN: 'https://im-sit.jctrans.net.cn',
+      abc: 'aaa',
+      DEV_CLIENT_PROXY_API: '/api2',
+      PROD_CLIENT_PROXY_API: 'https://cloudapi-sit.jctrans.net.cn',
+      SAPI_DOMAIN: 'https://sapi-sit.jctrans.com',
+      NEWS_API_DOMAIN: 'https://apinew.jctrans.com',
+      DOMAIN_NAME: 'jctrans.com',
+      ENV: 'sit',
+      LOGIN_SITE: 'https://passport',
+      RELEASE_VERSION: '',
+      RELEASE_CNT: '',
+      RELEASE_TIME: '',
+      RELEASE_TAG: '',
+      RELEASE_STARTTIME: '',
       constant: {
         OPEN_JOIN_US: 'OPEN_JOIN_US',
+        OPEN_CONTACT_INFO: 'OPEN_CONTACT_INFO',
       },
     },
-    app: {},
   },
 
   devServer: {
-    port: 3003,
+    port: 8096,
   },
+
   css: [
     '@/assets/css/global.css',
     '@/assets/iconfont/iconfont.css',
@@ -82,6 +109,11 @@ export default defineNuxtConfig({
         changeOrigin: true,
         secure: false,
       },
+      '/jc-api': {
+        target: 'https://api-dev2.jctrans.com',
+        changeOrigin: true,
+        secure: false,
+      },
       '/mock': {
         target: 'https://mock.erhang.fun/mock/649d33991d5a0a36692f05e2/erhang',
         changeOrigin: true,
@@ -89,10 +121,10 @@ export default defineNuxtConfig({
       },
     },
   },
+
   devtools: { enabled: true },
 
   modules: [
-    '@pinegrow/nuxt-module',
     '@unocss/nuxt',
     '@nuxt/devtools',
     '@pinia/nuxt',
@@ -109,9 +141,11 @@ export default defineNuxtConfig({
     '@element-plus/nuxt',
     'nuxt-lodash',
     '@nuxtjs/tailwindcss',
-    '@nuxt/content',
     'nuxt-headlessui',
+    'nuxt-swiper',
+    '@nuxtjs/robots',
   ],
+
   fontMetrics: {
     fonts: ['Inter', 'Kalam'],
   },
@@ -121,11 +155,31 @@ export default defineNuxtConfig({
       preload: 'swap',
     },
   },
-  i18n: i18nConfig,
+
+  i18n: {
+    locales: [
+      { code: 'en', file: 'en-US.json', name: 'English 🇺🇸' },
+      { code: 'cn', file: 'zh-CN.json', name: '中国 🇨🇳' },
+    ],
+    defaultLocale: 'cn',
+    langDir: 'locales',
+    debug: false,
+    strategy: 'no_prefix',
+    detectBrowserLanguage: false,
+    // detectBrowserLanguage: {
+    //   useCookie: true,
+    //   cookieKey: 'i18n_redirected',
+    //   redirectOn: 'root',
+    //   fallbackLocale: 'cn',
+    // },
+  },
 
   tailwindcss: {
+    cssPath: ['~/assets/css/tailwind.css', { injectPosition: 'first' }],
+    configPath: 'tailwind.config.ts',
     viewer: true,
   },
+
   lodash: {
     prefix: '_',
     prefixSkip: ['string'],
@@ -140,16 +194,7 @@ export default defineNuxtConfig({
 
   image: {
     format: ['webp, png, jpg'],
-    providers: {
-      ipx: {
-        sharp: {
-          webp: {
-            quality: 120,
-          },
-        },
-      },
-    },
-    // dir: 'assets/images',
+    domains: ['jctrans.net.cn', 'jctrans.com'],
     presets: {
       avatar: {
         modifiers: {
@@ -160,7 +205,6 @@ export default defineNuxtConfig({
       },
     },
   },
-
   vite: {
     vue: {
       template: {
@@ -179,68 +223,34 @@ export default defineNuxtConfig({
       },
     },
     optimizeDeps: {
-      include: ['@element-plus/icons-vue', '@vueuse/core', 'lodash-es'],
+      include: ['@element-plus/icons-vue', 'lodash-es', 'element-plus'],
     },
+    plugins: [],
   },
 
   pinia: {
     storesDirs: ['app/stores/**'],
   },
+
   unocss: {
     presets: [
       presetIcons({
         prefix: 'i-', // default prefix, do not change
-        scale: 1.4,
       }),
     ],
   },
 
   elementPlus: {
     /** Options */
+    defaultLocale: 'zh-cn',
     icon: 'ElIcon',
     importStyle: 'css',
-    // themes: ['dark'],
-    defaultLocale: 'zh-cn',
   },
 
-  pinegrow: {
-    liveDesigner: {
-      iconPreferredCase: 'unocss', // default value (can be removed), Nuxt UI uses the unocss format for icon names
-      devtoolsKey: 'devtoolsKey', // see plugins/devtools.client.ts
-      tailwindcss: {
-        /* Please ensure that you update the filenames and paths to accurately match those used in your project. */
-        configPath: 'tailwind.config.ts',
-        cssPath: '@/assets/css/tailwind.css',
-
-        restartOnThemeUpdate: true,
-      },
-    },
-  },
-
-  content: {
-    sources: {
-      content: {
-        driver: 'fs',
-        base: resolve(__dirname, 'app/content'),
-      },
-    },
-    markdown: {
-      anchorLinks: false,
-      rehypePlugins: [
-        [
-          'rehype-external-links',
-          {
-            target: '_blank',
-            rel: 'noopener noreferrer',
-            className: 'external-link',
-          },
-        ],
-      ],
-    },
-  },
   headlessui: {
     prefix: 'Headless',
   },
 
-  compatibilityDate: '2024-09-19',
+  plugins: ['~/plugins/fingerprint', '~/plugins/jcim.client.ts'],
+  compatibilityDate: '2024-09-26',
 })

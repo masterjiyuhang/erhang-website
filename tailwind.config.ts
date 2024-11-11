@@ -28,6 +28,7 @@ export default {
       },
       boxShadow: {
         'custom-banner': '0px 4px 6px 0px #E9E9E9',
+        'back-top': '0px 1px 4px 0px rgba(0,0,0,0.1);',
       },
       borderRadius: {
         'custom-rounded': '8px 8px 1px 8px',

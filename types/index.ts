@@ -94,3 +94,94 @@ export interface SideBarLink {
 export interface SideBarGroup extends SideBarLink {
   children: SideBarItem[]
 }
+
+export type UserAccount = {
+  version: number
+  userId: number
+  userName: string
+  isMain: string
+  status: string
+  fromSys: string
+  auditFlag: string
+  gender: string
+  nameCn: string
+  nameEn: string
+  jobTitleCn: string
+  jobTitleEn: string
+  headPortrait: string
+  whatsapp: string
+  account: string
+  mobile: string
+  mobileValidFlag: string
+  areaCode: string
+  countryId: number
+  email: string
+  emailValidFlag: string
+  createTime: string
+  jcpayFlag: string
+}
+
+export type UserCompany = {
+  version: number
+  compId: number
+  compName: string
+  verificated: string
+  status: string
+  violationStatus: string
+  auditFlag: string
+  fromSys: string
+  transactionStatus: string
+  memberCode: string
+  nameCn: string
+  nameEn: string
+  countryId: number
+  cityId: number
+  countryNameCn: string
+  countryNameEn: string
+  cityNameCn: string
+  cityNameEn: string
+  scale: string
+  estabYears: string
+  registeredAddressCn: string
+  registeredAddressEn: string
+  officeAddressCn: string
+  officeAddressEn: string
+  industrySector: string
+  tel: string
+  logoFile: string
+  twitter: string
+  youtube: string
+  facebook: string
+  linkedIn: string
+  compVips: {
+    name: string
+    code: string
+    start: string
+    expireAt: string
+    yearsAddUp: number
+  }[]
+  compTags: undefined[]
+  regCapital: string
+  registeredNumber: string
+}
+
+export type UserCompanyInfoResponse = {
+  code: number
+  data: {
+    account: UserAccount
+    company: UserCompany
+  }
+  msg: string
+  subcode: number | string | null
+
+  [key: string]: any
+}
+
+export type BaseResponseType = {
+  code: number
+  data: any
+  msg: string
+  subcode: number | string | null
+
+  [key: string]: any
+}

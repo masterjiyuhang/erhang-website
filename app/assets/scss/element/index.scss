@@ -1,17 +1,28 @@
 $-colors: (
   'primary': (
-    50: #edeeeb,
-    100: #d1d5c5,
-    200: #edf2fb,
-    300: #e2eafc,
-    400: #d7e3fc,
-    500: #ccdbfd,
-    600: #c1d3fe,
-    700: #b6ccfe,
-    800: #abc4ff,
-    900: #b8c0ff,
-    950: #bbd0ff,
-    'base': #2d7bd4,
+    // 50: #edeeeb,
+    // 100: #d1d5c5,
+    // 200: #edf2fb,
+    // 300: #e2eafc,
+    // 400: #d7e3fc,
+    // 500: #ccdbfd,
+    // 600: #c1d3fe,
+    // 700: #b6ccfe,
+    // 800: #abc4ff,
+    // 900: #b8c0ff,
+    // 950: #bbd0ff,
+    50: #fef6e6,
+    100: #fdf2e9,
+    200: #fcf2e5,
+    300: #fce7d9,
+    400: #fce4d3,
+    500: #fcd6c9,
+    600: #fccfb5,
+    700: #fcb99c,
+    800: #fcaa8e,
+    900: #fca67c,
+    950: #fca26a,
+    'base': #ff6a00,
   ),
   'success': (
     'base': #67c23a,
@@ -34,6 +45,10 @@ $-colors: (
   $colors: $-colors
 );
 
-// :root {
-//   --el-text-color-placeholder: $primary;
-// }
+:root {
+  --el-text-color-placeholder: $primary;
+  --el-color-primary: #ff6a00;
+  --el-color-primary-light-3: #ff8e4d;
+  --el-color-primary-light-7: #ffcbb6;
+  --el-color-primary-light-9: #fdf2e9;
+}

@@ -1,17 +1,4 @@
 {
-  "global": {
-    "siteName": "Happy Baby",
-    "description": "When life is good, enjoy it to the fullest; don't leave your golden cup facing the moon empty.",
-    "aboutUs": "About Us"
-  },
-  "messages": {
-    "general": {
-      "viewAll": "View All",
-      "viewMore": "View More",
-      "share": "Share",
-      "date": "Date"
-    }
-  },
   "home": {
     "JoinUs": "Join Us",
     "header": {
@@ -24,28 +11,6 @@
     },
     "heroSection": {
       "start": "Start your healthy eating journey today! We offer a variety of delicious and nutritious foods to help you grow healthier. Come join us and let's discover the joy of healthy eating together!"
-    }
-  },
-  "footer": {
-    "general": {
-      "title": "General",
-      "FAQ": "FAQ",
-      "News": "News",
-      "Careers": "Careers",
-      "Contact": "Contact Us"
-    },
-    "links": {
-      "title": "Links",
-      "Nav": "Test Nav",
-      "Adopt": "Adopt",
-      "QuickStart": "Quick Start",
-      "Member": "Member",
-      "Blog": "Blog",
-      "Tools": "Tools",
-      "Mission": "Our Mission"
-    },
-    "Gallery": {
-      "title": "Gallery"
     }
   }
 }

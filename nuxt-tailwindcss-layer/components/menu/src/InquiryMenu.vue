@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/html-self-closing -->
 <template>
   <div class="inquiry-panel">
     <div class="main-cate">
@@ -26,6 +27,11 @@
         class="secondary-content w-[362px]"
         @mouseover.stop="handleMouseOver(secondaryItem, index)"
         @mouseleave.stop="handleMouseLeave"
+        @click="
+          secondaryItem.appId
+            ? openPageByAppId(secondaryItem.appId, secondaryItem.path)
+            : openByLink(secondaryItem.link)
+        "
       >
         <div class="shrink-0">
           <div
@@ -36,7 +42,7 @@
                   ? `url(${secondaryItem.iconHover})`
                   : `url(${secondaryItem.icon})`,
             }"
-          ></div>
+          />
         </div>
         <div class="flex-1">
           <p
@@ -46,6 +52,7 @@
             "
           >
             {{ secondaryItem.nameCn }}
+
             <i class="hot-tag-header relative top-[-8px]">HOT</i>
           </p>
           <p class="secondary-content-desc">
@@ -83,8 +90,14 @@
 
   function handleViewMore() {
     // 登录后的用户跳转到帮货代 发布询盘页面
-    openPageByAppId('TPS', '/index?fromWhere=hzh')
+    openPageByAppId('TPS', '/index?fromWhere=ZWZ')
   }
+  const { post } = useUseRequest()
+  onMounted(async () => {
+    await post('/fis/customer/freight/getCount').then((res: any) => {
+      inquiryNum.value = res.data.number
+    })
+  })
 </script>
 
 <style lang="scss" scoped>

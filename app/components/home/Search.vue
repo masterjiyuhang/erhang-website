@@ -1,46 +1,51 @@
 <template>
   <div class="home-search">
-    <div class="pt-32 container">
-      <div class="flex">
-        <div
-          class="flex items-center justify-around h-11 mb-4 p-1 rounded opacity-100 bg-home-search"
-        >
+    <ClientOnly>
+      <div class="pt-32 container px-0">
+        <div class="flex">
           <div
-            v-for="item in SEARCH_TYPE_LIST"
-            :key="item.value"
-            class="flex items-center h-full py-1.5 px-4 text-white font-[Poppins-M] text-base font-medium leading-5 cursor-pointer focus:text-[#232324] focus:transition-all focus:duration-300 ease-in-out"
-            :class="
-              currentSearchType === item.value
-                ? [`bg-[#fff]`, `!text-[#232324]`, `rounded`]
-                : []
-            "
-            @click="() => (currentSearchType = item.value)"
+            class="flex items-center justify-around h-11 mb-4 p-1 rounded opacity-100 bg-home-search"
           >
-            <span class="text-base">{{ item.label }}</span>
+            <div
+              v-for="item in SEARCH_TYPE_LIST"
+              :key="item.value"
+              class="flex items-center h-full py-1.5 px-4 text-white font-[Poppins-M] text-base font-medium leading-5 cursor-pointer focus:text-[#232324] focus:transition-all focus:duration-300 ease-in-out"
+              :class="
+                currentSearchType === item.value
+                  ? [`bg-[#fff]`, `!text-[#232324]`, `rounded`]
+                  : []
+              "
+              @click="() => (currentSearchType = item.value)"
+            >
+              <span class="text-base">{{ item.label }}</span>
+            </div>
+          </div>
+          <div
+            class="flex items-center h-11 ml-6 cursor-pointer"
+            @click.stop="openPageByAppId('TPS', '/?fromWhere=ZWZ')"
+          >
+            <div class="text-white">发布询盘</div>
+            <NuxtImg
+              src="/icons/icon_more_slope_basic.svg"
+              width="16"
+              height="16"
+              alt="More"
+              loading="lazy"
+            />
           </div>
         </div>
-        <div class="flex items-center ml-6">
-          <div class="text-white">发布询盘</div>
-          <NuxtImg
-            src="/icons/icon_more_slope_basic.svg"
-            width="16"
-            height="16"
-            alt="More"
-            loading="lazy"
-          />
-        </div>
-      </div>
 
-      <template v-if="currentSearchType === 'rate'">
-        <HomeSearchCompsRateSearchBox />
-      </template>
-      <template v-if="currentSearchType === 'company'">
-        <HomeSearchCompsCompanySearchBox />
-      </template>
-      <template v-if="currentSearchType === 'shipping'">
-        <HomeSearchCompsScheduleSearchBox />
-      </template>
-    </div>
+        <template v-if="currentSearchType === 'rate'">
+          <HomeSearchCompsRateSearchBox />
+        </template>
+        <template v-if="currentSearchType === 'company'">
+          <HomeSearchCompsCompanySearchBox />
+        </template>
+        <template v-if="currentSearchType === 'shipping'">
+          <HomeSearchCompsScheduleSearchBox />
+        </template>
+      </div>
+    </ClientOnly>
   </div>
 </template>
 
@@ -52,7 +57,7 @@
 
 <style lang="scss" scoped>
   .home-search {
-    background: url('https://resources.jctrans.com/res/hzh/pc/img/banner@2x.png');
+    background: url('https://resources.jctrans.com/res/hzh/pc/img/banner@2x.jpg');
     background-size: cover;
     background-position: center;
     height: 325px;

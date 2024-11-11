@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-blue {
+    @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+  }
+
+  .bg-home-search {
+    background: linear-gradient(90deg, #ff5000 0%, #ff8f12 100%);
+  }
+
+  /* m默认内容显示背景 */
+  .bg-default-content {
+    @apply bg-content rounded p-2 text-[#000] font-normal;
+  }
+}
+
+@layer base {
+  input,
+  optgroup,
+  select,
+  textarea {
+    @apply text-black border-none outline-none;
+  }
+}

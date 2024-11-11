@@ -1,12 +1,9 @@
 <template>
-  <div
-    ref="bottomMenuRef"
-    class="flex h-full justify-start items-center space-x-8"
-  >
+  <div ref="bottomMenuRef" class="flex h-full justify-start items-center">
     <div
       v-for="(item, index) in menuList"
       :key="index"
-      class="cursor-pointer"
+      class="cursor-pointer px-4 first:pl-0"
       :class="[currentActiveIndex === index ? `current-item` : '']"
       @mouseenter.self="handleMouseEnter(item, index)"
       @mouseleave.self="handleMouseLeave(item)"
@@ -18,25 +15,17 @@
         :class="[currentActiveIndex === index ? 'tab-title-active' : '']"
         @click="navigateToLocalizedPath(item.path)"
       >
-        {{ getCnOrEn(item.nameCn, item.nameEn) }}
+        <!-- {{ getCnOrEn(item.nameCn, item.nameEn) }} -->
+        {{ item.nameCn }}
       </div>
 
       <!-- 菜单外链 外部链接 -->
       <div v-if="item.menuType === 'dropdown'" class="text-right">
-        <HeadlessMenu
-          v-slot="{ open }"
-          as="div"
-          class="relative inline-block text-left"
+        <button
+          class="text-center text-inherit font-normal text-sm relative tab-title"
+          :class="[currentActiveIndex === index ? 'tab-title-active' : '']"
         >
-          <div>
-            <HeadlessMenuButton
-              class="text-center text-inherit font-normal text-sm relative tab-title"
-              :class="[currentActiveIndex === index ? 'tab-title-active' : '']"
-            >
-              {{ item.nameCn }}
-            </HeadlessMenuButton>
-          </div>
-
+          {{ item.nameCn }}
           <transition
             enter-active-class="transition duration-100 ease-out"
             enter-from-class="transform scale-95 opacity-0"
@@ -45,27 +34,33 @@
             leave-from-class="transform scale-100 opacity-100"
             leave-to-class="transform scale-95 opacity-0"
           >
-            <div v-if="open">
-              <HeadlessMenuItems
-                class="absolute left-1/2 -translate-x-1/2 mt-2 w-20 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none"
+            <div
+              v-show="currentActiveIndex === index"
+              :class="[
+                'absolute left-0 -translate-x-1/4 bg-white rounded-sm shadow-sm',
+                'p-2 space-y-2',
+              ]"
+            >
+              <div
+                v-for="(child, childIndex) in item.children"
+                :key="childIndex"
+                :class="[
+                  'w-24 text-center p-2',
+                  'text-paper text-sm leading-4 font-medium',
+                  'hover:bg-[#ffa132]/10 rounded',
+                ]"
+                @click="
+                  () => {
+                    currentActiveIndex = -1
+                    openPageByAppId(child.appId, child.link)
+                  }
+                "
               >
-                <div v-for="childItem in 4" :key="childItem" class="px-1 py-1">
-                  <HeadlessMenuItem v-slot="{ active }">
-                    <button
-                      :class="[
-                        active ? 'bg-[#ffa132]/10 text-paper' : 'text-paper',
-                        'group  w-full items-center rounded-md px-2 py-2 text-sm',
-                        'truncate',
-                      ]"
-                    >
-                      Duplicate{{ childItem }}
-                    </button>
-                  </HeadlessMenuItem>
-                </div>
-              </HeadlessMenuItems>
+                {{ child.nameCn }}
+              </div>
             </div>
           </transition>
-        </HeadlessMenu>
+        </button>
       </div>
 
       <!-- 弹出层 popover -->
@@ -76,10 +71,7 @@
             :class="[currentTabIndex === index ? 'tab-title-active' : '']"
           >
             {{ item.nameCn }}
-            <!-- <i class="hot-tag hot-tag-header relative bottom-2">HOT</i>
-            <i class="new-tag-header relative bottom-2">NEW</i> -->
           </div>
-          <!-- v-if="item.children && item.children.length > 0" -->
           <div
             class="animated-tab-content"
             :style="{
@@ -89,9 +81,18 @@
             <div class="tab-content">
               <div class="animated-tab-content-children">
                 <div class="container">
-                  <div v-if="item.nameEn === 'Inquiry'">
+                  <template v-if="item.nameEn === 'Inquiry'">
                     <MenuSrcInquiryMenu :current-item="item" />
-                  </div>
+                  </template>
+                  <template v-if="item.nameEn === 'Tools'">
+                    <MenuSrcToolsMenu :current-item="item" />
+                  </template>
+                  <template v-if="item.nameEn === 'Event'">
+                    <MenuSrcEventMenu :current-item="item" />
+                  </template>
+                  <template v-if="item.nameEn === 'Financial Payment'">
+                    <MenuSrcFinancialMenu :current-item="item" />
+                  </template>
                 </div>
               </div>
             </div>
@@ -104,9 +105,14 @@
         v-if="item.menuType === 'link'"
         class="text-center text-inherit font-normal text-sm relative tab-title"
         :class="[currentActiveIndex === index ? 'tab-title-active' : '']"
-        @click="navigateToLocalizedPath(item.path)"
+        @click="
+          item.appId
+            ? openPageByAppId(item.appId, item.path)
+            : openByLink(item.path)
+        "
       >
-        {{ getCnOrEn(item.nameCn, item.nameEn) }}
+        <!-- {{ getCnOrEn(item.nameCn, item.nameEn) }} -->
+        {{ item.nameCn }}
       </div>
     </div>
   </div>
@@ -130,7 +136,11 @@
   function handleMouseEnter(item: MenuItem, index: number, open?: boolean) {
     currentActiveIndex.value = index
     currentTabIndex.value = index
-    contentHeight.value = item.children?.length * 78
+    if (item.nameEn === 'Tools') {
+      contentHeight.value = 2 * 260
+    } else {
+      contentHeight.value = Math.ceil(item.children?.length / 2) * 117
+    }
     emits('change', '#ff6a00')
   }
 

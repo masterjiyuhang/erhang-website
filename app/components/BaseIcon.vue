@@ -4,7 +4,7 @@
   const props = defineProps({
     name: {
       type: String,
-      default: 'i-line-md-alert-circle-loop',
+      default: 'i-line-md-iconify1',
     },
     tag: {
       type: String,

@@ -1,3 +1,4 @@
+import { go2LoginPage } from '~/utils/auth'
 import { useMySystemStore } from './../stores/system'
 import { useSessionStorage, useStorage } from '@vueuse/core'
 
@@ -13,7 +14,7 @@ export const useUseRequest = () => {
   const systemStore = useMySystemStore()
   const { $i18n } = useNuxtApp()
   const router = useRouter()
-  const publicConfig: any = useRuntimeConfig().public
+  const publicConfig = useRuntimeConfig().public
 
   function handleRefreshToken(options) {
     // 双token 逻辑
@@ -64,31 +65,34 @@ export const useUseRequest = () => {
     }
   }
 
-  function handleRequest(options) {
-    options.headers = {}
+  function handleRequest(options, headers = {}) {
+    options.headers = headers
     options.headers['Accept-Language'] = $i18n.locale.value
-    options.headers['APP-ID'] = systemStore.appId
-    options.headers['terminal-type'] = 'PC'
-    options.headers['Content-Type'] = 'application/json'
-    options.headers['Access-Control-Allow-Origin'] = '*'
+    // 复杂的请求头 会触发预检导致GET 请求失败 这里做逻辑区分
+    if (options.method === 'POST') {
+      options.headers['APP-ID'] = systemStore.appId
+      options.headers['terminal-type'] = 'PC'
+      options.headers['Content-Type'] = 'application/json'
+      options.headers['Access-Control-Allow-Origin'] = '*'
 
-    if (!_isEmpty(prjId.value)) {
-      options.headers['popular-channel'] = _isNumber(prjId.value)
-        ? prjId.value
-        : prjId.value.indexOf(',') > 0
-          ? prjId.value.split(',')[0]
-          : prjId.value
-    }
+      if (!_isEmpty(prjId.value)) {
+        options.headers['popular-channel'] = _isNumber(prjId.value)
+          ? prjId.value
+          : prjId.value.indexOf(',') > 0
+            ? prjId.value.split(',')[0]
+            : prjId.value
+      }
 
-    if (!_isEmpty(clientId.value)) {
-      options.headers['client-uid'] = clientId.value
-    }
+      if (!_isEmpty(clientId.value)) {
+        options.headers['client-uid'] = clientId.value
+      }
 
-    if (
-      router.currentRoute.value.meta?.PageCode &&
-      !options.headers['page-code']
-    ) {
-      options.headers['page-code'] = router.currentRoute.value.meta.PageCode
+      if (
+        router.currentRoute.value.meta?.PageCode &&
+        !options.headers['page-code']
+      ) {
+        options.headers['page-code'] = router.currentRoute.value.meta.PageCode
+      }
     }
 
     const token = getToken()
@@ -119,10 +123,18 @@ export const useUseRequest = () => {
               type: 'warning',
               showCancelButton: true,
             })
-              .then(() => {})
+              .then(() => {
+                systemStore.logout().then(() => {
+                  go2LoginPage()
+                })
+              })
               .catch(() => {
                 confirm = false
               })
+          } else {
+            systemStore.logout().then(() => {
+              go2LoginPage()
+            })
           }
         }
       }
@@ -135,15 +147,13 @@ export const useUseRequest = () => {
     options.lazy = options?.lazy ?? true
 
     const ccFetch = $fetch.create({
-      baseURL: apiOptions?.baseApi ?? publicConfig.apiBaseUrl ?? '/api',
+      timeout: apiOptions?.timeout ?? 15000,
+      baseURL:
+        apiOptions?.baseApi ?? publicConfig.PROD_CLIENT_PROXY_API ?? '/api',
       onRequest: ({ request, options, error }) => {
-        handleRequest(options)
+        handleRequest(options, apiOptions?.headers)
       },
       onRequestError({ request, options, error }) {
-        console.log(
-          '🚀 ~ file: useRequest.ts:147 ~ onRequestError ~ error:',
-          error,
-        )
         return Promise.reject(error)
       },
       onResponse({ response, options, error }) {
@@ -208,6 +218,19 @@ export const useUseRequest = () => {
     })
   }
 
+  const getAsset = <T>(url: string, params = {}) => {
+    return fetch<T>(
+      url,
+      {
+        method: 'GET',
+        params,
+      },
+      {
+        baseApi: 'https://sapi.jctrans.com',
+      },
+    )
+  }
+
   const post = <T>(url: string, body = {}, params = {}, options = {}) => {
     return fetch<T>(
       url,
@@ -223,6 +246,7 @@ export const useUseRequest = () => {
   return {
     get,
     post,
+    getAsset,
     fetch,
   }
 }

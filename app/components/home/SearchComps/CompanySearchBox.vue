@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex p-[7px] container bg-white rounded border divide-solid border-[#ff6a00]"
+    class="company-search flex p-[7px] container bg-white rounded border divide-solid border-[#ff6a00]"
   >
     <div class="min-w-[68px] h-11 mr-4">
       <HeadlessListbox v-model="selectedType" class="h-full">
@@ -56,14 +56,16 @@
     </div>
 
     <div class="flex-1">
-      <CountryPortSearch
-        v-model:value="searchForm.from"
+      <el-input
+        v-model="searchForm.from"
         :placeholder="currentFromPlaceHolder"
+        class="border-none h-11"
       />
     </div>
 
     <div
       class="flex items-center justify-center rounded size-11 bg-[#ff6400] cursor-pointer"
+      @click="handleSearch"
     >
       <MagnifyingGlassIcon class="h-6 w-6 text-white" aria-hidden="true" />
     </div>
@@ -73,23 +75,54 @@
 <script lang="ts" setup>
   import { ChevronDownIcon } from '@heroicons/vue/16/solid'
   import { MagnifyingGlassIcon } from '@heroicons/vue/24/solid'
+  import { reportCallBack } from '~/api/system'
 
   const searchForm: any = reactive({
-    from: {},
+    from: '',
   })
   const typeList = [
     {
       name: '物流类公司',
-      value: 'fcl',
+      value: '1',
     },
     {
       name: '工厂及贸易类公司',
-      value: 'fcl',
+      value: '2',
     },
   ]
   const selectedType = ref(typeList[0])
 
   const currentFromPlaceHolder = ref('请输入关键字')
+
+  function handleSearch() {
+    console.log(searchForm.from, selectedType.value)
+
+    if (selectedType.value.value === '1') {
+      openPageByAppId('SHOP', `?compName=${searchForm.from}`)
+    }
+    if (selectedType.value.value === '2') {
+      openPageByAppId('TRADE', `?compName=${searchForm.from}`)
+    }
+
+    const route = useRoute()
+
+    reportCallBack(
+      {
+        eventCode: 'HOME.SEARCH.COMPANY',
+        extensions: {
+          companyName: searchForm.from,
+          companyType: selectedType.value.value,
+        },
+      },
+      'ZWZ.UC.' + route.meta.name.toUpperCase(),
+    )
+  }
 </script>
 
-<style></style>
+<style lang="scss">
+  .company-search {
+    .el-input__wrapper {
+      @apply shadow-none;
+    }
+  }
+</style>

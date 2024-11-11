@@ -6,6 +6,7 @@ export const i18nConfig: NuxtI18nOptions = {
     { code: 'cn', file: 'zh-CN.json', name: '中国 🇨🇳' },
   ],
   langDir: 'locales',
-  defaultLocale: 'en',
-  strategy: 'prefix',
+  defaultLocale: 'cn',
+  debug: false,
+  strategy: 'no_prefix',
 }

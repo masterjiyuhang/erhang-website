@@ -1,0 +1,45 @@
+:deep(.el-dialog) {
+  overflow: hidden;
+  border-radius: 16px;
+  padding: 0;
+
+  .el-dialog__header {
+    height: 70px;
+    padding: 0;
+    padding-left: 32px;
+    background: #3a190b linear-gradient(90deg, #3a190b 0%, #3a190b 100%);
+    line-height: 70px;
+
+    .el-dialog__title {
+      top: 24px;
+      right: 24px;
+      color: #fff;
+      font-family: Poppins-SemiBold;
+      font-size: 20px;
+      font-style: italic;
+      font-weight: normal;
+    }
+
+    .el-dialog__headerbtn {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      background: rgb(255 255 255 / 30%);
+      line-height: 1;
+      top: 20px;
+      right: 20px;
+
+      .el-dialog__close {
+        color: #fff;
+      }
+    }
+  }
+
+  .el-dialog__body {
+    position: relative;
+    top: -4px;
+    padding: 32px;
+    border-radius: 4px 4px 0 0;
+    background: #fff;
+  }
+}

@@ -1,13 +1,24 @@
 <template>
-  <div class="container flex justify-between">
+  <div class="container flex justify-between px-0">
     <div @click="navigateToLocalizedPath('/')">
-      <TheLogo :class="isWhite ? 'text-primary-200' : 'text-primary-400'" />
+      <NuxtImg
+        v-show="isWhite"
+        :src="'https://resources.jctrans.com/res/hzh/pc/img/logo_dark@2x.png'"
+        class="w-[298px] h-[32px] cursor-pointer"
+      />
+      <NuxtImg
+        v-show="!isWhite"
+        :src="'https://resources.jctrans.com/res/hzh/pc/img/logo_nor@2x.png'"
+        class="w-[298px] h-[32px] cursor-pointer"
+      />
     </div>
 
     <div class="flex items-center">
       <PopoverJoinUs />
-      <PhoneShow :is-white="isWhite" />
-      <LoginShow />
+      <ClientOnly>
+        <PhoneShow :is-white="isWhite" />
+      </ClientOnly>
+      <LoginShow :is-white="isWhite" />
     </div>
   </div>
 </template>

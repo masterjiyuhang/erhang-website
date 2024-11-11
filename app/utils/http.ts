@@ -41,7 +41,7 @@ function fetch<T>(url: UrlType, opts: HttpOption<T>) {
   const options = opts as UseFetchOptions<ResOptions<T>>
   options.lazy = options.lazy ?? true
 
-  const { apiBaseUrl } = useRuntimeConfig().public
+  const { PROD_CLIENT_PROXY_API: apiBaseUrl } = useRuntimeConfig().public
 
   return useFetch<ResOptions<T>>(url, {
     // Request interception

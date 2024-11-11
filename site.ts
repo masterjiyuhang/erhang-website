@@ -3,13 +3,12 @@
 // @unocss-include
 
 export default {
-  name: 'ErHang Website',
+  name: 'JCtrans Website',
   description: 'Adopt Your Fur Mate',
-  logo: 'i-line-md-sun-rising-loop',
+  logo: 'i-streamline-emojis:grinning-squinting-face',
   author: 'Pinegrow',
-  url: 'https://erhang-website.vercel.app/',
-  github: 'https://github.com/pinegrow/happy-paws-with-nuxt-tailwindcss',
-  defaultLocale: 'en', // default
+  url: 'https://cn.jctrnas.com/',
+  defaultLocale: 'cn', // default
   identity: {
     type: 'Organization',
   } as any,

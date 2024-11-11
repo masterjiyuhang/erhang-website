@@ -72,7 +72,7 @@ export const useOptimizeImage = () => {
           return `${acc}background-image:${bgStyle};`
         }, '')
       } catch (err) {
-        console.log(
+        console.error(
           '🚀 ~ file: optimize-images.ts:75 ~ useOptimizeImage ~ err:',
           err,
         )

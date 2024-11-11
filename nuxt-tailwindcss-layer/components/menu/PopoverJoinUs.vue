@@ -8,7 +8,10 @@
           @mouseover="(e) => hoverPopover(e, open)"
           @mouseleave="closePopover(close)"
         >
-          <span>{{ getCnOrEn(`加入会员`, `Become a member`) }}</span>
+          <span>
+            <!-- {{ getCnOrEn(`加入会员`, `Become a member`) }} -->
+            加入会员
+          </span>
         </HeadlessPopoverButton>
 
         <transition
@@ -20,7 +23,7 @@
           leave-to-class="translate-y-1 opacity-0"
         >
           <HeadlessPopoverPanel
-            class="absolute right-0 top-10 join-us-content"
+            class="absolute right-0 top-10 join-us-content z-50"
             :style="{
               backgroundImage: `url(${currentImg})`,
               width: '332px',
@@ -30,7 +33,8 @@
             @mouseleave.prevent="closePopover(close)"
           >
             <h1 class="title">
-              {{ $t('home.header.JoinMember.title') }}
+              <!-- {{ $t('home.header.JoinMember.title') }} -->
+              JCtrans会员制产品
             </h1>
             <div class="flex flex-col pl-4 pr-5 pb-6 items-start">
               <h2
@@ -39,10 +43,13 @@
               >
                 <NuxtImg
                   class="icon mb-auto"
-                  src="/images/layouts/headerJoinUs/icon_intro_why_1@2x.png"
+                  src="https://resources.jctrans.com/res/hzh/pc/img/icon_intro_why_1@2x.png"
                   alt=""
                 />
-                <span>{{ $t('home.header.JoinMember.desc1') }}</span>
+                <span>
+                  汇聚全球优质货代企业
+                  <!-- {{ $t('home.header.JoinMember.desc1') }} -->
+                </span>
               </h2>
               <h2
                 class="flex justify-center items-center flex-1 desc py-3"
@@ -50,10 +57,13 @@
               >
                 <NuxtImg
                   class="icon mb-auto"
-                  src="/images/layouts/headerJoinUs/icon_intro_why_2@2x.png"
+                  src="https://resources.jctrans.com/res/hzh/pc/img/icon_intro_why_2@2x.png"
                   alt=""
                 />
-                <span>{{ $t('home.header.JoinMember.desc2') }}</span>
+                <span>
+                  打造安全信誉圈层
+                  <!-- {{ $t('home.header.JoinMember.desc2') }} -->
+                </span>
               </h2>
               <h2
                 class="flex justify-center items-center flex-1 desc"
@@ -61,14 +71,18 @@
               >
                 <NuxtImg
                   class="icon mb-auto"
-                  src="/images/layouts/headerJoinUs/icon_intro_why_3@2x.png"
+                  src="https://resources.jctrans.com/res/hzh/pc/img/icon_intro_why_3@2x.png"
                   alt=""
                 />
-                <span>{{ $t('home.header.JoinMember.desc3') }}</span>
+                <span>
+                  <!-- {{ $t('home.header.JoinMember.desc3') }}  -->
+                  帮助企业持续盈利
+                </span>
               </h2>
             </div>
             <button class="join-btn ml-4" @click="handleClickJoinUs(close)">
-              {{ $t('home.JoinUs') }}
+              <!-- {{ $t('home.JoinUs') }} -->
+              加入我们
             </button>
           </HeadlessPopoverPanel>
         </transition>

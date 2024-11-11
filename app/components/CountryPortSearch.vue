@@ -3,7 +3,7 @@
     <HeadlessCombobox v-model="currentSelected" nullable>
       <div class="relative">
         <div
-          class="relative w-full h-11 cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-300 sm:text-sm"
+          class="relative w-full h-11 cursor-default overflow-hidden rounded-lg bg-white text-left shadow-none focus:outline-none focus-visible:ring-2 focus-visible:ring-white/75 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-300 sm:text-sm"
         >
           <HeadlessComboboxButton
             class="absolute inset-y-0 left-3 flex items-center pr-1 base-icon"
@@ -11,13 +11,13 @@
           >
             <span
               class="iconfont icon-position text-primary-100 base-icon-content"
-            ></span>
+            />
           </HeadlessComboboxButton>
           <HeadlessComboboxInput
             class="w-full h-full border-none py-2 pl-10 pr-10 text-sm leading-5 text-gray-900 shadow-none base-input"
             :placeholder="placeholder"
             autocomplete="off"
-            :display-value="(port: any) => port?.nameCn"
+            :display-value="(port: any) => port?.nameCn || port?.cityName"
             @change="query = $event.target.value"
           />
           <HeadlessComboboxButton
@@ -39,45 +39,73 @@
           @after-leave="query = ''"
         >
           <HeadlessComboboxOptions
-            class="absolute z-10 mt-2 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm"
+            class="absolute z-10 mt-0 max-h-60 w-full overflow-auto rounded-md bg-white p-2 text-base shadow-lg ring-1 ring-black/5 focus:outline-none sm:text-sm"
           >
             <div
-              v-if="query !== ''"
+              v-if="loading"
               class="relative cursor-default select-none px-4 py-2 text-gray-700"
             >
-              <div v-if="list.length === 0 && !loading">暂无数据.</div>
-              <div v-else-if="loading">搜索中...</div>
+              搜索中...
             </div>
-
-            <HeadlessComboboxOption
-              v-for="port in list"
-              :key="port.id"
-              v-slot="{ selected, active }"
-              as="template"
-              :value="port"
-            >
-              <li
-                class="relative cursor-default select-none py-2 pl-10 pr-4"
-                :class="{
-                  'bg-primary-600 text-white': active,
-                  'text-gray-900': !active,
-                }"
+            <template v-else>
+              <div
+                v-if="query !== '' && list.length === 0"
+                class="relative cursor-default select-none px-4 py-2 text-gray-700"
               >
-                <span
-                  class="block truncate"
-                  :class="{ 'font-medium': selected, 'font-normal': !selected }"
+                <div>暂无数据.</div>
+              </div>
+
+              <HeadlessComboboxOption
+                v-for="port in list"
+                :key="port.id"
+                v-slot="{ selected, active }"
+                as="template"
+                class="p-2"
+                :value="port"
+              >
+                <li
+                  class="relative cursor-default select-none p-3 my-0 rounded"
+                  :class="{
+                    'bg-[#FFA132]/10 text-paper': active,
+                    'text-paper': !active,
+                    'flex items-center': true,
+                  }"
                 >
-                  {{ port.nameCn }}
-                </span>
-                <span
-                  v-if="selected"
-                  class="absolute inset-y-0 left-0 flex items-center pl-3"
-                  :class="{ 'text-white': active, 'text-primary-600': !active }"
-                >
-                  <!-- <CheckIcon class="h-5 w-5" aria-hidden="true" /> -->
-                </span>
-              </li>
-            </HeadlessComboboxOption>
+                  <span class="text-primary mr-6">
+                    {{
+                      port.addressType
+                        ? port.addressType === 'city'
+                          ? '城市'
+                          : port.addressType === 'seaport'
+                            ? '港口'
+                            : '机场'
+                        : port.cityName
+                          ? '城市'
+                          : '国家'
+                    }}
+                  </span>
+                  <span
+                    class="block truncate"
+                    :class="{
+                      'font-medium': selected,
+                      'font-normal': !selected,
+                    }"
+                  >
+                    {{ port.nameCn ?? port.cityName }}
+                  </span>
+                  <span
+                    v-if="selected"
+                    class="absolute inset-y-0 left-0 flex items-center pl-3"
+                    :class="{
+                      'text-white': active,
+                      'text-primary-600': !active,
+                    }"
+                  >
+                    <!-- <CheckIcon class="h-5 w-5" aria-hidden="true" /> -->
+                  </span>
+                </li>
+              </HeadlessComboboxOption>
+            </template>
           </HeadlessComboboxOptions>
         </HeadlessTransitionRoot>
       </div>
@@ -86,8 +114,12 @@
 </template>
 
 <script setup lang="ts">
-  import { CheckIcon, XMarkIcon } from '@heroicons/vue/20/solid'
-  import { findCityPortAddressApi } from '~/api/findCityPortAddress'
+  import { XMarkIcon } from '@heroicons/vue/20/solid'
+  import {
+    findCityAddressApi,
+    findCityPortAddressApi,
+    findCountryApi,
+  } from '~/api/findCityPortAddress'
   import { isClient } from '@vueuse/core'
 
   const props = defineProps({
@@ -102,6 +134,18 @@
     placeholder: {
       type: String,
       default: '请输入',
+    },
+    onlyCity: {
+      type: Boolean,
+      default: false,
+    },
+    isAllCity: {
+      type: String,
+      default: '0',
+    },
+    destCountry: {
+      type: Boolean,
+      default: false,
     },
   })
 
@@ -139,7 +183,7 @@
     version: number
     addressId: number
     nameLength: number
-    addressType: 'city'
+    addressType: string
     nameCn: string
     nameEn: string
     countryId: number
@@ -151,7 +195,8 @@
     cityNameEn: string | null
     seaLineId: number | null
     airLineId: number | null
-    code: null
+    code: string | null
+    cityName?: string | null
   }
 
   const list = ref<Location[]>([])
@@ -159,12 +204,24 @@
   async function ss(searchValue: string = '') {
     if (isClient) {
       loading.value = true
-      const res: any = await findCityPortAddressApi({
-        transportType: props.searchType ?? 'air',
-        name: searchValue,
-        isAllCity: 1,
-      })
-      list.value = res.data.records
+      if (props.destCountry) {
+        const res: any = await findCountryApi({
+          name: searchValue,
+        })
+        list.value = res.data.records
+      } else if (!props.onlyCity) {
+        const res: any = await findCityPortAddressApi({
+          transportType: props.searchType ?? 'Air',
+          name: searchValue,
+          isAllCity: props.isAllCity,
+        })
+        list.value = res.data.records
+      } else {
+        const res: any = await findCityAddressApi({
+          name: searchValue,
+        })
+        list.value = res.data.records
+      }
       loading.value = false
     } else {
       console.log('not client')

@@ -15,10 +15,13 @@ export const usePlanList = () => {
     }
   }
 
+  const config = useRuntimeConfig()
+
   async function getPlanList() {
     const { data, status, error, refresh, clear } = await useAsyncData<any>(
-      'sapi.jctrans.com/rms/risk/guide/guideCase/list',
-      () => $fetch('https://sapi.jctrans.com/rms/risk/guide/guideCase/list'),
+      `${config.public.SAPI_DOMAIN}/rms/risk/guide/guideCase/list`,
+      () =>
+        $fetch(`${config.public.SAPI_DOMAIN}/rms/risk/guide/guideCase/list`),
       {
         server: true,
       },

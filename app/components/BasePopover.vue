@@ -30,11 +30,11 @@
       leave-to-class="translate-y-1 opacity-0"
     >
       <HeadlessPopoverPanel
-        class="absolute right-0 top-10 z-20"
+        class="absolute right-0 top-10 z-50"
         @mouseover.prevent="popoverHover = true"
         @mouseleave.prevent="closePopover(close)"
       >
-        <slot></slot>
+        <slot />
       </HeadlessPopoverPanel>
     </transition>
   </HeadlessPopover>

@@ -12,14 +12,16 @@ index 086d30f2d20dfc30d278feb38cc71e96c75c09a7..9571ba80fddd63d57f1ae4fb650f914d
  
  // rgba color above solid color
 diff --git a/theme-chalk/src/common/var.scss b/theme-chalk/src/common/var.scss
-index d5c4a1b90b56eac9fffd36e823942b024ef4fefa..6084a01b18f70afbe51e2276f57fece22739055c 100644
+index d5c4a1b90b56eac9fffd36e823942b024ef4fefa..25359a7bf224dff75123f6aee265cecee6761a88 100644
 --- a/theme-chalk/src/common/var.scss
 +++ b/theme-chalk/src/common/var.scss
-@@ -1,4 +1,5 @@
+@@ -1,6 +1,7 @@
  /* Element Chalk Variables */
-+@use "sass:color";
  @use 'sass:math';
  @use 'sass:map';
++@use 'sass:color';
+ 
+ @use '../mixins/function.scss' as *;
  
 @@ -60,7 +61,7 @@ $color-info: map.get($colors, 'info', 'base') !default;
      (
@@ -31,31 +33,33 @@ index d5c4a1b90b56eac9fffd36e823942b024ef4fefa..6084a01b18f70afbe51e2276f57fece2
              map.get($colors, $type, 'base'),
              math.percentage(math.div($number, 10))
 diff --git a/theme-chalk/src/dark/var.scss b/theme-chalk/src/dark/var.scss
-index 212af416347d92afbd67be19de728aabbbb615be..42c80dc2890fda573c7d2b8de86cd9994418f2a7 100644
+index 212af416347d92afbd67be19de728aabbbb615be..d457e1d1814041233f4c3cad40387240210d733b 100644
 --- a/theme-chalk/src/dark/var.scss
 +++ b/theme-chalk/src/dark/var.scss
-@@ -1,3 +1,4 @@
-+@use "sass:color";
+@@ -1,5 +1,6 @@
  @use 'sass:map';
  @use 'sass:math';
++@use 'sass:color';
  
+ @use '../common/var.scss' as common;
+ @use '../mixins/mixins.scss' as *;
 @@ -30,7 +31,7 @@ $colors: () !default;
      (
        $type: (
          '#{$mode}-#{$number}':
 -          mix(
-+        color.mix(
++          color.mix(
              $mix-color,
              map.get($colors, $type, 'base'),
              math.percentage(math.div($number, 10))
 diff --git a/theme-chalk/src/mixins/function.scss b/theme-chalk/src/mixins/function.scss
-index c6c449c3e82a97dd8804c282b5873284a0a2b8d9..7ae00a8d6b388e4417b8ab2f614cc803f8d5fa73 100644
+index c6c449c3e82a97dd8804c282b5873284a0a2b8d9..55ec0e3433a7f8eab195414ad596923351f9b0cd 100644
 --- a/theme-chalk/src/mixins/function.scss
 +++ b/theme-chalk/src/mixins/function.scss
 @@ -1,16 +1,18 @@
  @use 'config';
-+@use "sass:meta";
-+@use "sass:string";
++@use 'sass:meta';
++@use 'sass:string';
  
  // BEM support Func
  @function selectorToString($selector) {
@@ -92,24 +96,3 @@ index c6c449c3e82a97dd8804c282b5873284a0a2b8d9..7ae00a8d6b388e4417b8ab2f614cc803
      @return true;
    } @else {
      @return false;
-diff --git a/theme-chalk/src/mixins/mixins.scss b/theme-chalk/src/mixins/mixins.scss
-index f45df0b8d926c106a688b0f600d7f690f99dc2e3..ee62c194d61adccff9a5ebfb23b111a96242db48 100644
---- a/theme-chalk/src/mixins/mixins.scss
-+++ b/theme-chalk/src/mixins/mixins.scss
-@@ -1,3 +1,5 @@
-+@use "sass:map";
-+@use "sass:string";
- @use 'function' as *;
- @use '../common/var' as *;
- // forward mixins
-@@ -9,8 +11,8 @@
- // Break-points
- @mixin res($key, $map: $breakpoints) {
-   // loop breakpoint Map, return if present
--  @if map-has-key($map, $key) {
--    @media only screen and #{unquote(map-get($map, $key))} {
-+  @if map.has-key($map, $key) {
-+    @media only screen and #{string.unquote(map.get($map, $key))} {
-       @content;
-     }
-   } @else {

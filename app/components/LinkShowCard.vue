@@ -11,6 +11,7 @@
         <HeadlessTabList class="flex flex-wrap space-x-0">
           <HeadlessTab
             v-for="link in linkList"
+            :id="title + '-' + link.name"
             :key="link.name"
             v-slot="{ selected }"
             as="template"
@@ -22,6 +23,7 @@
                 'hover:text-primary hover:bg-primary/10',
                 selected ? ' text-paper-50' : 'bg-white text-paper-50 ',
               ]"
+              @click.stop="openByLink(link.href)"
             >
               <NuxtLink
                 :href="link.href"

@@ -300,20 +300,152 @@ export const useDictStore = defineStore({
     ],
 
     // 陆运 始发区域
-    landDepartures: [],
+    landDepartures: [
+      {
+        name: '北京',
+        href: 'https://shipping.jctrans.com/ldt?fromId=3762&fromPortName=北京&fromAddressType=city&transportType=ldt&cabType=0',
+      },
+      {
+        name: '天津',
+        href: 'https://shipping.jctrans.com/ldt?fromId=3763&fromPortName=天津&fromAddressType=city&transportType=ldt&cabType=0',
+      },
+      {
+        name: '上海',
+        href: 'https://shipping.jctrans.com/ldt?fromId=4019&fromPortName=上海&fromAddressType=city&transportType=ldt&cabType=0',
+      },
+      {
+        name: '大连',
+        href: 'https://shipping.jctrans.com/ldt?fromId=2701&fromPortName=大连&fromAddressType=city&transportType=ldt&cabType=0',
+      },
+      {
+        name: '宁波',
+        href: 'https://shipping.jctrans.com/ldt?fromId=2768&fromPortName=宁波&fromAddressType=city&transportType=ldt&cabType=0',
+      },
+      {
+        name: '青岛',
+        href: 'https://shipping.jctrans.com/ldt?fromId=2815&fromPortName=青岛&fromAddressType=city&transportType=ldt&cabType=0',
+      },
+      {
+        name: '深圳',
+        href: 'https://shipping.jctrans.com/ldt?fromId=2882&fromPortName=深圳&fromAddressType=city&transportType=ldt&cabType=0',
+      },
+      {
+        name: '广州',
+        href: 'https://shipping.jctrans.com/ldt?fromId=2880&fromPortName=广州&fromAddressType=city&transportType=ldt&cabType=0',
+      },
+      {
+        name: '厦门',
+        href: 'https://shipping.jctrans.com/ldt?fromId=2795&fromPortName=厦门&fromAddressType=city&transportType=ldt&cabType=0',
+      },
+      {
+        name: '哈尔滨',
+        href: 'https://shipping.jctrans.com/ldt?fromId=2723&fromPortName=哈尔滨&fromAddressType=city&transportType=ldt&cabType=0',
+      },
+    ],
     // 陆运 目的区域
-    landArrivals: [],
+    landArrivals: [
+      {
+        name: '中国香港',
+        href: 'https://shipping.jctrans.com/ldt?destId=4012&destPortName=香港&destAddressType=city&transportType=ldt&cabType=0',
+      },
+      {
+        name: '中国澳门',
+        href: 'https://shipping.jctrans.com/ldt?destId=4017&destPortName=澳门&destAddressType=city&transportType=ldt&cabType=0',
+      },
+      {
+        name: '中国台湾',
+        href: 'https://shipping.jctrans.com/ldt?destId=3084&destPortName=台北&destAddressType=city&transportType=ldt&cabType=0',
+      },
+    ],
     // 陆运 运输方式
-    landTransportTypes: [],
+    landTransportTypes: [
+      {
+        name: '公路整车',
+        href: 'https://shipping.jctrans.com/ldt?transportType=ldt&cabType=0',
+      },
+      {
+        name: '公路零担',
+        href: 'https://shipping.jctrans.com/ldt?transportType=ldt&cabType=0',
+      },
+      {
+        name: '空车信息',
+        href: 'https://shipping.jctrans.com/ldt?transportType=ldt&cabType=0',
+      },
+      {
+        name: '集卡拖车',
+        href: 'https://shipping.jctrans.com/ctt?transportType=ctt&cabType=0',
+      },
+      {
+        name: '铁路',
+        href: 'https://shipping.jctrans.com/rlw?transportType=rlw&cabType=0',
+      },
+    ],
 
     // 综合服务 快递公司
-    expressCompanies: [],
+    expressCompanies: [
+      {
+        name: 'DHL',
+        href: 'https://shipping.jctrans.com/exp?transportType=exp&cabType=0',
+      },
+      {
+        name: 'TNT',
+        href: 'https://shipping.jctrans.com/exp?transportType=exp&cabType=0',
+      },
+      {
+        name: 'UPS',
+        href: 'https://shipping.jctrans.com/exp?transportType=exp&cabType=0',
+      },
+      {
+        name: 'FEDEX',
+        href: 'https://shipping.jctrans.com/exp?transportType=exp&cabType=0',
+      },
+      {
+        name: 'EMS',
+        href: 'https://shipping.jctrans.com/exp?transportType=exp&cabType=0',
+      },
+    ],
     // 综合服务 仓储配送
-    warehouseDelivery: [],
+    warehouseDelivery: [
+      {
+        name: '普通',
+        href: 'https://shipping.jctrans.com/whs?transportType=whs&cabType=0',
+      },
+      {
+        name: '综合',
+        href: 'https://shipping.jctrans.com/whs?transportType=whs&cabType=0',
+      },
+      {
+        name: '保税',
+        href: 'https://shipping.jctrans.com/whs?transportType=whs&cabType=0',
+      },
+      {
+        name: '冷库',
+        href: 'https://shipping.jctrans.com/whs?transportType=whs&cabType=0',
+      },
+      {
+        name: '危品',
+        href: 'https://shipping.jctrans.com/whs?transportType=whs&cabType=0',
+      },
+    ],
     // 综合服务 报关报检
-    customsDeclaration: [],
+    customsDeclaration: [
+      {
+        name: '进口',
+        href: 'https://shipping.jctrans.com/ctc?transportType=ctc&cabType=0',
+      },
+      {
+        name: '出口',
+        href: 'https://shipping.jctrans.com/ctc?transportType=ctc&cabType=0',
+      },
+    ],
     // 综合服务 多式联运
-    multimodalTransport: [],
+    multimodalTransport: [
+      { name: '海铁联运', href: 'https://shipping.jctrans.com/' },
+      { name: '海空联运', href: 'https://shipping.jctrans.com/' },
+      { name: '陆桥联运', href: 'https://shipping.jctrans.com/' },
+      { name: '铁路联运', href: 'https://shipping.jctrans.com/' },
+      { name: '空铁联运', href: 'https://shipping.jctrans.com/' },
+    ],
 
     // 海外代理 美洲
     usOverseasAgents: [
@@ -499,14 +631,12 @@ export const useDictStore = defineStore({
     },
   },
   actions: {
-    getDict(dictType: string) {
-      return useFetch('/system/admin/dict/data/type/dictType', {
+    async getDict(dictType: string) {
+      const res = await $fetch('/api/dictType', {
         method: 'post',
-        body: {
-          dictType: dictType,
-        },
-        baseURL: 'https://api-dev2.jctrans.com',
+        body: { dictType: dictType },
       })
+      return res
     },
     /**
      * 获取公司优势信息字典
@@ -516,19 +646,11 @@ export const useDictStore = defineStore({
      */
     getCompanyAdvantage() {
       // 调用getDict方法，传入'company_advantage'作为参数来获取相应字典数据
-      this.getDict('cmc_company_advantage')
-        .then((res: any) => {
-          // 输出获取到的公司优势数据到控制台，以便调试或验证
-          this.companyAdvantageList = res.data.value.data.records
-          console.log(
-            '🚀 ~ file: dict.ts:522 ~ this.getDict ~ this.companyAdvantageList:',
-            this.companyAdvantageList,
-          )
-        })
-        .catch((err) => {
-          this.companyAdvantageList = []
-          console.error(err)
-        })
+      this.getDict('cmc_company_advantage').then((res: any) => {
+        this.companyAdvantageList = res
+        // 输出获取到的公司优势数据到控制台，以便调试或验证
+        // this.companyAdvantageList = res.data.value?.data.records ?? []
+      })
     },
 
     getDictLabelByCode(dict: string, code: string) {

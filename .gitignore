@@ -9,6 +9,7 @@ dist
 .unlighthousedist
 .DS_Store
 .unlighthouse
+yarn.lock
 
 # Node dependencies
 node_modules
@@ -42,3 +43,5 @@ components.d.ts
 composables.d.ts
 ## rollup visualizer
 stats.html
+
+test.*

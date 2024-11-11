@@ -1,0 +1,731 @@
+@headerHeight: 88px;
+@footerHeight: 0px;
+@joinUsBackground: linear-gradient (90deg, #ffae63 0%, #ffda8b 50%, #cee5ff 100%);
+
+.membership-global-part-title {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 900;
+  text-align: center;
+}
+
+.membership-global-apply-wrap {
+  height: 200px;
+  background: #ccc;
+  text-align: center;
+}
+
+.membership-global-join-us {
+  display: inline-block;
+  padding: 10px 35px;
+  border-radius: 4px;
+  color: #232324;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.member-case-detail {
+  width: 900px;
+  margin: 0 auto;
+  padding: 100px 0;
+
+  .member-case-detail-content {
+    margin-top: 55px;
+    margin-bottom: 56px;
+    color: #444b61;
+    font-family: Poppins-SemiBold, Poppins;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    word-break: normal;
+
+    * {
+      word-break: normal;
+    }
+  }
+
+  .member-case-detail-other {
+    margin-bottom: 32px;
+    color: #232324;
+    font-family: Poppins-Bold, Poppins;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 44px;
+  }
+
+  .member-case-detail-more {
+    margin-top: 56px;
+    font-family: Poppins-Medium, Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+
+    span {
+      cursor: pointer;
+    }
+
+    .icon {
+      margin-right: 4px;
+    }
+  }
+}
+
+// JC Elite Membership
+.membership-type-216 {
+  :deep(.el-dialog__wrapper) {
+    .el-dialog__header {
+      background-image: url('/images/membership/product/banner_popup_elite.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+
+      .el-dialog__headerbtn {
+        background: rgb(0 12 49 / 30%);
+      }
+    }
+
+    .el-dialog__body {
+      .dialog-join-us-wrap {
+        .dialog-join-us-button {
+          background: linear-gradient(90deg, #ffae63 0%, #ffda8b 100%);
+          color: #4a2d13;
+        }
+      }
+    }
+  }
+}
+
+.membership-type-216.join-us-success {
+  .el-message-box__content {
+    .icon {
+      background-image: url('/images/membership/product/icon_success_elite.png');
+    }
+  }
+
+  .el-message-box__btns {
+    .el-button {
+      border-color: rgb(194 133 77 / 40%);
+      color: #4a2d13;
+    }
+  }
+}
+
+// JC Premium Membership
+.membership-type-5 {
+  :deep(.el-dialog__wrapper) {
+    .el-dialog__header {
+      background-image: url('/images/membership/product/banner_popup_premium.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+
+      .el-dialog__headerbtn {
+        background: rgb(0 12 49 / 30%);
+      }
+    }
+
+    .el-dialog__body {
+      .dialog-join-us-wrap {
+        .dialog-join-us-button {
+          background: linear-gradient(90deg, #ff990b 0%, #fd7943 100%);
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.membership-type-5.join-us-success {
+  .el-message-box__content {
+    .icon {
+      background-image: url('/images/membership/product/icon_success_pre.png');
+    }
+  }
+
+  .el-message-box__btns {
+    .el-button {
+      border-color: rgb(185 94 65 / 40%);
+      color: #ec661b;
+    }
+  }
+}
+
+// JC Rising Membership
+.membership-type-176 {
+  :deep(.el-dialog__wrapper) {
+    .el-dialog__header {
+      background-image: url('/images/membership/product/banner_popup_rising.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+
+      .el-dialog__headerbtn {
+        background: rgb(0 12 49 / 30%);
+      }
+    }
+
+    .el-dialog__body {
+      .dialog-join-us-wrap {
+        .dialog-join-us-button {
+          background: linear-gradient(90deg, #cce98d 0%, #9ada5b 100%);
+          color: #232324;
+        }
+      }
+    }
+  }
+}
+
+.membership-type-176.join-us-success {
+  .el-message-box__content {
+    .icon {
+      background-image: url('/images/membership/product/icon_success_rising.png');
+    }
+  }
+
+  .el-message-box__btns {
+    .el-button {
+      border-color: rgb(57 111 9 / 50%);
+      color: #396f09;
+    }
+  }
+}
+
+// JC Projects Membership
+.membership-type-186 {
+  :deep(.el-dialog__wrapper) {
+    .el-dialog__header {
+      background-image: url('/images/membership/product/banner_popup_project.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+
+      .el-dialog__headerbtn {
+        background: rgb(0 12 49 / 30%);
+      }
+    }
+
+    .el-dialog__body {
+      .dialog-join-us-wrap {
+        .dialog-join-us-button {
+          background: linear-gradient(90deg, #0750ea 0%, #0043d0 100%);
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.membership-type-186.join-us-success {
+  .el-message-box__content {
+    .icon {
+      background-image: url('/images/membership/product/icon_success_project.png');
+    }
+  }
+
+  .el-message-box__btns {
+    .el-button {
+      border-color: rgb(0 59 185 / 50%);
+      color: #003bb9;
+    }
+  }
+}
+
+// JC Dangerous Goods Membership
+.membership-type-187 {
+  :deep(.el-dialog__wrapper) {
+    .el-dialog__header {
+      background-image: url('/images/membership/product/banner_popup_danger.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+
+      .el-dialog__headerbtn {
+        background: rgb(0 12 49 / 30%);
+      }
+    }
+
+    .el-dialog__body {
+      .dialog-join-us-wrap {
+        .dialog-join-us-button {
+          background: linear-gradient(90deg, #ff2525 0%, #f5001d 100%);
+        }
+      }
+    }
+  }
+}
+
+.membership-type-187.join-us-success {
+  .el-message-box__content {
+    .icon {
+      background-image: url('/images/membership/product/icon_success_dangerous.png');
+    }
+  }
+
+  .el-message-box__btns {
+    .el-button {
+      border-color: rgb(201 16 16 / 50%);
+      color: #d80e0e;
+    }
+  }
+}
+
+// JC eCommerce  Membership
+.membership-type-188 {
+  :deep(.el-dialog__wrapper) {
+    .el-dialog__header {
+      background-image: url('/images/membership/product/banner_popup_ecom.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+
+      .el-dialog__headerbtn {
+        background: rgb(0 12 49 / 30%);
+      }
+    }
+
+    .el-dialog__body {
+      .dialog-join-us-wrap {
+        .dialog-join-us-button {
+          background: linear-gradient(90deg, #e0c9ff 0%, #abdcff 100%);
+          color: #3c35c4;
+        }
+      }
+    }
+  }
+}
+
+.membership-type-188.join-us-success {
+  .el-message-box__content {
+    .icon {
+      background-image: url('/images/membership/product/icon_success_ecom.png');
+    }
+  }
+
+  .el-message-box__btns {
+    .el-button {
+      border-color: rgb(60 53 196 / 50%);
+      color: #3c35c4;
+    }
+  }
+}
+
+// JC Railway Membership
+.membership-type-189 {
+  :deep(.el-dialog__wrapper) {
+    .el-dialog__header {
+      background-image: url('/images/membership/product/banner_popup_railway.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+
+      .el-dialog__headerbtn {
+        background: rgb(0 12 49 / 30%);
+      }
+    }
+
+    .el-dialog__body {
+      .dialog-join-us-wrap {
+        .dialog-join-us-button {
+          background: linear-gradient(
+            90deg,
+            #825034 0%,
+            #825034 0%,
+            #825034 0%,
+            #a47255 100%
+          );
+        }
+      }
+    }
+  }
+}
+
+.membership-type-189.join-us-success {
+  .el-message-box__content {
+    .icon {
+      background-image: url('/images/membership/product/icon_success_railway.png');
+    }
+  }
+
+  .el-message-box__btns {
+    .el-button {
+      border-color: rgb(130 80 52 / 40%);
+      color: #825034;
+    }
+  }
+}
+
+// JC Vendor Membership 类型 8 前端自定义
+.membership-type-8 {
+  :deep(.el-dialog__wrapper) {
+    .el-dialog__header {
+      background-image: url('/images/membership/product/banner_popup_vendor.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+
+      .el-dialog__headerbtn {
+        background: rgb(0 12 49 / 30%);
+      }
+    }
+
+    .el-dialog__body {
+      .dialog-join-us-wrap {
+        .dialog-join-us-button {
+          background: linear-gradient(90deg, #476c36 0%, #366c62 100%);
+        }
+      }
+    }
+  }
+}
+
+.not-membership {
+  width: 480px;
+  padding-bottom: 40px;
+
+  .el-message-box__header {
+    display: none;
+  }
+
+  .el-message-box__content {
+    padding: 40px;
+    padding-bottom: 24px;
+    color: #232324;
+    font-family: Poppins-SemiBold, Poppins;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    text-align: center;
+
+    .icon {
+      display: inline-block;
+      width: 127px;
+      height: 98px;
+      margin-bottom: 26px;
+      background-image: url('/images/membership/list/no-data.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  .el-message-box__btns {
+    display: flex;
+    padding: 0 40px;
+
+    .el-button {
+      width: 100%;
+      height: 48px;
+      border-radius: 4px;
+      background: #ff6a00;
+      color: #fff;
+      font-family: Poppins-SemiBold, Poppins;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 16px;
+
+      &:first-child {
+        border: 1px solid #ff6a00;
+        background: #fff;
+        color: #ff6a00;
+      }
+
+      &:last-child {
+        margin-left: 24px;
+      }
+    }
+  }
+}
+
+.membership-type-8.join-us-success {
+  .el-message-box__content {
+    .icon {
+      background-image: url('/images/membership/product/icon_success_vendor.png');
+    }
+  }
+
+  .el-message-box__btns {
+    .el-button {
+      border-color: rgb(57 120 109 / 40%);
+      color: #265438;
+    }
+  }
+}
+
+// JCV tab 样式
+:deep(.jc-vendor-tabs) {
+  margin-top: 48px;
+  margin-bottom: 32px;
+
+  .el-tabs__header {
+    margin: 0;
+  }
+
+  .el-tabs__nav-wrap::after {
+    display: none;
+  }
+
+  .el-tabs__item {
+    height: 48px;
+    padding: 0 36px;
+    padding-bottom: 4px;
+    color: #444b61;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 44px;
+
+    &.is-active {
+      color: #444b61;
+      // .Poppins-Bold-700;
+    }
+  }
+
+  .el-tabs__active-bar {
+    height: 4px;
+    background: linear-gradient(90deg, #476c36 0%, rgb(93 146 185 / 0%) 100%);
+  }
+}
+
+// jc vendor 面包屑
+.jc-vendor-breadcrumb {
+  margin-top: 32px;
+
+  :deep(.el-breadcrumb__item) {
+    color: #929ba5;
+    font-family: Poppins-Regular, Poppins;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 15px;
+
+    .el-breadcrumb__separator {
+      font-weight: 400;
+    }
+  }
+}
+
+// jc vendor 无数据
+.jc-vendor-no-data {
+  :deep(div) {
+    background-image: url('/images/membership/product/nodata-vendor.png');
+  }
+}
+
+.vip-code-style {
+  height: 20px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.vip-header-code-1 {
+  width: 108px;
+  background-image: url('https://resources.jctrans.com/res/memtag/pc/img/1.png');
+}
+
+.vip-code-1 {
+  width: 72px;
+  background-image: url('https://resources.jctrans.com/res/memtag/pc/img/1.png');
+}
+
+.vip-code-2 {
+  width: 156px;
+  background-image: url('https://resources.jctrans.com/res/memtag/pc/img/2.png');
+}
+
+.vip-header-code-2 {
+  width: 234px;
+  background-image: url('https://resources.jctrans.com/res/memtag/pc/img/2.png');
+}
+
+.vip-code-3 {
+  width: 102px;
+  background-image: url('https://resources.jctrans.com/res/memtag/pc/img/3.png');
+}
+
+.vip-header-code-3 {
+  width: 153px;
+  background-image: url('https://resources.jctrans.com/res/memtag/pc/img/3.png');
+}
+
+.vip-code-4 {
+  width: 122px;
+  background-image: url('https://resources.jctrans.com/res/memtag/pc/img/4.png');
+}
+
+.vip-header-code-4 {
+  width: 183px;
+  background-image: url('https://resources.jctrans.com/res/memtag/pc/img/4.png');
+}
+
+.vip-code-5 {
+  width: 84px;
+  background-image: url('https://resources.jctrans.com/res/memtag/pc/img/5.png');
+}
+
+.vip-header-code-5 {
+  width: 126px;
+  background-image: url('https://resources.jctrans.com/res/memtag/pc/img/5.png');
+}
+
+.vip-code-6 {
+  width: 95px;
+  background-image: url('https://resources.jctrans.com/res/memtag/pc/img/6.png');
+}
+
+.vip-header-code-6 {
+  width: 143px;
+  background-image: url('https://resources.jctrans.com/res/memtag/pc/img/6.png');
+}
+
+.vip-code-7 {
+  width: 95px;
+  background-image: url('https://resources.jctrans.com/res/memtag/pc/img/7.png');
+}
+
+.vip-header-code-7 {
+  width: 143px;
+  background-image: url('https://resources.jctrans.com/res/memtag/pc/img/7.png');
+}
+
+.vip-code-8 {
+  width: 95px;
+  background-image: url('https://resources.jctrans.com/res/memtag/pc/img/8.png');
+}
+
+.vip-header-code-8 {
+  width: 138px;
+  background-image: url('https://resources.jctrans.com/res/memtag/pc/img/8.png');
+}
+
+.vip-code-8-1 {
+  width: 218px;
+  background-image: url('https://resources.jctrans.com/res/memtag/pc/img/8_1.png');
+}
+
+.vip-code-8-2 {
+  width: 200px;
+  background-image: url('https://resources.jctrans.com/res/memtag/pc/img/8_2.png');
+}
+
+.vip-code-8-3 {
+  width: 163px;
+  background-image: url('https://resources.jctrans.com/res/memtag/pc/img/8_3.png');
+}
+
+.vip-code-8-4 {
+  width: 188px;
+  background-image: url('https://resources.jctrans.com/res/memtag/pc/img/8_4.png');
+}
+
+.vip-code-8-5 {
+  width: 180px;
+  background-image: url('https://resources.jctrans.com/res/memtag/pc/img/8_5.png');
+}
+
+.vip-account-code-1 {
+  background-image: url('/images/layouts/header/account/tag_member_elite_yes@2x.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.vip-account-code-2 {
+  background-image: url('/images/layouts/header/account/tag_member_dg_yes@2x.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.vip-account-code-3 {
+  background-image: url('/images/layouts/header/account/tag_member_premium_yes@2x.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.vip-account-code-4 {
+  background-image: url('/images/layouts/header/account/tag_member_ec_yes@2x.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.vip-account-code-5 {
+  background-image: url('/images/layouts/header/account/tag_member_rising_yes@2x.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.vip-account-code-6 {
+  background-image: url('/images/layouts/header/account/tag_member_railway_yes@2x.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.vip-account-code-7 {
+  background-image: url('/images/layouts/header/account/tag_member_project_yes@2x.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.vip-account-code-8 {
+  background-image: url('/images/layouts/header/account/tag_member_vendor_yes@2x.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.vip-account-code-8-1 {
+  background-image: url('/images/layouts/header/account/tag_member_vendor_yes@2x.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.vip-account-code-8-2 {
+  background-image: url('/images/layouts/header/account/tag_member_vendor_yes@2x.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.vip-account-code-8-3 {
+  background-image: url('/images/layouts/header/account/tag_member_vendor_yes@2x.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.vip-account-code-8-4 {
+  background-image: url('/images/layouts/header/account/tag_member_vendor_yes@2x.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.vip-account-code-8-5 {
+  background-image: url('/images/layouts/header/account/tag_member_vendor_yes@2x.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.vip-account-free-en {
+  background-image: url('/images/layouts/header/account/tag_member_no_en@2x.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.vip-account-free-cn {
+  background-image: url('/images/layouts/header/account/tag_member_no_cn@2x.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}

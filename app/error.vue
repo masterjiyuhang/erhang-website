@@ -6,7 +6,7 @@
         return {
           url: '-',
           statusCode: 404,
-          statusMessage: 'Not Found',
+          statusMessage: 'Page Not Found',
           message: '(404 Not Found)',
           stack: '',
           data: '{"error":"FetchError:  (404 Not Found)"}',
@@ -25,9 +25,9 @@
     return clearError({ redirect: '/' })
   }
 
-  definePageMeta({
-    isWhite: true,
-  })
+  // definePageMeta({
+  //   isWhite: true,
+  // })
 </script>
 <template>
   <NuxtLoadingIndicator />
@@ -36,20 +36,24 @@
       class="flex flex-col gap-4 items-center my-12 text-center justify-center"
     >
       <div class="text-2xl leading-9 text-red-500">
-        {{ is404 ? 'This page could not be found' : 'An error occurred' }}
+        {{
+          is404 ? '404. This page could not be found.' : 'An error occurred.'
+        }}
       </div>
       <div class="text-xl leading-7 opacity-50">
-        Looks like you've followed a broken link or entered a URL that doesn't
-        exist on this site.
+        <!-- Looks like you've followed a broken link or entered a URL that doesn't
+         
+        exist on this site. -->
+        看起来您点击了无效的链接或输入了此网站上不存在的 URL。 请刷新页面重试。
       </div>
-      <pre v-if="isDev" class="w-full whitespace-normal">{{ error }}</pre>
+      <pre v-show="isDev" class="w-full whitespace-normal">{{ error }}</pre>
       <el-button
         class="bg-error-500 px-3 py-2 text-2xl leading-6 font-medium tracking-wide normal-case rounded-lg"
         type="danger"
         size="large"
         @click="handleError"
       >
-        &lt; Go Back
+        &lt; 返回首页
       </el-button>
     </div>
   </NuxtLayout>

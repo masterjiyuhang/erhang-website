@@ -1,0 +1,39 @@
+$-colors: (
+  'primary': (
+    50: #edeeeb,
+    100: #d1d5c5,
+    200: #edf2fb,
+    300: #e2eafc,
+    400: #d7e3fc,
+    500: #ccdbfd,
+    600: #c1d3fe,
+    700: #b6ccfe,
+    800: #abc4ff,
+    900: #b8c0ff,
+    950: #bbd0ff,
+    'base': #2d7bd4,
+  ),
+  'success': (
+    'base': #67c23a,
+  ),
+  'warning': (
+    'base': #e6a23c,
+  ),
+  'danger': (
+    'base': #f56c6c,
+  ),
+  'error': (
+    'base': #f56c6c,
+  ),
+  'info': (
+    'base': #909399,
+  ),
+);
+
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: $-colors
+);
+
+// :root {
+//   --el-text-color-placeholder: $primary;
+// }

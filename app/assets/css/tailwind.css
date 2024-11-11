@@ -15,6 +15,10 @@
   .bg-default-content {
     @apply bg-content rounded p-2 text-[#000] font-normal;
   }
+
+  .bg-default-jc-logo {
+    @apply bg-[url('https://resources.jctrans.com/res/hzh/pc/img/zwz-default-JCtrans.png')] bg-no-repeat bg-contain bg-center;
+  }
 }
 
 @layer base {
