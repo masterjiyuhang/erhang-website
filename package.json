@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "build": "nuxt build && npm run created",
+    "build": "nuxt build",
     "build:sit": "export NUXT_PUBLIC_PROTO=cloud-sit && nuxt build",
     "build:prod": "export NUXT_PUBLIC_PROTO=cloud-api && nuxt build",
     "created": "mkdir .output/server/node_modules/@popperjs && if [ -d .output/server/node_modules/@sxzz/popperjs-es ]; then mv .output/server/node_modules/@sxzz/popperjs-es .output/server/node_modules/@popperjs/core ; fi",
