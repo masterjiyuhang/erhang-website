@@ -18,6 +18,7 @@ export const useMyHomeStore = defineStore({
         server: true,
         timeout: 500,
       }).then((res: any) => {
+        console.log('🚀 ~ file: home.ts:21 ~ getHomePagesNewsPrice ~ res:', res)
         const r1 = res.data.value.data.records.filter(
           (item: any) => item.freightType === '1',
         )

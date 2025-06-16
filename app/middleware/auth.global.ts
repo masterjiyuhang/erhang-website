@@ -11,53 +11,53 @@ export default defineNuxtRouteMiddleware(async (to, from) => {
     to.fullPath,
   )
 
-  if (isClient) {
-    // 设置浏览器指纹
-    await setClientId()
-    // 设置整合营销推广projectId
-    setProjectId(to)
+  // if (isClient) {
+  //   // 设置浏览器指纹
+  //   await setClientId()
+  //   // 设置整合营销推广projectId
+  //   setProjectId(to)
 
-    await setExchange(to)
-    console.log(
-      '🚀 ~ file: auth.global.ts:20 ~ defineNuxtRouteMiddleware ~ to:',
-      to,
-    )
+  //   await setExchange(to)
+  //   console.log(
+  //     '🚀 ~ file: auth.global.ts:20 ~ defineNuxtRouteMiddleware ~ to:',
+  //     to,
+  //   )
 
-    try {
-      reportApi(
-        {
-          fromCode: from.meta?.name || null,
-          status: 'OK',
-          eventCode: getAppId() + '.PAGE_INFO',
-          extensions: {
-            ZWZ_FROM_PAGE_PARAMS: {},
-            ZWZ_TO_PAGE_PARAMS: {},
-          },
-        },
-        {
-          'operation-timestamp': new Date().getTime(), // 客户端的当前时间的时间戳
-          'operation-stay': 0,
-          'operation-type': 'EVENT',
-          'page-code': to.meta.name?.toUpperCase()
-            ? `ZWZ.UC.` + to.meta.name?.toUpperCase()
-            : 'PAGE-CODE-IS-NULL',
-        },
-      )
-    } catch (error) {
-      throw createError(error)
-    }
-  } else {
-    // 在服务端，构造完整的 URL
-    const proto = useRequestHeaders(['x-forwarded-proto'])
-    const protocol = proto['x-forwarded-proto'] || 'http'
-    const host = useRequestHeaders(['host']).host
-    const fullUrl = `${protocol}://${host}${to.fullPath}`
+  //   try {
+  //     reportApi(
+  //       {
+  //         fromCode: from.meta?.name || null,
+  //         status: 'OK',
+  //         eventCode: getAppId() + '.PAGE_INFO',
+  //         extensions: {
+  //           ZWZ_FROM_PAGE_PARAMS: {},
+  //           ZWZ_TO_PAGE_PARAMS: {},
+  //         },
+  //       },
+  //       {
+  //         'operation-timestamp': new Date().getTime(), // 客户端的当前时间的时间戳
+  //         'operation-stay': 0,
+  //         'operation-type': 'EVENT',
+  //         'page-code': to.meta.name?.toUpperCase()
+  //           ? `ZWZ.UC.` + to.meta.name?.toUpperCase()
+  //           : 'PAGE-CODE-IS-NULL',
+  //       },
+  //     )
+  //   } catch (error) {
+  //     throw createError(error)
+  //   }
+  // } else {
+  //   // 在服务端，构造完整的 URL
+  //   const proto = useRequestHeaders(['x-forwarded-proto'])
+  //   const protocol = proto['x-forwarded-proto'] || 'http'
+  //   const host = useRequestHeaders(['host']).host
+  //   const fullUrl = `${protocol}://${host}${to.fullPath}`
 
-    console.log(
-      '🚀 ~ file: auth.global.ts:58 ~ defineNuxtRouteMiddleware ~ fullUrl 完整请求路径:',
-      fullUrl,
-    )
-  }
+  //   console.log(
+  //     '🚀 ~ file: auth.global.ts:58 ~ defineNuxtRouteMiddleware ~ fullUrl 完整请求路径:',
+  //     fullUrl,
+  //   )
+  // }
 })
 const setExchange = async (route: RouteLocationNormalizedGeneric) => {
   const exchangeStr = route.query?.exchange

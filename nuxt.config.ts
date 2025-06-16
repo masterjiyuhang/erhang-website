@@ -52,13 +52,13 @@ export default defineNuxtConfig({
       //     defer: true,
       //   },
       // ],
-      script: [
-        {
-          src: 'https://resources.jctrans.com/res/eratracking/pc/static/js/ZWZtracking.js',
-          type: 'text/javascript',
-          defer: true,
-        },
-      ],
+      // script: [
+      //   {
+      //     src: 'https://resources.jctrans.com/res/eratracking/pc/static/js/ZWZtracking.js',
+      //     type: 'text/javascript',
+      //     defer: true,
+      //   },
+      // ],
     },
   },
 

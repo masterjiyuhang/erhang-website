@@ -56,14 +56,14 @@
     },
   )
   onMounted(() => {
-    const { $JCIM } = useNuxtApp()
-    const config = useRuntimeConfig().public;
-    $JCIM?.init({
-      targetUrl: `${config.JCIM_DOMAIN}/im?appId=HZH&tk=${getToken() ? getToken() : ''}&dt=${Date.now()}`,
-      token: getToken() ? getToken() : '',
-      appId: 'HZH',
-      lang: 'zh-CN',
-    })
+    // const { $JCIM } = useNuxtApp()
+    // const config = useRuntimeConfig().public
+    // $JCIM?.init({
+    //   targetUrl: `${config.JCIM_DOMAIN}/im?appId=HZH&tk=${getToken() ? getToken() : ''}&dt=${Date.now()}`,
+    //   token: getToken() ? getToken() : '',
+    //   appId: 'HZH',
+    //   lang: 'zh-CN',
+    // })
   })
 </script>
 

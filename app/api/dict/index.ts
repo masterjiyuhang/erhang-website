@@ -1,12 +1,5 @@
-const { post } = useUseRequest()
-export const getDicts = async (dictType: string) => {
-  const res = await post('/system/admin/dict/data/type/dictType', {
-    dictType: dictType,
-  })
-  return res
-}
-
 export async function getCountry(params = {}) {
+  const { post } = useUseRequest()
   const result: any = await post('/system/dms/fr/aggr/findPageList', {
     ...params,
     level: 2,

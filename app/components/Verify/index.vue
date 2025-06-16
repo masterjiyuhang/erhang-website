@@ -1,13 +1,13 @@
 <template>
-  <div :class="mode == 'pop' ? 'mask' : ''" v-show="showBox">
+  <div v-show="showBox" :class="mode == 'pop' ? 'mask' : ''">
     <div
       :class="mode == 'pop' ? 'verifybox' : ''"
       :style="{ 'max-width': parseInt(imgSize.width) + 30 + 'px' }"
     >
-      <div class="verifybox-top" v-if="mode == 'pop'">
+      <div v-if="mode == 'pop'" class="verifybox-top">
         请完成安全验证
         <span class="verifybox-close" @click="closeBox">
-          <i class="iconfont icon-close"></i>
+          <i class="iconfont icon-close" />
         </span>
       </div>
       <div
@@ -16,20 +16,20 @@
       >
         <!-- 验证码容器 -->
         <component
-          v-if="componentType"
           :is="componentType"
-          :captchaType="captchaType"
+          v-if="componentType"
+          ref="instance"
+          :captcha-type="captchaType"
           :type="verifyType"
           :figure="figure"
           :arith="arith"
           :mode="mode"
-          :vSpace="vSpace"
+          :v-space="vSpace"
           :explain="explain"
-          :imgSize="imgSize"
-          :blockSize="blockSize"
-          :barSize="barSize"
-          ref="instance"
-        ></component>
+          :img-size="imgSize"
+          :block-size="blockSize"
+          :bar-size="barSize"
+        />
       </div>
     </div>
   </div>
@@ -56,9 +56,11 @@
       },
       figure: {
         type: Number,
+        default: 4,
       },
       arith: {
         type: Number,
+        default: 2,
       },
       mode: {
         type: String,
@@ -66,9 +68,11 @@
       },
       vSpace: {
         type: Number,
+        default: 5,
       },
       explain: {
         type: String,
+        default: '向右滑动完成验证',
       },
       imgSize: {
         type: Object,
@@ -131,16 +135,20 @@
         }
       }
       watchEffect(() => {
-        switch (captchaType.value) {
-          case 'blockPuzzle':
-            verifyType.value = '2'
-            componentType.value = 'VerifySlide'
-            break
-          case 'clickWord':
-            verifyType.value = ''
-            componentType.value = 'VerifyPoints'
-            break
-        }
+        console.log(
+          '🍉 ~ index.vue:140 ~ watchEffect ~ captchaType.value:',
+          captchaType.value,
+        )
+        // switch (captchaType.value) {
+        //   case 'blockPuzzle':
+        //     verifyType.value = '2'
+        //     componentType.value = 'VerifySlide'
+        //     break
+        //   case 'clickWord':
+        //     verifyType.value = ''
+        //     componentType.value = 'VerifyPoints'
+        //     break
+        // }
       })
 
       return {
