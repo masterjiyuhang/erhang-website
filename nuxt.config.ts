@@ -132,7 +132,6 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@vee-validate/nuxt',
     // '@nuxtjs/fontaine',
-    '@nuxtjs/seo',
     '@nuxt/icon',
     '@nuxt/eslint',
     '@nuxtjs/i18n',

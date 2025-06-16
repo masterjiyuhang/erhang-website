@@ -25,7 +25,7 @@
       <BackTop :show-back-top="showBackToTop" @back-top="() => (y = 0)" />
 
       <!-- 全局加入我们弹窗 -->
-      <JoinUsDialog />
+      <!-- <JoinUsDialog /> -->
     </div>
   </div>
 </template>
