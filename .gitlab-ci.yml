@@ -1,8 +1,0 @@
-include:
-  project: $CUST_CI_PROJECT_PATH
-  file: 'service-ci.yml'
-
-variables:
-  TAG_NAME: hzh-home-nuxt
-  APPNAME: hzh-home-nuxt
-  APP_TYPE: nuxt

@@ -1,12 +1,3 @@
 {
-  "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "strict": true,
-    "jsx": "preserve",
-    "baseUrl": ".",
-    "types": ["@types/node"]
-  },
-  "exclude": ["node_modules"]
+  "extends": "../.nuxt/tsconfig.server.json"
 }
