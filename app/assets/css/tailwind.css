@@ -13,7 +13,7 @@
 
   /* m默认内容显示背景 */
   .bg-default-content {
-    @apply bg-content rounded p-2 text-[#000] font-normal;
+    @apply rounded p-2 text-[#000] font-normal;
   }
 
   .bg-default-jc-logo {
